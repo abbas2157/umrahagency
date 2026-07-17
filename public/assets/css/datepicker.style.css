@@ -1,0 +1,198 @@
+/*datepicker css Start*/
+.ui-widget-header .ui-icon {
+    background-image: url('../images/haditours-imgs-updated/calender.png');
+}
+
+.ui-widget.ui-widget-content {
+    border: none;
+    z-index: 1029 !important;
+    box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.5);
+}
+
+.ui-datepicker {
+    padding: 0;
+    width: 18em;
+}
+
+.ui-corner-all,
+.ui-corner-bottom,
+.ui-corner-right,
+.ui-corner-br {
+    border-bottom-right-radius: 0;
+}
+
+.ui-corner-all,
+.ui-corner-bottom,
+.ui-corner-left,
+.ui-corner-bl {
+    border-bottom-left-radius: 0;
+}
+
+.ui-corner-all,
+.ui-corner-top,
+.ui-corner-right,
+.ui-corner-tr {
+    border-top-right-radius: 0;
+}
+
+.ui-corner-all,
+.ui-corner-top,
+.ui-corner-left,
+.ui-corner-tl {
+    border-top-left-radius: 0;
+}
+
+.ui-datepicker .ui-datepicker-header {
+    background-color: #ccdc33;
+    border: none;
+    padding: 0;
+    overflow: hidden;
+}
+
+.ui-datepicker .ui-datepicker-title {
+    height: 55px;
+    line-height: 3.1em;
+    font-size: 18px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.ui-datepicker .ui-datepicker-prev,
+.ui-datepicker .ui-datepicker-next {
+    height: 55px;
+    width: 50px;
+    top: 0 !important;
+}
+
+.ui-datepicker .ui-datepicker-next {
+    right: 0 !important;
+    transform: rotate(180deg);
+}
+
+.ui-datepicker .ui-datepicker-prev {
+    left: 0 !important;
+}
+
+.ui-icon-circle-triangle-e {
+    background-position: 0;
+}
+
+.ui-icon-circle-triangle-w {
+    background-position: 0;
+}
+
+.ui-icon {
+    height: 20px;
+}
+
+.ui-datepicker .ui-datepicker-prev span,
+.ui-datepicker .ui-datepicker-next span {
+    transform: translate(-50%, -50%);
+    margin: 0;
+}
+
+.ui-datepicker-next.ui-state-hover,
+.ui-datepicker-prev.ui-state-hover,
+.ui-widget-content .ui-datepicker-next.ui-state-hover,
+.ui-widget-content .ui-datepicker-prev.ui-state-hover,
+.ui-widget-header .ui-datepicker-next.ui-state-hover,
+.ui-widget-header .ui-datepicker-prev.ui-state-hover,
+.ui-datepicker-next.ui-state-focus,
+.ui-datepicker-prev.ui-state-focus,
+.ui-widget-content .ui-datepicker-next.ui-state-focus,
+.ui-widget-header .ui-datepicker-next.ui-state-focus,
+.ui-widget-content .ui-datepicker-prev.ui-state-focus,
+.ui-widget-header .ui-datepicker-prev.ui-state-focus,
+.ui-datepicker-next.ui-button:hover,
+.ui-datepicker-next.ui-button:focus,
+.ui-datepicker-prev.ui-button:hover,
+.ui-datepicker-prev.ui-button:focus {
+    background-color: #b8c81f;
+    border: none;
+}
+
+.ui-datepicker table {
+    width: 77%;
+    margin: 25px auto 14px;
+}
+
+.ui-datepicker th {
+    padding: 0.4em 0.3em 0.3em;
+    font-weight: 600;
+}
+
+.ui-datepicker table thead {
+    border: none;
+    border-top: 1px solid #e8e8e8;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.ui-datepicker table thead tr {
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    color: #ccdc33;
+    text-transform: uppercase;
+}
+
+.ui-datepicker table tbody::before {
+    content: "-";
+    display: block;
+    line-height: 0.8em;
+    color: transparent;
+}
+
+.ui-state-default,
+.ui-widget-content .ui-state-default,
+.ui-widget-header .ui-state-default,
+.ui-button,
+html .ui-button.ui-state-disabled:hover,
+html .ui-button.ui-state-disabled:active {
+    border: none;
+    background-color: rgba(245, 31, 156, 0);
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    color: #333333;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    line-height: 1.9em;
+    text-align: center;
+    transition-property: background-color, color;
+    transition-duration: 0.3s;
+}
+
+.ui-datepicker td span,
+.ui-datepicker td a {
+    text-align: center;
+}
+
+.ui-state-default,
+.ui-widget-content .ui-state-default,
+.ui-widget-header .ui-state-default,
+.ui-button,
+html .ui-button.ui-state-disabled:hover,
+html .ui-button.ui-state-disabled:active {}
+
+.ui-state-hover,
+.ui-widget-content .ui-state-hover,
+.ui-widget-header .ui-state-hover,
+.ui-state-focus,
+.ui-widget-content .ui-state-focus,
+.ui-widget-header .ui-state-focus,
+.ui-button:hover,
+.ui-button:focus {
+    background-color: #ccdc33;
+    color: #fff;
+}
+
+.ui-state-default.ui-state-active {
+    color: #ccdc33;
+    background-color: rgba(255, 190, 0, 0);
+}
+
+/*datepicker css End*/
+

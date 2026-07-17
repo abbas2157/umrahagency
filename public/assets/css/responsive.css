@@ -1,0 +1,1758 @@
+/*containers custom css Start*/
+@media (min-width: 576px) {
+  .container {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1560px;
+  }
+
+  .withoutCarousel .item .testimonial {
+    margin: 0 auto;
+    max-width: 770px;
+  }
+}
+
+@media (min-width: 1600px) {
+  .container {
+    max-width: 1560px;
+  }
+
+  .banner img {
+    min-height: auto;
+  }
+
+  .extraLinks,
+  .navbar-nav {
+    min-height: auto;
+  }
+
+  .search-banner {
+
+    min-height: auto;
+  }
+
+  .searchEngine {
+    min-height: auto;
+  }
+
+
+}
+
+/*containers custom css End*/
+
+/*font calculation formula original font css Start*/
+@media (min-width: 1930px) {
+
+  /*same package all over the site css Start*/
+  .mainPackage .mainPackageDesc h3.title {
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  /*same package all over the site css End*/
+
+  /*slider css Start*/
+  .slider .carousel-caption h1 {
+    font-size: 122px;
+    line-height: 122px;
+  }
+
+  .slider .carousel-caption p {
+    font-size: 32px;
+    line-height: 42px;
+    margin-bottom: 45px;
+  }
+
+  /*slider css End*/
+
+  /*search engine css Start*/
+  .searchEngine .searchFields h3 {
+    font-size: 21px;
+    margin-bottom: 22px;
+  }
+
+  /*search engine css End*/
+
+  /*home page section main heading with carousel arrows css Start*/
+  .sectionMainHeading h2 {
+    font-size: 38px;
+    margin-bottom: 45px;
+    line-height: 58px;
+  }
+
+  .sectionMainHeading img {
+    margin-bottom: 35px;
+  }
+
+  .sectionMainHeading p {
+    font-size: 17px;
+    line-height: 32px;
+  }
+
+  .viewMore-carouselArrow {
+    margin-bottom: 65px;
+  }
+
+  /*home page section main heading with carousel arrows css End*/
+
+  /*hajj package section css Start*/
+  .hajjpackage .hajjpackageImage .HoverDiv p {
+    font-size: 120px;
+    line-height: 92px;
+  }
+
+  /*customized your package css Start*/
+  .customPackage {
+    padding: 118px 0 115px;
+  }
+
+  .customPackage .customPackageDesc h2.heading {
+    font-size: 62px;
+    line-height: 62px;
+    margin-bottom: 30px;
+  }
+
+  .customPackage .customPackageDesc p.tagline,
+  .customPackage .customPackageDesc p.desc {
+    font-size: 28px;
+    margin-bottom: 34px;
+  }
+
+  .customPackage .customPackageDesc p.desc {
+    font-size: 18px;
+    margin-bottom: 80px;
+  }
+
+  /*customized your package css End*/
+
+  /*footer css Start*/
+  .footer .footerDesc {
+    margin-bottom: 130px;
+  }
+
+  /*footer css End*/
+
+  /*package detail page css Start*/
+  .package-descrip h1.heading {
+    font-size: 62px;
+    line-height: 75px;
+  }
+
+  .package-descrip p.tagline {
+    font-size: 21px;
+    line-height: 32px;
+  }
+
+  .inquiryForm {
+    padding-left: 127px;
+    padding-right: 113px;
+  }
+
+  /*package detail page css End*/
+
+  /*review page css Start*/
+  .withoutCarousel.testimonials p.tagline {
+    font-size: 38px;
+  }
+
+  /*review page css End*/
+}
+
+/*font calculation formula original font css Start*/
+@media (max-width: 1900px) {
+  .navbar-nav {
+    margin: auto !important;
+  }
+
+  /*slider css Start*/
+  .carousel-indicators {
+    bottom: 17.3%;
+  }
+
+  .slider .carousel-control {
+    bottom: 17%;
+  }
+
+  .slider .carousel-control-prev {
+    right: 11.6%;
+  }
+
+  /*slider css End*/
+
+  /*search engine css Start*/
+  /* .searchEngine{
+		width: 24%;
+		top: 55%;
+	} */
+  .searchEngine .searchFields {
+    padding: 30px 35px 34px;
+  }
+
+  .searchEngine .searchFields .form-group {
+    margin-bottom: 10px;
+  }
+
+  /*search engine css End*/
+}
+
+@media (max-width: 1560px) {
+
+  /*header css Start*/
+  .navbar .navbar-offcanvas {
+    margin-right: 10px;
+  }
+
+  .navbar .extraLinks a.phone {
+    margin-left: 0;
+  }
+
+  .navbar .extraLinks a {
+    margin-left: 13px;
+  }
+
+  .navbar .extraLinks a .svg {
+    display: none;
+  }
+
+  /*header css End*/
+
+  /*slider css Start*/
+  .slider .carousel-item img {
+    height: 750px;
+  }
+
+  .slider .carousel-control-prev {
+    right: 13%;
+  }
+
+  .carousel-indicators {
+    bottom: 17.9%;
+  }
+
+  .slider .carousel-control {
+    bottom: 17%;
+  }
+
+  /*slider css End*/
+
+  /*search engine css Start*/
+  /* .searchEngine{
+		width: 27%;
+		left: 4.12%;
+		top: 55%;
+	} */
+  .searchEngine .searchFields {
+    padding: 15px 25px 25px;
+  }
+
+  .searchEngine .searchFields h3 {
+    margin-bottom: 10px;
+  }
+
+  .searchEngine .searchFields .btn-primary {
+    margin-top: 11px;
+    padding: 10px 30px 11px;
+  }
+
+  /*search engine css End*/
+
+  /*featured packages css Start*/
+  /* .featuredPackages {
+		padding: 180px 0 45px;
+	} */
+
+  /*featured packages css End*/
+
+  /*testimonial css Start*/
+  .testimonials {
+    padding: 60px 0 40px;
+  }
+
+  /*testimonial css End*/
+
+  /*hajj packages css Start*/
+  .hajjPackages {
+    padding: 60px 0 70px;
+  }
+
+  .hajjpackage .hajjpackageImage .HoverDiv p {
+    font-size: calc(5rem + ((0.8vw - 2.2px) * 1));
+  }
+
+  /*hajj packages css End*/
+
+  /*custom package css Start*/
+  .customPackage {
+    padding: 90px 0 100px;
+  }
+
+  /*custom package css End*/
+
+  /*customized package css Start*/
+  .customizePackage .customizePackageDesc h2 {
+    font-size: 29px;
+    line-height: 34px;
+    margin-bottom: 9px;
+  }
+
+  .customizePackage .customizePackageDesc p.nights {
+    font-size: 17px;
+  }
+
+  .customizePackage .customizePackageDesc p.price {
+    margin-bottom: 15px;
+  }
+
+  /*customized package css End*/
+
+  /*==================================================
+				package detail page css Start
+	====================================================*/
+
+  /*package detail css Start*/
+  .package-descrip .pkg-nights .nights p {
+    font-size: 15px;
+    line-height: 19px;
+  }
+
+  .package-descrip .pkg-nights .svg {
+    height: 26px;
+    width: 29px;
+  }
+
+  .package-descrip .pkg-nights .nights .days {
+    font-size: 19px;
+  }
+
+  .pkg-facilities .facility .facility-img {
+    height: 50px;
+    width: 50px;
+  }
+
+  .pkg-facilities .facility .facility-img .svg {
+    height: 25px;
+    width: 37px;
+  }
+
+  .pkg-facilities .facility span {
+    font-size: 16px;
+  }
+
+  .package-descrip .pkg-nights .nights {
+    margin-bottom: 15px;
+  }
+
+  .pkg-facilities .facility {
+    padding-bottom: 15px;
+  }
+
+  .pkg-facilities {
+    margin-bottom: 15px;
+  }
+
+  .package-descrip .price {
+    font-size: 25px;
+    margin-bottom: 25px;
+  }
+
+  /*package detail css End*/
+
+  /*hotel css Start*/
+  .hotel {
+    background-color: #fff;
+  }
+
+  .hotel .hotel-desc {
+    border: none;
+  }
+
+  .accomodation {
+    padding: 36px 0 18px;
+  }
+
+  /*hotel css End*/
+
+  /*package content css Start*/
+  .package-content {
+    padding: 49px 0 1px;
+  }
+
+  /*package content css End*/
+
+  /*package inquiry css Start*/
+  .packageInquiry {
+    padding: 30px 0 66px;
+  }
+
+  /*package inquiry css End*/
+
+  /*==================================================
+				package detail page css Start
+	====================================================*/
+
+  /*reviews page css Start*/
+  .withoutCarousel.testimonials {
+    padding-top: 45px;
+  }
+
+  .withoutCarousel.testimonials .item:first-child {
+    padding-top: 60px;
+  }
+
+  .withoutCarousel.testimonials .item {
+    padding: 80px 20px 80px;
+  }
+
+  /*reviews page css End*/
+}
+
+@media (max-width: 1366px) {
+  .banner-text p {
+    font-size: 20px;
+  }
+
+  /*header css Start*/
+  .with-bg .navbar,
+  .navbar {
+    padding: 10px 0 10px;
+  }
+
+  .navbar .navbar-brand img {
+    max-height: 60px;
+  }
+
+  .navbar-expand-md .navbar-nav a {
+    padding: 0 13px;
+    font-size: 15px;
+  }
+
+  /*header css End*/
+  .slider .carousel-caption h1 {
+    /* font-size: calc(1.5625rem + ((1vw - 3.2px) * 6.0625)); */
+    font-size: 66px;
+  }
+
+  .footer .socialLinks>li {
+    margin-bottom: 10px;
+    flex: 0 0 30%;
+  }
+
+  .enquiryModal .modal-dialog {
+    max-width: 95%;
+  }
+
+  /* view detail starts here  */
+
+  .accomodation .hotel {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 1199.98px) {
+
+  /* .banner-text {
+    bottom: 118px;
+  } */
+  .searchEngine .searchFields .form-group>img {
+    top: 43%;
+  }
+
+  .banner-text {
+    padding: 0 80px;
+  }
+
+  .banner-text h1 {
+    font-size: 26px;
+  }
+
+  /*slider css Start*/
+  .slider .carousel-item img {
+    height: 620px;
+  }
+
+  /*slider css End*/
+
+  /*search engine css Start*/
+  .searchEngine .searchFields .form-group {
+    margin-bottom: 18px !important;
+  }
+
+  .searchEngine .searchFields {
+    padding: 24px 25px 13px !important;
+  }
+
+  .searchEngine .searchFields .form-group.threeQuater,
+  .searchEngine .searchFields .form-group.Quater {
+    flex: 0 0 46%;
+  }
+
+  .slider .carousel-caption h1 {
+    font-size: 65px;
+  }
+
+  .btn-primary {
+    height: 39px;
+  }
+
+  .searchEngine {
+    width: 95% !important;
+    top: 54%;
+  }
+
+  .searchEngine .searchFields {
+    padding: 30px 15px 25px;
+  }
+
+  .searchEngine .searchFields .form-group {
+    margin-bottom: 8px;
+  }
+
+  .searchEngine .searchFields .form-group .form-control {
+    height: 38px;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .searchEngine .searchFields .btn-primary {
+    margin-top: 10px;
+    padding: 9px 30px 9px;
+  }
+
+  .slider .carousel-caption .socialLinks,
+  .slider .carousel-control {
+    display: none;
+  }
+
+  /*search engine css End*/
+
+  /*featured packages css Start*/
+  .featuredPackages {
+    padding: 0px 0 33px;
+  }
+
+  .customPackage::after {
+    transform: translate(59%, -50%);
+  }
+
+  .customPackage::before {
+    transform: translate(-59%, -50%);
+  }
+
+  /*featured packages css End*/
+
+  /*testimonial css Start*/
+  .testimonials {
+    padding: 44px 0 25px;
+  }
+
+  /*testimonial css End*/
+
+  /*hajj packages css Start*/
+  .hajjPackages {
+    padding: 50px 0 35px;
+  }
+
+  /*hajj packages css End*/
+
+  /*custom package css Start*/
+  .customPackage {
+    padding: 50px 0 60px;
+  }
+
+  /*custom package css End*/
+
+  /*footer css Start*/
+  .footer {
+    padding: 50px 0 45px;
+  }
+
+  .footer .logo {
+    margin-bottom: 25px;
+  }
+
+  .footer .footer-data h5 {
+    margin-bottom: 15px;
+  }
+
+  .footer .footer-data ul li {
+    margin-bottom: 3px;
+  }
+
+  .footer .footer-data ul li a,
+  .footer .footer-data p {
+    font-size: 14px;
+  }
+
+  .footer .footer-data p br {
+    display: none;
+  }
+
+  .footer .footerCopyright .socialLinks li {
+    margin: 0 0 5px 5px;
+  }
+
+  /*footer css End*/
+
+  /*review form css Start*/
+  .review-form-button .heading,
+  .review-form .heading {
+    font-size: 32px;
+  }
+
+  .review-form-button p {
+    font-size: 20px;
+    margin-bottom: 40px;
+  }
+
+  .review-form .heading {
+    margin-bottom: 20px;
+  }
+
+  /*review form css End*/
+
+  /*==================================================
+				package detail page css Start
+	====================================================*/
+
+  /*accomodation css Start*/
+  .accomodation {
+    padding: 41px 0 30px;
+  }
+
+  .accomodation .accomoHeading h3 {
+    font-size: 24px;
+  }
+
+  .accomodation .accomoHeading .down-pdf {
+    padding: 11px 23px 9px 26px;
+    margin-left: 16px;
+  }
+
+  .hotel .hotel-desc {
+    padding: 30px 30px 0;
+  }
+
+  .hotel .hotel-desc {
+    border: 1px solid #dedede;
+  }
+
+  /*accomodation css End*/
+
+  /*content box css Start*/
+  .package-content {
+    padding: 65px 0 1px;
+  }
+
+  /*content box css End*/
+
+  /*package inquiry css Start*/
+  .packageInquiry {
+    padding: 35px 0 80px;
+  }
+
+  /*package inquiry css End*/
+
+  /*==================================================
+				package detail page css End
+	====================================================*/
+
+  /*contact us page css start*/
+  .contact-us {
+    padding: 50px 0;
+    margin-bottom: 0;
+  }
+
+  .contact-us .contact-info {
+    padding: 38px 15px 25px;
+  }
+
+  .contact-info .contact-form textarea.form-control {
+    height: 227px;
+  }
+
+  .contact-info .contact-desc .contact-detail {
+    padding: 54px 35px 173px;
+  }
+
+  /*contact us page css End*/
+  /* search-engine  */
+
+  .searchEngine .searchFields .form-group label {
+    font-size: 13px;
+  }
+
+  /* banner starts here  */
+  .slider .carousel-caption p {
+    font-size: 30px;
+  }
+
+  .slider .carousel-caption h1 {
+    font-size: 54px;
+  }
+
+  .sectionMainHeading>p.reviews span,
+  .sectionMainHeading h2 span {
+    font-size: 26px;
+  }
+
+  .sectionMainHeading>p.reviews,
+  .sectionMainHeading h2 {
+    font-size: 45px;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .banner-text h1 {
+    font-size: 20px;
+  }
+
+  /* umrah headings stars here  */
+  .umrah-headings {
+    margin-bottom: 40px;
+  }
+
+  .umrah-headings h5 {
+    font-size: 24px;
+    line-height: 35px;
+  }
+
+  .umrah-headings h4 {
+    font-size: 36px;
+    line-height: 51px;
+  }
+
+  .umrah-headings p {
+    font-size: 20px;
+    line-height: 22px;
+  }
+
+  /*navbar css Start*/
+  .navbar .navbar-offcanvas {
+    margin-right: 8px;
+  }
+
+  .navbar-expand-md .navbar-nav a {
+    font-size: 13px;
+  }
+
+  .navbar-expand-md .navbar-nav a {
+    padding: 0 14px;
+  }
+
+  /* search engine starts here  */
+  .searchEngine .searchFields {
+    padding: 24px 10px 13px !important;
+  }
+
+  .searchEngine {
+    width: 97% !important;
+  }
+
+  .searchEngine .searchFields .form-group.threeQuater,
+  .searchEngine .searchFields .form-group.Quater {
+    flex: 0 0 48%;
+  }
+
+  .searchEngine .searchFields .form-group label {
+    font-size: 12px;
+  }
+
+  .slider .carousel-caption p {
+    font-size: 22px;
+  }
+
+  .slider .carousel-caption h1 {
+    font-size: 45px;
+    margin-bottom: 45px;
+  }
+
+  .searchEngine .searchFields .form-group label img {
+    margin-right: 0;
+  }
+
+  .form-group {
+    flex: 0 0 19.4%;
+  }
+
+  /*navbar css End*/
+  /* page content starts here  */
+  .page-content {
+    background-color: #fff;
+    padding: 60px 0 60px !important;
+    /* padding-bottom: 60; */
+    /* margin-bottom: 0px; */
+  }
+
+  .sectionMainHeading p br,
+  .customPackage .customPackageDesc p.tagline br,
+  .customPackage .customPackageDesc p.desc br {
+    display: none;
+  }
+
+  .customPackage::after,
+  .customPackage::before {
+    display: none;
+  }
+
+  /*contact us css Start*/
+
+  .contact-info .contact-form .form-group .form-control {
+    height: 45px;
+  }
+
+  .contact-info .contact-form .form-group {
+    margin-bottom: 10px;
+  }
+
+  .contact-info .contact-form textarea.form-control {
+    height: 100px;
+  }
+
+  textarea.form-control {
+    padding-top: 7px;
+  }
+
+  /*contact us css End*/
+
+  /*reviews page css Start*/
+  .withoutCarousel.testimonials {
+    padding-top: 30px;
+  }
+
+  .withoutCarousel.testimonials .item:first-child {
+    padding-top: 40px;
+  }
+
+  .withoutCarousel.testimonials .item {
+    padding: 70px 20px 60px;
+  }
+
+  /*reviews page css End*/
+
+  .sectionMainHeading>p.reviews,
+  .container .sectionMainHeading h2 {
+    font-size: 50px;
+  }
+
+  .company-approved {
+    padding: 20px 0;
+  }
+
+  .company-approved .company-logos {
+    max-width: 120px;
+  }
+
+  .enquiryModal .modal-dialog {
+    max-width: 99%;
+  }
+
+  /* view detail page responsive  */
+
+  .accomodation .hotel:nth-of-type(2n + 1) .hotel-parent-swip {
+    order: 0;
+  }
+
+  .accomodation .hotel:nth-of-type(2n + 1) .hotel-desc {
+    text-align: start;
+  }
+
+  .custom-nav ul:nth-of-type(2) li a,
+  a.whts {
+    display: block;
+    align-items: center;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .banner-text {
+    padding: 0 20px;
+    bottom: 15%;
+  }
+
+  .search-banner {
+    margin-bottom: 44px;
+  }
+
+  .banner+.searchEngine {
+    position: relative;
+    left: 0;
+    transform: translateY(0);
+  }
+
+  /* umrah headings stars here  */
+  .umrah-headings {
+    margin-bottom: 30px;
+  }
+
+  .umrah-headings h5 {
+    font-size: 22px;
+    line-height: 25px;
+  }
+
+  .umrah-headings h4 {
+    font-size: 28px;
+    line-height: 41px;
+  }
+
+  .umrah-headings p {
+    font-size: 18px;
+    line-height: 20px;
+  }
+
+  /* ends here  */
+
+  .form-control,
+  select.form-control:not([size]):not([multiple]) {
+    height: 48px;
+  }
+
+  #EnqModal .close span {
+    margin-top: -3px;
+  }
+
+  .sectionMainHeading>p.reviews,
+  .container .sectionMainHeading h2 {
+    font-size: 25px;
+  }
+
+  .container .sectionMainHeading h2 {
+    margin-bottom: 13px;
+  }
+
+  /*navbar css Start*/
+  .navbar-offcanvas {
+    padding-top: 80px;
+  }
+
+  .navbar {
+    padding: 12px 10px;
+    background-color: #1A1A1A;
+  }
+
+  .with-bg .navbar {
+    padding: 12px 10px;
+  }
+
+  .navbar .navbar-brand {
+    font-size: 22px;
+    padding: 0;
+  }
+
+  .navbar .navbar-brand img {
+    max-height: 40px;
+  }
+
+  .navbar-expand-md .navbar-nav a {
+    padding: 0 0 10px;
+    display: inline-block;
+    font-size: 15px;
+  }
+
+  /*navbar dropdown menu css Start*/
+  .navbar-offcanvas .dropdown-menu {
+    position: static;
+    display: none !important;
+  }
+
+  .navbar-offcanvas .dropdown.show-in .dropdown-menu {
+    display: block !important;
+  }
+
+  .navbar .navbar-nav li.dropdown::after {
+    content: none;
+  }
+
+  .navbar-offcanvas .dropdown i {
+    display: block;
+    border: 1px solid #fff;
+    font-size: 15px;
+    color: #fff;
+    cursor: pointer;
+    float: right;
+    border-radius: 3px;
+    padding: 3px 8px;
+  }
+
+  /*navbar dropdown menu css End*/
+  /*navbar css End*/
+
+  /*slider css Start*/
+  .slider .carousel-item,
+  .slider .carousel-indicators,
+  .slider .carousel-control {
+    display: none;
+  }
+
+  .slider {
+    background-color: #1A1A1A;
+    margin-bottom: 15px;
+    padding: 90px 15px 15px;
+  }
+
+  .hajjpackage .hajjpackageDesc p.price {
+    font-size: 25px;
+  }
+
+  /*slider css End*/
+
+  /*search engine css Start*/
+  .searchEngine .searchFields {
+    padding: 25px 15px 30px;
+  }
+
+  .form-group {
+    flex: 0 0 32%;
+  }
+
+  .searchEngine {
+    position: relative;
+    transform: none;
+    width: 100% !important;
+    z-index: 5;
+  }
+
+  .searchEngine .searchFields .form-group {
+    margin-bottom: 8px;
+  }
+
+  .searchEngine .searchFields .form-group.threeQuater,
+  .searchEngine .searchFields .form-group.Quater {
+    width: 50%;
+  }
+
+  /*search engine css End*/
+
+  /*section main heading css Start*/
+  .sectionMainHeading {
+    margin-bottom: 16px;
+  }
+
+  /*section main heading css End*/
+
+  /*featured packages css Start*/
+  .featuredPackages {
+    padding: 35px 0 15px;
+  }
+
+  .sectionMainHeading>p.reviews span,
+  .sectionMainHeading h2 span {
+    font-size: 23px;
+    font-weight: 400;
+    line-height: 1;
+  }
+
+  .sectionMainHeading p {
+    font-size: 16px;
+    line-height: 21px;
+  }
+
+  .viewMore-carouselArrow .viewAll {
+    float: left;
+  }
+
+  /*featured packages css End*/
+
+  /*testimonial css Start*/
+  .testimonials {
+    padding: 40px 0 0;
+  }
+
+  #testimonial {
+    padding: 0 15px 0 15px;
+  }
+
+  .testimonials p.tagline {
+    margin-bottom: 35px;
+  }
+
+  .testimonial .testimonialDesc p {
+    margin-bottom: 0;
+  }
+
+  /*testimonial css End*/
+
+  /*owl carousel dots css start*/
+  .owl-dots {
+    display: flex;
+    justify-content: center;
+    padding: 15px 0;
+  }
+
+  .owl-dots .owl-dot {
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    border: 2px solid #ffbd09 !important;
+    margin: 0 2px;
+  }
+
+  .owl-dots .owl-dot.active {
+    background-color: #ffbd09;
+  }
+
+  /*owl carousel dots css End*/
+
+  /*hajj section css Start*/
+  .hajjPackages {
+    padding: 40px 0 25px;
+  }
+
+  .hajjpackage .hajjpackageImage .HoverDiv a img {
+    margin-left: 25px;
+  }
+
+  /*hajj section css End*/
+
+  /*custom package css Start*/
+  .customPackage {
+    padding: 35px 20px 50px;
+  }
+
+  /*custom package css End*/
+
+  /*customized packages css Start*/
+  .customizePackage .customizePackageDesc h2 {
+    line-height: 33px;
+    font-size: 30px;
+    margin-bottom: 11px;
+  }
+
+  .customizePackage .customizePackageDesc p.price {
+    margin-bottom: 15px;
+  }
+
+  .customizePackage:hover .customizePackageDesc,
+  .customizePackage .customizePackageDesc {
+    bottom: 45px;
+  }
+
+  .customizePackage:hover .customizePackageDesc .customizeYourPackage,
+  .customizePackage .customizePackageDesc .customizeYourPackage {
+    opacity: 1;
+  }
+
+  /*customized packages css End*/
+
+  /*footer css Start*/
+  .footer {
+    padding: 48px 0 45px;
+  }
+
+  .footer .logo {
+    margin-bottom: 40px;
+  }
+
+  .footer .footer-data {
+    margin-bottom: 25px;
+  }
+
+  .footer .footer-data h5 {
+    margin-bottom: 8px;
+  }
+
+  .footer .footer-data ul li {
+    margin-bottom: 4px;
+  }
+
+  /*footer css End*/
+
+  /*reviews form css Start*/
+  .review-form-button .heading,
+  .review-form .heading {
+    font-size: 20px;
+    line-height: 20px;
+    margin-bottom: 5px;
+  }
+
+  .review-form-button p {
+    font-size: 16px;
+    margin-bottom: 25px;
+  }
+
+  .review-form-button .btn-primary,
+  .review-form .btn-primary {
+    padding: 10px 22px 11px;
+    font-size: 14px;
+  }
+
+  .review-form .btn-primary {
+    display: block;
+    width: 100%;
+  }
+
+  .review-form strong {
+    font-size: 16px;
+  }
+
+  .review-form .close-form {
+    top: 35px;
+  }
+
+  .review-form .form-group {
+    margin-bottom: 15px;
+  }
+
+  .review-form .form-group.ratings {
+    margin-bottom: 23px;
+  }
+
+  .review-form .form-control {
+    font-size: 14px;
+  }
+
+  .review-form textarea.form-control {
+    height: 100px;
+  }
+
+  .review-form input[type="checkbox"]~label .box-text {
+    font-size: 15px;
+  }
+
+  /*reviews form css End*/
+
+  /*==================================================
+				package detail page css Start
+	====================================================*/
+
+  /*package detail css Start*/
+  .package-detail {
+    padding: 30px 0;
+  }
+
+  .package-descrip .pkg-nights .nights p {
+    font-size: 14px;
+    line-height: 19px;
+  }
+
+  .package-descrip .pkg-nights .nights p small {
+    font-size: 13px;
+  }
+
+  .package-descrip .pkg-nights .svg {
+    height: 28px;
+    width: 34px;
+  }
+
+  .package-descrip .pkg-nights .nights .days {
+    font-size: 20px;
+  }
+
+  .pkg-facilities {
+    margin-bottom: 15px;
+  }
+
+  .pkg-facilities .facility {
+    padding-bottom: 12px;
+  }
+
+  .pkg-facilities .facility .facility-img {
+    height: 45px;
+    width: 45px;
+  }
+
+  .pkg-facilities .facility,
+  .pkg-facilities .facility:nth-child(4n + 4) {
+    flex: 0 0 50%;
+  }
+
+  .pkg-facilities .facility .facility-img .svg {
+    height: 22px;
+    width: 33px;
+  }
+
+  .pkg-facilities .facility span {
+    margin-left: 10px;
+    font-size: 14px;
+  }
+
+  .package-descrip .pkg-nights .nights {
+    margin-bottom: 12px;
+    padding-bottom: 11px;
+  }
+
+  .package-descrip .price {
+    margin-bottom: 17px;
+    font-size: 28px;
+  }
+
+  .pkg-button .customBtn {
+    margin-right: 10px;
+    padding: 7px 17px 9px 17px;
+    font-size: 13px;
+  }
+
+  .pkg-button .customBtn span.image {
+    display: none;
+  }
+
+  /*package detail css End*/
+
+  /*accomodation css Start*/
+  .accomodation {
+    padding: 25px 0 15px;
+  }
+
+  .accomodation .accomoHeading h3 {
+    font-size: 20px;
+    text-transform: capitalize;
+    margin-bottom: 18px;
+  }
+
+  .accomodation .accomoHeading p {
+    font-size: 18px;
+    text-transform: capitalize;
+  }
+
+  .accomodation .accomoHeading .down-pdf {
+    padding: 7px 18px 7px 18px;
+    font-size: 16px;
+  }
+
+  .hotel {
+    margin-bottom: 15px;
+  }
+
+  .hotel .hotel-gallery .carousel-control {
+    left: 20px;
+  }
+
+  .hotel .hotel-gallery .carousel-control.carousel-control-next {
+    right: 20px;
+  }
+
+  .hotel .hotel-desc {
+    padding: 15px 15px 0 15px;
+  }
+
+  .hotel .hotel-desc .pkg-star {
+    margin-bottom: 10px;
+  }
+
+  .hotel .hotel-desc p:not(.hotel-where) {
+    text-align: justify;
+  }
+
+  /*accomodation css End*/
+
+  /*content box css Start*/
+  .package-content {
+    padding: 23px 0 1px;
+  }
+
+  .package-content p {
+    text-align: justify;
+  }
+
+  /*content box css End*/
+
+  /*package inquiry css Start*/
+  .packageInquiry {
+    padding: 15px 0 55px;
+  }
+
+  .inquiryForm {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+
+  .inquiryForm .inquiryBtn {
+    padding: 18px 28px 16px;
+    display: block;
+    width: 100%;
+  }
+
+  .inquiryForm .selectDepart {
+    margin-top: 8px;
+  }
+
+  .inquiryForm .btn-group .btn-secondary {
+    width: 32.33%;
+  }
+
+  /*package inquiry css End*/
+
+  /*featured packages css Start*/
+  .featuredPackages h2 {
+    font-size: 28px;
+    margin-bottom: 5px;
+  }
+
+  .customNav.testimonialControl .owl-next,
+  .customNav.testimonialControl .owl-prev {
+    top: 50%;
+  }
+
+  /*featured packages css End*/
+
+  /*==================================================
+				package detail page css End
+	====================================================*/
+
+  /*contact us page css Start*/
+  .contact-us {
+    padding: 40px 0 35px;
+    margin-bottom: 0;
+  }
+
+  .contact-info .contact-form {
+    margin-bottom: 15px;
+  }
+
+  .contact-us .contact-info {
+    padding: 20px 15px 30px;
+  }
+
+  .contact-info .contact-form p,
+  .contact-info .contact-desc>p {
+    margin-bottom: 20px;
+  }
+
+  .contact-info .contact-form .form-group {
+    margin-bottom: 15px;
+  }
+
+  .contact-info .contact-form textarea.form-control {
+    height: 115px;
+  }
+
+  .contact-info .contact-desc .contact-detail {
+    padding: 20px 15px 2px;
+  }
+
+  /*contact us page css End*/
+
+  .package-descrip h1.heading {
+    font-size: 22px;
+    line-height: 1.3em;
+  }
+
+  .package-detail .package-gallery {
+    margin-bottom: 15px;
+  }
+
+  /* content page starts here */
+
+  .page-content>.container>h1 {
+    font-size: 34px;
+  }
+
+  .page-content>.container>h2 {
+    font-size: 30px;
+  }
+
+  .page-content>.container>h3 {
+    font-size: 28px;
+  }
+
+  .page-content>.container>h4 {
+    font-size: 25px;
+  }
+
+  .page-content>.container>h5 {
+    font-size: 24px;
+  }
+
+  .page-content>.container>h6 {
+    font-size: 22px;
+  }
+
+  /* error responsive starts here  */
+
+  .error-page-cover {
+    padding-top: 60px;
+  }
+
+  .error-page-cover a.customBtn {
+    margin-top: 65px;
+  }
+
+  .navbar-brand {
+    flex: 0 0 58%;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .searchEngine .searchFields .form-group>img {
+    top: 41%;
+  }
+
+  .banner-text h1 {
+    font-size: 12px;
+  }
+
+  .banner-text {
+    bottom: 15%;
+  }
+
+  .banner-text p {
+    font-size: 15px;
+  }
+
+  .hotel .hotel-desc h3 {
+    font-size: 20px;
+  }
+
+  .pkg-facilities {
+    justify-content: space-between;
+  }
+
+  /* umrah headings stars here  */
+
+  .umrah-headings h5 {
+    font-size: 15px;
+    line-height: 17px;
+  }
+
+  .umrah-headings h4 {
+    font-size: 20px;
+    line-height: 31px;
+  }
+
+  .umrah-headings p {
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+  /* ends here  */
+  .search-banner {
+    min-height: auto;
+    margin-bottom: 30px;
+  }
+
+  /*featured packages css Start*/
+  .sectionMainHeading h2 br,
+  .customPackage .customPackageDesc h2.heading br,
+  .package-descrip p.tagline br,
+  .featuredPackages h2 br {
+    display: none;
+  }
+
+  .sectionMainHeading p {
+    text-align: justify;
+  }
+
+  .form-group {
+    flex: 0 0 100%;
+  }
+
+  .sectionMainHeading>p.reviews,
+  .sectionMainHeading h2 {
+    font-size: 20px;
+    margin-bottom: 5px;
+    line-height: 30px;
+  }
+
+  .sectionMainHeading p {
+    text-align: center !important;
+    font-size: 15px;
+    line-height: 24px;
+  }
+
+  .hajjpackage .hajjpackageDesc .title {
+    font-size: 18px;
+  }
+
+  .customPackage .customPackageDesc h2.heading {
+    font-size: 30px;
+    line-height: 34px;
+  }
+
+  .company-approved {
+    padding: 15px 0;
+  }
+
+  .company-approved .company-logos {
+    max-width: 80px;
+  }
+
+  .customBtn {
+    font-size: 15px;
+    padding: 5px 13px 5px 10px;
+  }
+
+  /*featured packages css End*/
+
+  /*footer css Start*/
+  .footer .footerCopyright p {
+    margin-bottom: 20px;
+  }
+
+  /*footer css End*/
+
+  /* customPackage section starts here  */
+  .customPackage {
+    padding: 30px 0;
+  }
+
+  .sectionMainHeading>p.reviews span,
+  .sectionMainHeading h2 span {
+    font-size: 17px;
+  }
+
+  /* header  */
+  header {
+    position: sticky;
+    background-color: #016b79;
+  }
+
+  .contact-info .contact-desc h4 {
+    margin-bottom: 10px;
+  }
+
+  /* search engine  */
+
+  .slider {
+    padding: 22px 15px 15px;
+  }
+
+  .searchEngine .searchFields .form-group .form-control {
+    height: 30px;
+  }
+
+  .searchEngine .searchFields .form-group {
+    margin-bottom: 10px !important;
+  }
+
+  /* content page starts here */
+
+  .page-content>.container>h1 {
+    font-size: 26px;
+  }
+
+  .page-content>.container .scroll-content>h1 {
+    font-size: 26px;
+  }
+
+  .page-content>.container>h2,
+  .page-content>.container .scroll-content>h2 {
+    font-size: 24px;
+  }
+
+  .page-content>.container>p,
+  .page-content>.container .scroll-content>p {
+    font-size: 13px;
+  }
+
+  .page-content>.container>ul li,
+  .page-content>.container .scroll-content>ul li,
+  .page-content>.container>ol li,
+  .page-content>.container .scroll-content>ol li {
+    font-size: 14px;
+  }
+
+  .page-content>.container>h3,
+  .page-content>.container .scroll-content>h3 {
+    font-size: 21px;
+  }
+
+  .page-content>.container>h4,
+  .page-content>.container .scroll-content>h4 {
+    font-size: 20px;
+  }
+
+  .page-content>.container>h5,
+  .page-content>.container .scroll-content>h5 {
+    font-size: 19px;
+  }
+
+  .page-content>.container>h6,
+  .page-content>.container .scroll-content>h6 {
+    font-size: 18px;
+  }
+
+  /* error page responsive starts here  */
+  .error-page-cover {
+    margin-top: 0;
+    padding-top: 0;
+  }
+
+  .error-page-cover h4 {
+    font-size: 29px;
+    font-weight: 900;
+  }
+
+  .error-page-cover img {
+    margin: 27px auto;
+  }
+
+  .error-page-cover p {
+    font-size: 16px;
+    margin-bottom: 0px;
+    line-height: 24px;
+  }
+
+  .error-page-cover a.customBtn {
+    margin-top: 35px;
+    padding: 7px 15px 6px 8px;
+    font-size: 16px;
+  }
+
+  .error-page-cover a.customBtn span.image {
+    height: 50px;
+    width: 50px;
+  }
+
+  .error-page-cover a.customBtn span.image .svg {
+    height: 23px;
+    width: 19px;
+  }
+
+  .page-content {
+    background-color: #fff;
+    padding: 30px 0 30px !important;
+  }
+
+  .page-content .scroll-page-content {
+    padding: 20px;
+    text-align: start;
+  }
+
+  .page-content .scroll-page-content ul {
+    padding-left: 10px;
+  }
+
+  .page-content .scroll-page-content h2 {
+    color: #066774;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 300;
+    font-size: 21px;
+    margin: 0;
+    text-align: start;
+  }
+
+  .page-content .scroll-page-content blockquote,
+  .page-content .container>blockquote {
+    padding: 15px;
+    font-size: 14px;
+    margin: 0;
+  }
+
+  .passenger-dropdown.beat-passenger-dropdown {
+    position: relative;
+    top: 4px;
+  }
+
+  .searchEngine {
+    min-height: auto;
+  }
+
+  .navbar-brand {
+    flex: 0 0 70%;
+  }
+}
