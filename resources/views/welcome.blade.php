@@ -4,6 +4,7 @@
 <meta name="description" content="Trusted Hajj and Umrah Travel Agency in Pakistan offering affordable and premium packages, visa, flights, accommodation near Haram, and guided services for a seamless spiritual experience.">
 <link rel="canonical" href="https://umrahagency.pk" />
 @endsection
+@section('content')
 @verbatim
 <script type="application/ld+json">
     {
@@ -100,7 +101,6 @@
     }
 </script>
 @endverbatim
-@section('content')
 <section class="search-banner">
     <!--slider section Start-->
     <div class="banner">
@@ -234,7 +234,7 @@
                     <span class="borderBottom"></span>
                 </div>
 
-                <div class="form-group Half"><button type="submit" class="btn btn-block" style="height: 3rem;background-color:#C88916;border-color:#C88916;color:#fff;" name="submit" value="Send Message">Submit</button></div>
+                <div class="form-group Half"><button type="submit" class="btn btn-block" style="height: 3rem;background-color:#96650f;border-color:#96650f;color:#fff;" name="submit" value="Send Message">Submit</button></div>
             </form>
         </div>
     </div>
@@ -405,20 +405,20 @@
                                     <a href="{{ route('umrahDetail', ['slug' => '3-star-7-nights-umrah-package']) }}">3 Star 7 Nights Umrah Package</a>
                                 </p>
                                 <div class="stars">
-                                    <img loading="lazy" width="16" height="16" class="svg " src="star.svg" alt="package star">
-                                    <img loading="lazy" width="16" height="16" class="svg " src="star.svg" alt="package star">
-                                    <img loading="lazy" width="16" height="16" class="svg " src="star.svg" alt="package star">
-                                    <img loading="lazy" width="16" height="16" class="svg inactive" src="star.svg" alt="package star">
-                                    <img loading="lazy" width="16" height="16" class="svg inactive" src="star.svg" alt="package star">
+                                    <svg class="svg" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.9 7.1.6-5.6 4.6 1.8 7.1-6.2-4-6.2 4 1.8-7.1L2 9.5l7.1-.6z"/></svg>
+                                    <svg class="svg" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.9 7.1.6-5.6 4.6 1.8 7.1-6.2-4-6.2 4 1.8-7.1L2 9.5l7.1-.6z"/></svg>
+                                    <svg class="svg" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.9 7.1.6-5.6 4.6 1.8 7.1-6.2-4-6.2 4 1.8-7.1L2 9.5l7.1-.6z"/></svg>
+                                    <svg class="svg inactive" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.9 7.1.6-5.6 4.6 1.8 7.1-6.2-4-6.2 4 1.8-7.1L2 9.5l7.1-.6z"/></svg>
+                                    <svg class="svg inactive" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.9 7.1.6-5.6 4.6 1.8 7.1-6.2-4-6.2 4 1.8-7.1L2 9.5l7.1-.6z"/></svg>
                                 </div>
                             </div>
                             <div class="row p-3">
                                 <div class="col-6 d-flex">
-                                    <img class="icon" loading="lazy" src="{{asset('assets/images/kaaba.webp')}}" alt="Makkah (3 NIGHTS) AL KISWAH TOWER">
+                                    <img class="icon" loading="lazy" width="42" height="67" src="{{asset('assets/images/kaaba.webp')}}" alt="Makkah (3 NIGHTS) AL KISWAH TOWER">
                                     <div class="icon-text">Makkah (3 NIGHTS) <br> AL KISWAH TOWER</div class="icon-text">
                                 </div>
                                 <div class="col-6 d-flex">
-                                    <img class="icon" loading="lazy" src="{{asset('assets/images/masjid-al-nabawi.webp')}}" alt="3 Star 7 Nights Umrah Package Icon">
+                                    <img class="icon" loading="lazy" width="45" height="67" src="{{asset('assets/images/masjid-al-nabawi.webp')}}" alt="3 Star 7 Nights Umrah Package Icon">
                                     <div class="icon-text">MADINA (4 NIGHTS) <br> EMAAR TAIBAH</div class="icon-text">
                                 </div>
                             </div>
@@ -455,20 +455,20 @@
                                     <a href="{{ route('umrahDetail', ['slug' => '3-star-10-nights-umrah-package']) }}">3 Star 10 Nights Umrah Package</a>
                                 </p>
                                 <div class="stars">
-                                    <img loading="lazy" width="16" height="16" class="svg " src="star.svg" alt="package star">
-                                    <img loading="lazy" width="16" height="16" class="svg " src="star.svg" alt="package star">
-                                    <img loading="lazy" width="16" height="16" class="svg " src="star.svg" alt="package star">
-                                    <img loading="lazy" width="16" height="16" class="svg inactive" src="star.svg" alt="package star">
-                                    <img loading="lazy" width="16" height="16" class="svg inactive" src="star.svg" alt="package star">
+                                    <svg class="svg" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.9 7.1.6-5.6 4.6 1.8 7.1-6.2-4-6.2 4 1.8-7.1L2 9.5l7.1-.6z"/></svg>
+                                    <svg class="svg" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.9 7.1.6-5.6 4.6 1.8 7.1-6.2-4-6.2 4 1.8-7.1L2 9.5l7.1-.6z"/></svg>
+                                    <svg class="svg" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.9 7.1.6-5.6 4.6 1.8 7.1-6.2-4-6.2 4 1.8-7.1L2 9.5l7.1-.6z"/></svg>
+                                    <svg class="svg inactive" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.9 7.1.6-5.6 4.6 1.8 7.1-6.2-4-6.2 4 1.8-7.1L2 9.5l7.1-.6z"/></svg>
+                                    <svg class="svg inactive" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.9 7.1.6-5.6 4.6 1.8 7.1-6.2-4-6.2 4 1.8-7.1L2 9.5l7.1-.6z"/></svg>
                                 </div>
                             </div>
                             <div class="row p-3">
                                 <div class="col-6 d-flex">
-                                    <img class="icon" loading="lazy" src="{{asset('assets/images/kaaba.webp')}}" alt="Makkah (5 NIGHTS) AL KISWAH TOWER">
+                                    <img class="icon" loading="lazy" width="42" height="67" src="{{asset('assets/images/kaaba.webp')}}" alt="Makkah (5 NIGHTS) AL KISWAH TOWER">
                                     <div class="icon-text">Makkah (5 NIGHTS) <br> AL KISWAH TOWER</div class="icon-text">
                                 </div>
                                 <div class="col-6 d-flex">
-                                    <img class="icon" loading="lazy" src="{{asset('assets/images/masjid-al-nabawi.webp')}}" alt="3 Star 10 Nights Umrah Package Icon">
+                                    <img class="icon" loading="lazy" width="45" height="67" src="{{asset('assets/images/masjid-al-nabawi.webp')}}" alt="3 Star 10 Nights Umrah Package Icon">
                                     <div class="icon-text">MADINA (5 NIGHTS) <br> EMAAR TAIBAH</div class="icon-text">
                                 </div>
                             </div>
@@ -505,20 +505,20 @@
                                     <a href="{{ route('umrahDetail', ['slug' => '3-star-12-nights-umrah-package']) }}">3 Star 12 Nights Umrah Package</a>
                                 </p>
                                 <div class="stars">
-                                    <img loading="lazy" width="16" height="16" class="svg " src="star.svg" alt="package star">
-                                    <img loading="lazy" width="16" height="16" class="svg " src="star.svg" alt="package star">
-                                    <img loading="lazy" width="16" height="16" class="svg " src="star.svg" alt="package star">
-                                    <img loading="lazy" width="16" height="16" class="svg inactive" src="star.svg" alt="package star">
-                                    <img loading="lazy" width="16" height="16" class="svg inactive" src="star.svg" alt="package star">
+                                    <svg class="svg" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.9 7.1.6-5.6 4.6 1.8 7.1-6.2-4-6.2 4 1.8-7.1L2 9.5l7.1-.6z"/></svg>
+                                    <svg class="svg" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.9 7.1.6-5.6 4.6 1.8 7.1-6.2-4-6.2 4 1.8-7.1L2 9.5l7.1-.6z"/></svg>
+                                    <svg class="svg" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.9 7.1.6-5.6 4.6 1.8 7.1-6.2-4-6.2 4 1.8-7.1L2 9.5l7.1-.6z"/></svg>
+                                    <svg class="svg inactive" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.9 7.1.6-5.6 4.6 1.8 7.1-6.2-4-6.2 4 1.8-7.1L2 9.5l7.1-.6z"/></svg>
+                                    <svg class="svg inactive" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.9 7.1.6-5.6 4.6 1.8 7.1-6.2-4-6.2 4 1.8-7.1L2 9.5l7.1-.6z"/></svg>
                                 </div>
                             </div>
                             <div class="row p-3">
                                 <div class="col-6 d-flex">
-                                    <img class="icon" loading="lazy" src="{{asset('assets/images/kaaba.webp')}}" alt="Makkah (6 NIGHTS) AL KISWAH TOWER">
+                                    <img class="icon" loading="lazy" width="42" height="67" src="{{asset('assets/images/kaaba.webp')}}" alt="Makkah (6 NIGHTS) AL KISWAH TOWER">
                                     <div class="icon-text">Makkah (6 NIGHTS) <br> AL KISWAH TOWER</div class="icon-text">
                                 </div>
                                 <div class="col-6 d-flex">
-                                    <img class="icon" loading="lazy" src="{{asset('assets/images/masjid-al-nabawi.webp')}}" alt="3 Star 12 Nights Umrah Package Icon">
+                                    <img class="icon" loading="lazy" width="45" height="67" src="{{asset('assets/images/masjid-al-nabawi.webp')}}" alt="3 Star 12 Nights Umrah Package Icon">
                                     <div class="icon-text">MADINA (6 NIGHTS) <br> EMAAR TAIBAH</div class="icon-text">
                                 </div>
                             </div>
@@ -554,20 +554,20 @@
                                     <a href="{{ route('umrahDetail', ['slug' => '3-star-14-nights-umrah-package']) }}">3 Star 14 Nights Umrah Package</a>
                                 </p>
                                 <div class="stars">
-                                    <img loading="lazy" width="16" height="16" class="svg " src="star.svg" alt="package star">
-                                    <img loading="lazy" width="16" height="16" class="svg " src="star.svg" alt="package star">
-                                    <img loading="lazy" width="16" height="16" class="svg " src="star.svg" alt="package star">
-                                    <img loading="lazy" width="16" height="16" class="svg inactive" src="star.svg" alt="package star">
-                                    <img loading="lazy" width="16" height="16" class="svg inactive" src="star.svg" alt="package star">
+                                    <svg class="svg" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.9 7.1.6-5.6 4.6 1.8 7.1-6.2-4-6.2 4 1.8-7.1L2 9.5l7.1-.6z"/></svg>
+                                    <svg class="svg" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.9 7.1.6-5.6 4.6 1.8 7.1-6.2-4-6.2 4 1.8-7.1L2 9.5l7.1-.6z"/></svg>
+                                    <svg class="svg" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.9 7.1.6-5.6 4.6 1.8 7.1-6.2-4-6.2 4 1.8-7.1L2 9.5l7.1-.6z"/></svg>
+                                    <svg class="svg inactive" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.9 7.1.6-5.6 4.6 1.8 7.1-6.2-4-6.2 4 1.8-7.1L2 9.5l7.1-.6z"/></svg>
+                                    <svg class="svg inactive" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.9 7.1.6-5.6 4.6 1.8 7.1-6.2-4-6.2 4 1.8-7.1L2 9.5l7.1-.6z"/></svg>
                                 </div>
                             </div>
                             <div class="row p-3">
                                 <div class="col-6 d-flex">
-                                    <img class="icon" loading="lazy" src="{{asset('assets/images/kaaba.webp')}}" alt="Makkah (7 NIGHTS) AL KISWAH TOWER">
+                                    <img class="icon" loading="lazy" width="42" height="67" src="{{asset('assets/images/kaaba.webp')}}" alt="Makkah (7 NIGHTS) AL KISWAH TOWER">
                                     <div class="icon-text">Makkah (7 NIGHTS) <br> AL KISWAH TOWER</div class="icon-text">
                                 </div>
                                 <div class="col-6 d-flex">
-                                    <img class="icon" loading="lazy" src="{{asset('assets/images/masjid-al-nabawi.webp')}}" alt="3 Star 14 Nights Umrah Package Icon">
+                                    <img class="icon" loading="lazy" width="45" height="67" src="{{asset('assets/images/masjid-al-nabawi.webp')}}" alt="3 Star 14 Nights Umrah Package Icon">
                                     <div class="icon-text">MADINA (7 NIGHTS) <br> EMAAR TAIBAH</div class="icon-text">
                                 </div>
                             </div>
@@ -630,20 +630,20 @@
                                     <a href="{{ route('umrahDetail', ['slug' => '4-star-december-umrah-package']) }}">4 Star 10 Nights December Umrah Package</a>
                                 </p>
                                 <div class="stars">
-                                    <img loading="lazy" width="16" height="16" class="svg " src="star.svg" alt="package star">
-                                    <img loading="lazy" width="16" height="16" class="svg " src="star.svg" alt="package star">
-                                    <img loading="lazy" width="16" height="16" class="svg " src="star.svg" alt="package star">
-                                    <img loading="lazy" width="16" height="16" class="svg " src="star.svg" alt="package star">
-                                    <img loading="lazy" width="16" height="16" class="svg inactive" src="star.svg" alt="package star">
+                                    <svg class="svg" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.9 7.1.6-5.6 4.6 1.8 7.1-6.2-4-6.2 4 1.8-7.1L2 9.5l7.1-.6z"/></svg>
+                                    <svg class="svg" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.9 7.1.6-5.6 4.6 1.8 7.1-6.2-4-6.2 4 1.8-7.1L2 9.5l7.1-.6z"/></svg>
+                                    <svg class="svg" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.9 7.1.6-5.6 4.6 1.8 7.1-6.2-4-6.2 4 1.8-7.1L2 9.5l7.1-.6z"/></svg>
+                                    <svg class="svg" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.9 7.1.6-5.6 4.6 1.8 7.1-6.2-4-6.2 4 1.8-7.1L2 9.5l7.1-.6z"/></svg>
+                                    <svg class="svg inactive" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.9 7.1.6-5.6 4.6 1.8 7.1-6.2-4-6.2 4 1.8-7.1L2 9.5l7.1-.6z"/></svg>
                                 </div>
                             </div>
                             <div class="row p-3">
                                 <div class="col-6 d-flex">
-                                    <img class="icon" loading="lazy" src="{{asset('assets/images/kaaba.webp')}}" alt="Makkah (4 NIGHTS) AL KISWAH TOWER">
+                                    <img class="icon" loading="lazy" width="42" height="67" src="{{asset('assets/images/kaaba.webp')}}" alt="Makkah (4 NIGHTS) AL KISWAH TOWER">
                                     <div class="icon-text">Makkah (4 NIGHTS) <br> AL KISWAH TOWER</div class="icon-text">
                                 </div>
                                 <div class="col-6 d-flex">
-                                    <img class="icon" loading="lazy" src="{{asset('assets/images/masjid-al-nabawi.webp')}}" alt="4 Star 10 Nights December Umrah Package Icon">
+                                    <img class="icon" loading="lazy" width="45" height="67" src="{{asset('assets/images/masjid-al-nabawi.webp')}}" alt="4 Star 10 Nights December Umrah Package Icon">
                                     <div class="icon-text">MADINA (6 NIGHTS) <br> EMAAR TAIBAH</div class="icon-text">
                                 </div>
                             </div>
@@ -679,20 +679,20 @@
                                     <a href="{{ route('umrahDetail', ['slug' => '4-star-night-december-umrah-package']) }}">4 Star 14 Nights December Umrah Package</a>
                                 </p>
                                 <div class="stars">
-                                    <img loading="lazy" width="16" height="16" class="svg " src="star.svg" alt="package star">
-                                    <img loading="lazy" width="16" height="16" class="svg " src="star.svg" alt="package star">
-                                    <img loading="lazy" width="16" height="16" class="svg " src="star.svg" alt="package star">
-                                    <img loading="lazy" width="16" height="16" class="svg " src="star.svg" alt="package star">
-                                    <img loading="lazy" width="16" height="16" class="svg inactive" src="star.svg" alt="package star">
+                                    <svg class="svg" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.9 7.1.6-5.6 4.6 1.8 7.1-6.2-4-6.2 4 1.8-7.1L2 9.5l7.1-.6z"/></svg>
+                                    <svg class="svg" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.9 7.1.6-5.6 4.6 1.8 7.1-6.2-4-6.2 4 1.8-7.1L2 9.5l7.1-.6z"/></svg>
+                                    <svg class="svg" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.9 7.1.6-5.6 4.6 1.8 7.1-6.2-4-6.2 4 1.8-7.1L2 9.5l7.1-.6z"/></svg>
+                                    <svg class="svg" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.9 7.1.6-5.6 4.6 1.8 7.1-6.2-4-6.2 4 1.8-7.1L2 9.5l7.1-.6z"/></svg>
+                                    <svg class="svg inactive" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.9 7.1.6-5.6 4.6 1.8 7.1-6.2-4-6.2 4 1.8-7.1L2 9.5l7.1-.6z"/></svg>
                                 </div>
                             </div>
                             <div class="row p-3">
                                 <div class="col-6 d-flex">
-                                    <img class="icon" loading="lazy" src="{{asset('assets/images/kaaba.webp')}}" alt="Makkah (7 NIGHTS) AL KISWAH TOWER">
+                                    <img class="icon" loading="lazy" width="42" height="67" src="{{asset('assets/images/kaaba.webp')}}" alt="Makkah (7 NIGHTS) AL KISWAH TOWER">
                                     <div class="icon-text">Makkah (7 NIGHTS) <br> AL KISWAH TOWER</div class="icon-text">
                                 </div>
                                 <div class="col-6 d-flex">
-                                    <img class="icon" loading="lazy" src="{{asset('assets/images/masjid-al-nabawi.webp')}}" alt="4 Star 14 Nights December Umrah Package Icon">
+                                    <img class="icon" loading="lazy" width="45" height="67" src="{{asset('assets/images/masjid-al-nabawi.webp')}}" alt="4 Star 14 Nights December Umrah Package Icon">
                                     <div class="icon-text">MADINA (7 NIGHTS) <br> EMAAR TAIBAH</div class="icon-text">
                                 </div>
                             </div>
@@ -728,20 +728,20 @@
                                     <a href="{{ route('umrahDetail', ['slug' => '4-star-7-nights-december-umrah-package']) }}">4 Star 7 Nights December Umrah Package</a>
                                 </p>
                                 <div class="stars">
-                                    <img loading="lazy" width="16" height="16" class="svg " src="star.svg" alt="package star">
-                                    <img loading="lazy" width="16" height="16" class="svg " src="star.svg" alt="package star">
-                                    <img loading="lazy" width="16" height="16" class="svg " src="star.svg" alt="package star">
-                                    <img loading="lazy" width="16" height="16" class="svg " src="star.svg" alt="package star">
-                                    <img loading="lazy" width="16" height="16" class="svg inactive" src="star.svg" alt="package star">
+                                    <svg class="svg" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.9 7.1.6-5.6 4.6 1.8 7.1-6.2-4-6.2 4 1.8-7.1L2 9.5l7.1-.6z"/></svg>
+                                    <svg class="svg" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.9 7.1.6-5.6 4.6 1.8 7.1-6.2-4-6.2 4 1.8-7.1L2 9.5l7.1-.6z"/></svg>
+                                    <svg class="svg" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.9 7.1.6-5.6 4.6 1.8 7.1-6.2-4-6.2 4 1.8-7.1L2 9.5l7.1-.6z"/></svg>
+                                    <svg class="svg" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.9 7.1.6-5.6 4.6 1.8 7.1-6.2-4-6.2 4 1.8-7.1L2 9.5l7.1-.6z"/></svg>
+                                    <svg class="svg inactive" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.9 7.1.6-5.6 4.6 1.8 7.1-6.2-4-6.2 4 1.8-7.1L2 9.5l7.1-.6z"/></svg>
                                 </div>
                             </div>
                             <div class="row p-3">
                                 <div class="col-6 d-flex">
-                                    <img class="icon" loading="lazy" src="{{asset('assets/images/kaaba.webp')}}" alt="Makkah (3 NIGHTS) AL KISWAH TOWER">
+                                    <img class="icon" loading="lazy" width="42" height="67" src="{{asset('assets/images/kaaba.webp')}}" alt="Makkah (3 NIGHTS) AL KISWAH TOWER">
                                     <div class="icon-text">Makkah (3 NIGHTS) <br> AL KISWAH TOWER</div class="icon-text">
                                 </div>
                                 <div class="col-6 d-flex">
-                                    <img class="icon" loading="lazy" src="{{asset('assets/images/masjid-al-nabawi.webp')}}" alt="4 Star 7 Nights December Umrah Package Icon">
+                                    <img class="icon" loading="lazy" width="45" height="67" src="{{asset('assets/images/masjid-al-nabawi.webp')}}" alt="4 Star 7 Nights December Umrah Package Icon">
                                     <div class="icon-text">MADINA (4 NIGHTS) <br> EMAAR TAIBAH</div class="icon-text">
                                 </div>
                             </div>
@@ -777,20 +777,20 @@
                                     <a href="{{ route('umrahDetail', ['slug' => '4-star-10-nights-december-umrah-package']) }}">4 Star 10 Nights December Umrah Package</a>
                                 </p>
                                 <div class="stars">
-                                    <img loading="lazy" width="16" height="16" class="svg " src="star.svg" alt="package star">
-                                    <img loading="lazy" width="16" height="16" class="svg " src="star.svg" alt="package star">
-                                    <img loading="lazy" width="16" height="16" class="svg " src="star.svg" alt="package star">
-                                    <img loading="lazy" width="16" height="16" class="svg " src="star.svg" alt="package star">
-                                    <img loading="lazy" width="16" height="16" class="svg inactive" src="star.svg" alt="package star">
+                                    <svg class="svg" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.9 7.1.6-5.6 4.6 1.8 7.1-6.2-4-6.2 4 1.8-7.1L2 9.5l7.1-.6z"/></svg>
+                                    <svg class="svg" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.9 7.1.6-5.6 4.6 1.8 7.1-6.2-4-6.2 4 1.8-7.1L2 9.5l7.1-.6z"/></svg>
+                                    <svg class="svg" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.9 7.1.6-5.6 4.6 1.8 7.1-6.2-4-6.2 4 1.8-7.1L2 9.5l7.1-.6z"/></svg>
+                                    <svg class="svg" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.9 7.1.6-5.6 4.6 1.8 7.1-6.2-4-6.2 4 1.8-7.1L2 9.5l7.1-.6z"/></svg>
+                                    <svg class="svg inactive" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.9 7.1.6-5.6 4.6 1.8 7.1-6.2-4-6.2 4 1.8-7.1L2 9.5l7.1-.6z"/></svg>
                                 </div>
                             </div>
                             <div class="row p-3">
                                 <div class="col-6 d-flex">
-                                    <img class="icon" loading="lazy" src="{{asset('assets/images/kaaba.webp')}}" alt="Makkah (5 NIGHTS) AL KISWAH TOWER">
+                                    <img class="icon" loading="lazy" width="42" height="67" src="{{asset('assets/images/kaaba.webp')}}" alt="Makkah (5 NIGHTS) AL KISWAH TOWER">
                                     <div class="icon-text">Makkah (5 NIGHTS) <br> AL KISWAH TOWER</div class="icon-text">
                                 </div>
                                 <div class="col-6 d-flex">
-                                    <img class="icon" loading="lazy" src="{{asset('assets/images/masjid-al-nabawi.webp')}}" alt="4 Star 10 Nights December Umrah Package Icon">
+                                    <img class="icon" loading="lazy" width="45" height="67" src="{{asset('assets/images/masjid-al-nabawi.webp')}}" alt="4 Star 10 Nights December Umrah Package Icon">
                                     <div class="icon-text">MADINA (5 NIGHTS) <br> EMAAR TAIBAH</div class="icon-text">
                                 </div>
                             </div>
@@ -826,20 +826,20 @@
                                     <a href="{{ route('umrahDetail', ['slug' => '4-star-12-nights-december-umrah-package']) }}">4 Star 12 Nights December Umrah Package</a>
                                 </p>
                                 <div class="stars">
-                                    <img loading="lazy" width="16" height="16" class="svg " src="star.svg" alt="package star">
-                                    <img loading="lazy" width="16" height="16" class="svg " src="star.svg" alt="package star">
-                                    <img loading="lazy" width="16" height="16" class="svg " src="star.svg" alt="package star">
-                                    <img loading="lazy" width="16" height="16" class="svg " src="star.svg" alt="package star">
-                                    <img loading="lazy" width="16" height="16" class="svg inactive" src="star.svg" alt="package star">
+                                    <svg class="svg" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.9 7.1.6-5.6 4.6 1.8 7.1-6.2-4-6.2 4 1.8-7.1L2 9.5l7.1-.6z"/></svg>
+                                    <svg class="svg" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.9 7.1.6-5.6 4.6 1.8 7.1-6.2-4-6.2 4 1.8-7.1L2 9.5l7.1-.6z"/></svg>
+                                    <svg class="svg" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.9 7.1.6-5.6 4.6 1.8 7.1-6.2-4-6.2 4 1.8-7.1L2 9.5l7.1-.6z"/></svg>
+                                    <svg class="svg" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.9 7.1.6-5.6 4.6 1.8 7.1-6.2-4-6.2 4 1.8-7.1L2 9.5l7.1-.6z"/></svg>
+                                    <svg class="svg inactive" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.9 7.1.6-5.6 4.6 1.8 7.1-6.2-4-6.2 4 1.8-7.1L2 9.5l7.1-.6z"/></svg>
                                 </div>
                             </div>
                             <div class="row p-3">
                                 <div class="col-6 d-flex">
-                                    <img class="icon" loading="lazy" src="{{asset('assets/images/kaaba.webp')}}" alt="Makkah (6 NIGHTS) AL KISWAH TOWER">
+                                    <img class="icon" loading="lazy" width="42" height="67" src="{{asset('assets/images/kaaba.webp')}}" alt="Makkah (6 NIGHTS) AL KISWAH TOWER">
                                     <div class="icon-text">Makkah (6 NIGHTS) <br> AL KISWAH TOWER</div class="icon-text">
                                 </div>
                                 <div class="col-6 d-flex">
-                                    <img class="icon" loading="lazy" src="{{asset('assets/images/masjid-al-nabawi.webp')}}" alt="4 Star 12 Nights December Umrah Package Icon">
+                                    <img class="icon" loading="lazy" width="45" height="67" src="{{asset('assets/images/masjid-al-nabawi.webp')}}" alt="4 Star 12 Nights December Umrah Package Icon">
                                     <div class="icon-text">MADINA (6 NIGHTS) <br> EMAAR TAIBAH</div class="icon-text">
                                 </div>
                             </div>
@@ -875,20 +875,20 @@
                                     <a href="{{ route('umrahDetail', ['slug' => '4-star-14-nights-december-umrah-package']) }}">4 Star 14 Nights December Umrah Package</a>
                                 </p>
                                 <div class="stars">
-                                    <img loading="lazy" width="16" height="16" class="svg " src="star.svg" alt="package star">
-                                    <img loading="lazy" width="16" height="16" class="svg " src="star.svg" alt="package star">
-                                    <img loading="lazy" width="16" height="16" class="svg " src="star.svg" alt="package star">
-                                    <img loading="lazy" width="16" height="16" class="svg " src="star.svg" alt="package star">
-                                    <img loading="lazy" width="16" height="16" class="svg inactive" src="star.svg" alt="package star">
+                                    <svg class="svg" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.9 7.1.6-5.6 4.6 1.8 7.1-6.2-4-6.2 4 1.8-7.1L2 9.5l7.1-.6z"/></svg>
+                                    <svg class="svg" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.9 7.1.6-5.6 4.6 1.8 7.1-6.2-4-6.2 4 1.8-7.1L2 9.5l7.1-.6z"/></svg>
+                                    <svg class="svg" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.9 7.1.6-5.6 4.6 1.8 7.1-6.2-4-6.2 4 1.8-7.1L2 9.5l7.1-.6z"/></svg>
+                                    <svg class="svg" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.9 7.1.6-5.6 4.6 1.8 7.1-6.2-4-6.2 4 1.8-7.1L2 9.5l7.1-.6z"/></svg>
+                                    <svg class="svg inactive" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.9 7.1.6-5.6 4.6 1.8 7.1-6.2-4-6.2 4 1.8-7.1L2 9.5l7.1-.6z"/></svg>
                                 </div>
                             </div>
                             <div class="row p-3">
                                 <div class="col-6 d-flex">
-                                    <img class="icon" loading="lazy" src="{{asset('assets/images/kaaba.webp')}}" alt="Makkah (7 NIGHTS) AL KISWAH TOWER">
+                                    <img class="icon" loading="lazy" width="42" height="67" src="{{asset('assets/images/kaaba.webp')}}" alt="Makkah (7 NIGHTS) AL KISWAH TOWER">
                                     <div class="icon-text">Makkah (7 NIGHTS) <br> AL KISWAH TOWER</div class="icon-text">
                                 </div>
                                 <div class="col-6 d-flex">
-                                    <img class="icon" loading="lazy" src="{{asset('assets/images/masjid-al-nabawi.webp')}}" alt="4 Star 14 Nights December Umrah Package Icon">
+                                    <img class="icon" loading="lazy" width="45" height="67" src="{{asset('assets/images/masjid-al-nabawi.webp')}}" alt="4 Star 14 Nights December Umrah Package Icon">
                                     <div class="icon-text">MADINA (7 NIGHTS) <br> EMAAR TAIBAH</div class="icon-text">
                                 </div>
                             </div>
@@ -951,20 +951,20 @@
                                     <a href="{{ route('umrahDetail', ['slug' => '5-star-7-nights-economy-umrah-package']) }}">5 Star 7 Nights Economy Umrah Package</a>
                                 </p>
                                 <div class="stars">
-                                    <img loading="lazy" width="16" height="16" class="svg " src="star.svg" alt="package star">
-                                    <img loading="lazy" width="16" height="16" class="svg " src="star.svg" alt="package star">
-                                    <img loading="lazy" width="16" height="16" class="svg " src="star.svg" alt="package star">
-                                    <img loading="lazy" width="16" height="16" class="svg " src="star.svg" alt="package star">
-                                    <img loading="lazy" width="16" height="16" class="svg " src="star.svg" alt="package star">
+                                    <svg class="svg" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.9 7.1.6-5.6 4.6 1.8 7.1-6.2-4-6.2 4 1.8-7.1L2 9.5l7.1-.6z"/></svg>
+                                    <svg class="svg" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.9 7.1.6-5.6 4.6 1.8 7.1-6.2-4-6.2 4 1.8-7.1L2 9.5l7.1-.6z"/></svg>
+                                    <svg class="svg" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.9 7.1.6-5.6 4.6 1.8 7.1-6.2-4-6.2 4 1.8-7.1L2 9.5l7.1-.6z"/></svg>
+                                    <svg class="svg" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.9 7.1.6-5.6 4.6 1.8 7.1-6.2-4-6.2 4 1.8-7.1L2 9.5l7.1-.6z"/></svg>
+                                    <svg class="svg" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.9 7.1.6-5.6 4.6 1.8 7.1-6.2-4-6.2 4 1.8-7.1L2 9.5l7.1-.6z"/></svg>
                                 </div>
                             </div>
                             <div class="row p-3">
                                 <div class="col-6 d-flex">
-                                    <img class="icon" loading="lazy" src="{{asset('assets/images/kaaba.webp')}}" alt="Makkah (3 NIGHTS) AL KISWAH TOWER">
+                                    <img class="icon" loading="lazy" width="42" height="67" src="{{asset('assets/images/kaaba.webp')}}" alt="Makkah (3 NIGHTS) AL KISWAH TOWER">
                                     <div class="icon-text">Makkah (3 NIGHTS) <br> AL KISWAH TOWER</div class="icon-text">
                                 </div>
                                 <div class="col-6 d-flex">
-                                    <img class="icon" loading="lazy" src="{{asset('assets/images/masjid-al-nabawi.webp')}}" alt="5 Star 7 Nights Economy Umrah Package Icon">
+                                    <img class="icon" loading="lazy" width="45" height="67" src="{{asset('assets/images/masjid-al-nabawi.webp')}}" alt="5 Star 7 Nights Economy Umrah Package Icon">
                                     <div class="icon-text">MADINA (4 NIGHTS) <br> EMAAR TAIBAH</div class="icon-text">
                                 </div>
                             </div>
@@ -1000,20 +1000,20 @@
                                     <a href="{{ route('umrahDetail', ['slug' => '10-nights-5-star-umrah-package']) }}">10 Nights 5 Star March Umrah Package</a>
                                 </p>
                                 <div class="stars">
-                                    <img loading="lazy" width="16" height="16" class="svg " src="star.svg" alt="package star">
-                                    <img loading="lazy" width="16" height="16" class="svg " src="star.svg" alt="package star">
-                                    <img loading="lazy" width="16" height="16" class="svg " src="star.svg" alt="package star">
-                                    <img loading="lazy" width="16" height="16" class="svg " src="star.svg" alt="package star">
-                                    <img loading="lazy" width="16" height="16" class="svg " src="star.svg" alt="package star">
+                                    <svg class="svg" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.9 7.1.6-5.6 4.6 1.8 7.1-6.2-4-6.2 4 1.8-7.1L2 9.5l7.1-.6z"/></svg>
+                                    <svg class="svg" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.9 7.1.6-5.6 4.6 1.8 7.1-6.2-4-6.2 4 1.8-7.1L2 9.5l7.1-.6z"/></svg>
+                                    <svg class="svg" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.9 7.1.6-5.6 4.6 1.8 7.1-6.2-4-6.2 4 1.8-7.1L2 9.5l7.1-.6z"/></svg>
+                                    <svg class="svg" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.9 7.1.6-5.6 4.6 1.8 7.1-6.2-4-6.2 4 1.8-7.1L2 9.5l7.1-.6z"/></svg>
+                                    <svg class="svg" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.9 7.1.6-5.6 4.6 1.8 7.1-6.2-4-6.2 4 1.8-7.1L2 9.5l7.1-.6z"/></svg>
                                 </div>
                             </div>
                             <div class="row p-3">
                                 <div class="col-6 d-flex">
-                                    <img class="icon" loading="lazy" src="{{asset('assets/images/kaaba.webp')}}" alt="Makkah (5 NIGHTS) AL KISWAH TOWER">
+                                    <img class="icon" loading="lazy" width="42" height="67" src="{{asset('assets/images/kaaba.webp')}}" alt="Makkah (5 NIGHTS) AL KISWAH TOWER">
                                     <div class="icon-text">Makkah (5 NIGHTS) <br> AL KISWAH TOWER</div class="icon-text">
                                 </div>
                                 <div class="col-6 d-flex">
-                                    <img class="icon" loading="lazy" src="{{asset('assets/images/masjid-al-nabawi.webp')}}" alt="10 Nights 5 Star March Umrah package Icon">
+                                    <img class="icon" loading="lazy" width="45" height="67" src="{{asset('assets/images/masjid-al-nabawi.webp')}}" alt="10 Nights 5 Star March Umrah package Icon">
                                     <div class="icon-text">MADINA (5 NIGHTS) <br> EMAAR TAIBAH</div class="icon-text">
                                 </div>
                             </div>
@@ -1049,20 +1049,20 @@
                                     <a href="{{ route('umrahDetail', ['slug' => '5-star-7-night-umrah-package']) }}">5 Star 7 Night Umrah Package</a>
                                 </p>
                                 <div class="stars">
-                                    <img loading="lazy" width="16" height="16" class="svg " src="star.svg" alt="package star">
-                                    <img loading="lazy" width="16" height="16" class="svg " src="star.svg" alt="package star">
-                                    <img loading="lazy" width="16" height="16" class="svg " src="star.svg" alt="package star">
-                                    <img loading="lazy" width="16" height="16" class="svg " src="star.svg" alt="package star">
-                                    <img loading="lazy" width="16" height="16" class="svg " src="star.svg" alt="package star">
+                                    <svg class="svg" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.9 7.1.6-5.6 4.6 1.8 7.1-6.2-4-6.2 4 1.8-7.1L2 9.5l7.1-.6z"/></svg>
+                                    <svg class="svg" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.9 7.1.6-5.6 4.6 1.8 7.1-6.2-4-6.2 4 1.8-7.1L2 9.5l7.1-.6z"/></svg>
+                                    <svg class="svg" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.9 7.1.6-5.6 4.6 1.8 7.1-6.2-4-6.2 4 1.8-7.1L2 9.5l7.1-.6z"/></svg>
+                                    <svg class="svg" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.9 7.1.6-5.6 4.6 1.8 7.1-6.2-4-6.2 4 1.8-7.1L2 9.5l7.1-.6z"/></svg>
+                                    <svg class="svg" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.9 7.1.6-5.6 4.6 1.8 7.1-6.2-4-6.2 4 1.8-7.1L2 9.5l7.1-.6z"/></svg>
                                 </div>
                             </div>
                             <div class="row p-3">
                                 <div class="col-6 d-flex">
-                                    <img class="icon" loading="lazy" src="{{asset('assets/images/kaaba.webp')}}" alt="Makkah (3 NIGHTS) AL KISWAH TOWER">
+                                    <img class="icon" loading="lazy" width="42" height="67" src="{{asset('assets/images/kaaba.webp')}}" alt="Makkah (3 NIGHTS) AL KISWAH TOWER">
                                     <div class="icon-text">Makkah (3 NIGHTS) <br> AL KISWAH TOWER</div class="icon-text">
                                 </div>
                                 <div class="col-6 d-flex">
-                                    <img class="icon" loading="lazy" src="{{asset('assets/images/masjid-al-nabawi.webp')}}" alt="5 star 7 night Umrah package Icon">
+                                    <img class="icon" loading="lazy" width="45" height="67" src="{{asset('assets/images/masjid-al-nabawi.webp')}}" alt="5 star 7 night Umrah package Icon">
                                     <div class="icon-text">MADINA (4 NIGHTS) <br> EMAAR TAIBAH</div class="icon-text">
                                 </div>
                             </div>
@@ -1098,20 +1098,20 @@
                                     <a href="{{ route('umrahDetail', ['slug' => '7-nights-5-star-umrah-package']) }}">7 Nights 5 Star March Umrah Package</a>
                                 </p>
                                 <div class="stars">
-                                    <img loading="lazy" width="16" height="16" class="svg " src="star.svg" alt="package star">
-                                    <img loading="lazy" width="16" height="16" class="svg " src="star.svg" alt="package star">
-                                    <img loading="lazy" width="16" height="16" class="svg " src="star.svg" alt="package star">
-                                    <img loading="lazy" width="16" height="16" class="svg " src="star.svg" alt="package star">
-                                    <img loading="lazy" width="16" height="16" class="svg " src="star.svg" alt="package star">
+                                    <svg class="svg" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.9 7.1.6-5.6 4.6 1.8 7.1-6.2-4-6.2 4 1.8-7.1L2 9.5l7.1-.6z"/></svg>
+                                    <svg class="svg" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.9 7.1.6-5.6 4.6 1.8 7.1-6.2-4-6.2 4 1.8-7.1L2 9.5l7.1-.6z"/></svg>
+                                    <svg class="svg" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.9 7.1.6-5.6 4.6 1.8 7.1-6.2-4-6.2 4 1.8-7.1L2 9.5l7.1-.6z"/></svg>
+                                    <svg class="svg" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.9 7.1.6-5.6 4.6 1.8 7.1-6.2-4-6.2 4 1.8-7.1L2 9.5l7.1-.6z"/></svg>
+                                    <svg class="svg" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.9 7.1.6-5.6 4.6 1.8 7.1-6.2-4-6.2 4 1.8-7.1L2 9.5l7.1-.6z"/></svg>
                                 </div>
                             </div>
                             <div class="row p-3">
                                 <div class="col-6 d-flex">
-                                    <img class="icon" loading="lazy" src="{{asset('assets/images/kaaba.webp')}}" alt="Makkah (3 NIGHTS) AL KISWAH TOWER">
+                                    <img class="icon" loading="lazy" width="42" height="67" src="{{asset('assets/images/kaaba.webp')}}" alt="Makkah (3 NIGHTS) AL KISWAH TOWER">
                                     <div class="icon-text">Makkah (3 NIGHTS) <br> AL KISWAH TOWER</div class="icon-text">
                                 </div>
                                 <div class="col-6 d-flex">
-                                    <img class="icon" loading="lazy" src="{{asset('assets/images/masjid-al-nabawi.webp')}}" alt="7 Nights 5 Star March Umrah Package Icon">
+                                    <img class="icon" loading="lazy" width="45" height="67" src="{{asset('assets/images/masjid-al-nabawi.webp')}}" alt="7 Nights 5 Star March Umrah Package Icon">
                                     <div class="icon-text">MADINA (4 NIGHTS) <br> EMAAR TAIBAH</div class="icon-text">
                                 </div>
                             </div>
@@ -1147,20 +1147,20 @@
                                     <a href="{{ route('umrahDetail', ['slug' => '12-nights-5-star-umrah-package']) }}">12 Nights 5 Star March Umrah Package</a>
                                 </p>
                                 <div class="stars">
-                                    <img loading="lazy" width="16" height="16" class="svg " src="star.svg" alt="package star">
-                                    <img loading="lazy" width="16" height="16" class="svg " src="star.svg" alt="package star">
-                                    <img loading="lazy" width="16" height="16" class="svg " src="star.svg" alt="package star">
-                                    <img loading="lazy" width="16" height="16" class="svg " src="star.svg" alt="package star">
-                                    <img loading="lazy" width="16" height="16" class="svg " src="star.svg" alt="package star">
+                                    <svg class="svg" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.9 7.1.6-5.6 4.6 1.8 7.1-6.2-4-6.2 4 1.8-7.1L2 9.5l7.1-.6z"/></svg>
+                                    <svg class="svg" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.9 7.1.6-5.6 4.6 1.8 7.1-6.2-4-6.2 4 1.8-7.1L2 9.5l7.1-.6z"/></svg>
+                                    <svg class="svg" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.9 7.1.6-5.6 4.6 1.8 7.1-6.2-4-6.2 4 1.8-7.1L2 9.5l7.1-.6z"/></svg>
+                                    <svg class="svg" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.9 7.1.6-5.6 4.6 1.8 7.1-6.2-4-6.2 4 1.8-7.1L2 9.5l7.1-.6z"/></svg>
+                                    <svg class="svg" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.9 7.1.6-5.6 4.6 1.8 7.1-6.2-4-6.2 4 1.8-7.1L2 9.5l7.1-.6z"/></svg>
                                 </div>
                             </div>
                             <div class="row p-3">
                                 <div class="col-6 d-flex">
-                                    <img class="icon" loading="lazy" src="{{asset('assets/images/kaaba.webp')}}" alt="Makkah (6 NIGHTS) AL KISWAH TOWER">
+                                    <img class="icon" loading="lazy" width="42" height="67" src="{{asset('assets/images/kaaba.webp')}}" alt="Makkah (6 NIGHTS) AL KISWAH TOWER">
                                     <div class="icon-text">Makkah (6 NIGHTS) <br> AL KISWAH TOWER</div class="icon-text">
                                 </div>
                                 <div class="col-6 d-flex">
-                                    <img class="icon" loading="lazy" src="{{asset('assets/images/masjid-al-nabawi.webp')}}" alt="12 Nights 5 Star March Umrah Package Icon">
+                                    <img class="icon" loading="lazy" width="45" height="67" src="{{asset('assets/images/masjid-al-nabawi.webp')}}" alt="12 Nights 5 Star March Umrah Package Icon">
                                     <div class="icon-text">MADINA (6 NIGHTS) <br> EMAAR TAIBAH</div class="icon-text">
                                 </div>
                             </div>
@@ -1197,20 +1197,20 @@
                                     <a href="{{ route('umrahDetail', ['slug' => '5-star-14-nights-family-umrah-package1']) }}">5 Star 14 Nights Family Umrah Package</a>
                                 </p>
                                 <div class="stars">
-                                    <img loading="lazy" width="16" height="16" class="svg " src="star.svg" alt="package star">
-                                    <img loading="lazy" width="16" height="16" class="svg " src="star.svg" alt="package star">
-                                    <img loading="lazy" width="16" height="16" class="svg " src="star.svg" alt="package star">
-                                    <img loading="lazy" width="16" height="16" class="svg " src="star.svg" alt="package star">
-                                    <img loading="lazy" width="16" height="16" class="svg " src="star.svg" alt="package star">
+                                    <svg class="svg" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.9 7.1.6-5.6 4.6 1.8 7.1-6.2-4-6.2 4 1.8-7.1L2 9.5l7.1-.6z"/></svg>
+                                    <svg class="svg" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.9 7.1.6-5.6 4.6 1.8 7.1-6.2-4-6.2 4 1.8-7.1L2 9.5l7.1-.6z"/></svg>
+                                    <svg class="svg" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.9 7.1.6-5.6 4.6 1.8 7.1-6.2-4-6.2 4 1.8-7.1L2 9.5l7.1-.6z"/></svg>
+                                    <svg class="svg" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.9 7.1.6-5.6 4.6 1.8 7.1-6.2-4-6.2 4 1.8-7.1L2 9.5l7.1-.6z"/></svg>
+                                    <svg class="svg" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l2.9 6.9 7.1.6-5.6 4.6 1.8 7.1-6.2-4-6.2 4 1.8-7.1L2 9.5l7.1-.6z"/></svg>
                                 </div>
                             </div>
                             <div class="row p-3">
                                 <div class="col-6 d-flex">
-                                    <img class="icon" loading="lazy" src="{{asset('assets/images/kaaba.webp')}}" alt="Makkah (7 NIGHTS) AL KISWAH TOWER">
+                                    <img class="icon" loading="lazy" width="42" height="67" src="{{asset('assets/images/kaaba.webp')}}" alt="Makkah (7 NIGHTS) AL KISWAH TOWER">
                                     <div class="icon-text">Makkah (7 NIGHTS) <br> AL KISWAH TOWER</div class="icon-text">
                                 </div>
                                 <div class="col-6 d-flex">
-                                    <img class="icon" loading="lazy" src="{{asset('assets/images/masjid-al-nabawi.webp')}}" alt="5 Star 14 Nights Family Umrah Package Icon">
+                                    <img class="icon" loading="lazy" width="45" height="67" src="{{asset('assets/images/masjid-al-nabawi.webp')}}" alt="5 Star 14 Nights Family Umrah Package Icon">
                                     <div class="icon-text">MADINA (7 NIGHTS) <br> EMAAR TAIBAH</div class="icon-text">
                                 </div>
                             </div>
@@ -1421,8 +1421,8 @@
                             autoplay: true,
                             autoplaySpeed: 3000,
                             adaptiveHeight: false,
-                            prevArrow: '<button type="button" class="slick-prev"><i class="fa fa-chevron-left"></i></button>',
-                            nextArrow: '<button type="button" class="slick-next"><i class="fa fa-chevron-right"></i></button>',
+                            prevArrow: '<button type="button" class="slick-prev" aria-label="Previous"><i class="fa fa-chevron-left"></i></button>',
+                            nextArrow: '<button type="button" class="slick-next" aria-label="Next"><i class="fa fa-chevron-right"></i></button>',
                             responsive: [{
                                     breakpoint: 1200,
                                     settings: {

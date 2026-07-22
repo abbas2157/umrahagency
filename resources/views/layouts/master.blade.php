@@ -107,7 +107,9 @@
         </div>
     @endif
 
-    @yield('content')
+    <main>
+        @yield('content')
+    </main>
     <!--footer section Start-->
     @include('layouts.footer')
     <!--footer section End-->
@@ -181,8 +183,8 @@
                             dots: true,
                             autoplay: true,
                             autoplaySpeed: 2000,
-                            prevArrow: '<button type="button" class="slick-prev"><i class="fa fa-chevron-left"></i></button>',
-                            nextArrow: '<button type="button" class="slick-next"><i class="fa fa-chevron-right"></i></button>'
+                            prevArrow: '<button type="button" class="slick-prev" aria-label="Previous"><i class="fa fa-chevron-left"></i></button>',
+                            nextArrow: '<button type="button" class="slick-next" aria-label="Next"><i class="fa fa-chevron-right"></i></button>'
                         });
                     }
                 });
@@ -216,7 +218,7 @@
         });
     </script>
     <!-- WhatsApp Floating Button -->
-    <a href="https://wa.me/03251212747" class="whatsapp-float" target="_blank" rel="noopener noreferrer">
+    <a href="https://wa.me/03251212747" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
         <i class="fa fa-whatsapp"></i>
     </a>
 

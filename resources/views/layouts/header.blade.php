@@ -57,12 +57,12 @@
     <nav class="navbar navbar-expand-md">
         <div class="container px-3 px-md-5">
             <a class="navbar-brand" href="{{ route('home') }}">
-                <img class="img-responsive" src="{{asset('assets/images/logo.png')}}" alt="Umrah Agency Pakistan">
+                <img class="img-responsive" src="{{asset('assets/images/logo.png')}}" alt="Umrah Agency Pakistan" width="113" height="75">
             </a>
             <div class="whts d-flex d-md-none">
-                <a href="https://wa.me/+4407877190363" target="_blank">
-                    <img src="{{asset('assets/images/whatsapp.svg')}}" alt="whatsapp" loading="lazy">
-                    <span class="d-none d-sm-block d-md-none ">07877190363</span>
+                <a href="https://wa.me/03251212747" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+                    <i class="fa fa-whatsapp" style="font-size: 20px; color: #25d366;"></i>
+                    <span class="d-none d-sm-block d-md-none ">03251212747</span>
                 </a>
             </div>
             <div class="custom-nav navbar-offcanvas navbar-offcanvas-fade navbar-collapse" id="navbarSupportedContent">
@@ -100,7 +100,7 @@
     </nav>
     <!--mobile view button-->
     <div class="mobileButtons">
-        <a class="phone" href="tel:+92-XXX-XXXXXXX"><img height="28" width="28" class="svg" src="{{asset('assets/images/waving-phone.svg')}}" alt="phone image" loading="lazy"></a>
+        <a class="phone" href="tel:03251212747" aria-label="Call us"><i class="fa fa-phone" style="font-size: 22px; color: #193670;"></i></a>
     </div>
     <!--mobile view button-->
 </header>

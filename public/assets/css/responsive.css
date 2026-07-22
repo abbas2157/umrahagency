@@ -586,7 +586,8 @@
     margin-bottom: 25px;
   }
 
-  .footer .footer-data h5 {
+  .footer .footer-data h5,
+  .footer .footer-data .footer-heading {
     margin-bottom: 15px;
   }
 
@@ -1162,7 +1163,8 @@
     margin-bottom: 25px;
   }
 
-  .footer .footer-data h5 {
+  .footer .footer-data h5,
+  .footer .footer-data .footer-heading {
     margin-bottom: 8px;
   }
 

@@ -132,7 +132,7 @@
                         <span class="borderBottom"></span>
                     </div>
 
-                <div class="form-group Half"><button type="submit" class="btn btn-block" style="height: 3rem;background-color:#C88916;border-color:#C88916;color:#fff;" name="submit" value="Send Message">Submit</button></div>
+                <div class="form-group Half"><button type="submit" class="btn btn-block" style="height: 3rem;background-color:#96650f;border-color:#96650f;color:#fff;" name="submit" value="Send Message">Submit</button></div>
                 </form>
             </div>
         </div>

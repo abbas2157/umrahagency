@@ -4,7 +4,7 @@
                 <div class="row">
                     <div class="col-md-12 col-lg-3 col-xl-4">
                         <div class="logo">
-                            <a href="{{ route('home') }}"><img loading="lazy" class="logo img-responsive" src="{{asset('assets/images/logo.png')}}" alt="Umrah Agency Pakistan"></a>
+                            <a href="{{ route('home') }}"><img loading="lazy" class="logo img-responsive" src="{{asset('assets/images/logo.png')}}" alt="Umrah Agency Pakistan" width="230" height="153"></a>
                         </div>
                         <!-- </div> -->
                         <!-- <div class="col-md-4"> -->
@@ -37,7 +37,7 @@
                     </div>
                     <div class="col-md-3 col-lg-2 col-xl-2">
                         <div class="footer-data">
-                            <h5>Quick Links</h5>
+                            <p class="footer-heading">Quick Links</p>
                             <ul>
                                 <li><a href="{{ route('aboutUs') }}">About Us</a></li>
                                 <li><a href="{{ route('contactUs') }}">Contact Us</a></li>
@@ -47,7 +47,7 @@
                     </div>
                     <div class="col-md-3 col-lg-2 col-xl-2">
                         <div class="footer-data">
-                            <h5>Our Terms</h5>
+                            <p class="footer-heading">Our Terms</p>
 
                             <ul>
                                 <li><a href="{{ route('termsConditions') }}">Terms &amp; Conditions</a></li>
@@ -59,7 +59,7 @@
                     </div>
                     <div class="col-md-3 col-lg-3 col-xl-2">
                         <div class="footer-data getInTouch">
-                            <h5>Get in Touch</h5>
+                            <p class="footer-heading">Get in Touch</p>
                             <ul>
                                 <li><a href="mailto:info@umrahagency.pk">info@umrahagency.pk</a></li>
                             </ul>
@@ -67,7 +67,7 @@
                     </div>
                     <div class="col-md-3 col-lg-2 col-xl-2">
                         <div class="footer-data">
-                            <h5>Contact Info</h5>
+                            <p class="footer-heading">Contact Info</p>
                             <ul class="list-unstyled footer-contact-info">
                                 <li class="mb-3 d-flex align-items-start text-white">
                                     <i class="fa fa-map-marker mr-3 mt-1 text-warning"></i>

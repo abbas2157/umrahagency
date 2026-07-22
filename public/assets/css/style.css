@@ -486,7 +486,7 @@ header.with-bg {
 }
 
 .navbar-expand-md .navbar-nav a.active {
-    color: #C88916 !important;
+    color: #96650f !important;
 }
 
 .navbar .extraLinks a {
@@ -2119,7 +2119,8 @@ header {
     width: 45%;
 }
 
-.footer .footer-data h5 {
+.footer .footer-data h5,
+.footer .footer-data .footer-heading {
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
     font-size: 16px;
