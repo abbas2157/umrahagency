@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('meta')
-<title>Umrah Visa from Pakistan 2026 | Fast & Easy Visa Processing/title>
+<title>Umrah Visa from Pakistan 2026 | Fast & Easy Visa Processing</title>
 <meta name="description" content="Apply for Umrah visa from Pakistan with fast and hassle-free processing. Get complete assistance including documentation, approval, and travel guidance.">
 <link rel="canonical" href="https://umrahagency.pk/umrah-visa.html" />
 @endsection
@@ -44,7 +44,7 @@
 <section class="search-banner">
     <!--slider section Start-->
     <div class="banner">
-        <img src="{{asset('assets/media/pages/home-page-banner-for-haditours-1.png')}}" class="img-fluid" alt="Umrah Visa Services Banner - Umrah Agency Pakistan" width="1920" height="600" fetchpriority="high">
+        <img src="{{asset('assets/media/pages/home-page-banner-for-haditours-1.webp')}}" class="img-fluid" alt="Umrah Visa Services Banner - Umrah Agency Pakistan" width="1920" height="600" fetchpriority="high">
         <div class="banner-text">
             <h1>Umrah Visa Services</h1>
         </div>

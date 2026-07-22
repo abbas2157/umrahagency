@@ -2,6 +2,10 @@
 @section('meta')
 <title>Payment Security | Umrah Agency Pakistan</title>
 <meta name="description" content="Learn about the safe and secure payment methods we offer at Umrah Agency Pakistan for your Hajj and Umrah package bookings from Pakistan.">
+<link rel="canonical" href="https://umrahagency.pk/payment-security.html" />
+@section('og_title', 'Payment Security | Umrah Agency Pakistan')
+@section('og_description', 'Learn about the safe and secure payment methods we offer at Umrah Agency Pakistan for your Hajj and Umrah package bookings from Pakistan.')
+@section('og_url', 'https://umrahagency.pk/payment-security.html')
 @endsection
 @section('content')
 @section('content')

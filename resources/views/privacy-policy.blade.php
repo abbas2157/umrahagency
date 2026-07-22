@@ -1,7 +1,11 @@
 @extends('layouts.master')
 @section('meta')
-<title>Trusted Umrah Agency in Pakistan for Umrah Services</title>
-<meta name="description" content="Get Umrah services from a trusted Umrah agency in Lahore, Pakistan. We offer all-inclusive Umrah packages for families, groups, and individuals.">
+<title>Privacy Policy | Umrah Agency Pakistan</title>
+<meta name="description" content="Read Umrah Agency Pakistan's privacy policy to understand how we collect, use, and protect your personal data when you book Hajj and Umrah packages with us.">
+<link rel="canonical" href="https://umrahagency.pk/privacy-policy.html" />
+@section('og_title', 'Privacy Policy | Umrah Agency Pakistan')
+@section('og_description', 'Read Umrah Agency Pakistan\'s privacy policy to understand how we collect, use, and protect your personal data when you book Hajj and Umrah packages with us.')
+@section('og_url', 'https://umrahagency.pk/privacy-policy.html')
 @endsection
 @section('content')
 @section('content')

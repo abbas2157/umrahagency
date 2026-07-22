@@ -2,6 +2,10 @@
 @section('meta')
 <title>Cookies Policy | Umrah Agency Pakistan</title>
 <meta name="description" content="Learn how Umrah Agency Pakistan uses cookies to provide a better browsing experience for our pilgrims in Pakistan.">
+<link rel="canonical" href="https://umrahagency.pk/cookies-policy.html" />
+@section('og_title', 'Cookies Policy | Umrah Agency Pakistan')
+@section('og_description', 'Learn how Umrah Agency Pakistan uses cookies to provide a better browsing experience for our pilgrims in Pakistan.')
+@section('og_url', 'https://umrahagency.pk/cookies-policy.html')
 @endsection
 @section('content')
 <div class="pkg-header-top text-center">

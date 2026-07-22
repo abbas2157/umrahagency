@@ -2,6 +2,10 @@
 @section('meta')
     <title>5 Star Hajj Package (non-shifting) | Umrah Agency Pakistan</title>
     <meta name="description" content="Book our 5 Star Hajj Package (non-shifting) with Lamar Hotel in Makkah and Millenium Taiba in Madinah. Luxury Hajj services from Pakistan.">
+    <link rel="canonical" href="https://umrahagency.pk/hajj/5-star-hajj-package-non-shifting.html" />
+    @section('og_title', '5 Star Hajj Package (non-shifting) | Umrah Agency Pakistan')
+    @section('og_description', 'Book our 5 Star Hajj Package (non-shifting) with Lamar Hotel in Makkah and Millenium Taiba in Madinah. Luxury Hajj services from Pakistan.')
+    @section('og_url', 'https://umrahagency.pk/hajj/5-star-hajj-package-non-shifting.html')
 @endsection
 @section('content')
 
@@ -214,10 +218,10 @@
     <section id="footer-slider">
         <div class="container">
             <div class="footer-slick-carousel">
-                <div><img src="{{asset('assets/media/hajj/hajj_kaaba_pilgrims.png')}}" alt="Kaaba Pilgrims"></div>
-                <div><img src="{{asset('assets/media/umrah-new/18.png')}}" alt="Mina Tents"></div>
-                <div><img src="{{asset('assets/media/umrah-new/19.png')}}" alt="Arafat Pilgrims"></div>
-                <div><img src="{{asset('assets/media/hajj/hajj_ritual_pilgrims.png')}}" alt="Hajj Rituals"></div>
+                <div><img src="{{asset('assets/media/hajj/hajj_kaaba_pilgrims.webp')}}" alt="Kaaba Pilgrims"></div>
+                <div><img src="{{asset('assets/media/umrah-new/18.webp')}}" alt="Mina Tents"></div>
+                <div><img src="{{asset('assets/media/umrah-new/19.webp')}}" alt="Arafat Pilgrims"></div>
+                <div><img src="{{asset('assets/media/hajj/hajj_ritual_pilgrims.webp')}}" alt="Hajj Rituals"></div>
             </div>
         </div>
     </section>

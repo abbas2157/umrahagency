@@ -2,6 +2,10 @@
 @section('meta')
     <title>4 Star 12 Nights December Umrah Package | Umrah Agency Pakistan</title>
     <meta name="description" content="Book 4 Star 12 Nights December Umrah Package with Umrah Agency Pakistan. All-inclusive deals from major cities in Pakistan.">
+    <link rel="canonical" href="https://umrahagency.pk/umrah/4-star-12-nights-december-umrah-package.html" />
+    @section('og_title', '4 Star 12 Nights December Umrah Package | Umrah Agency Pakistan')
+    @section('og_description', 'Book 4 Star 12 Nights December Umrah Package with Umrah Agency Pakistan. All-inclusive deals from major cities in Pakistan.')
+    @section('og_url', 'https://umrahagency.pk/umrah/4-star-12-nights-december-umrah-package.html')
 @endsection
 @section('content')
 

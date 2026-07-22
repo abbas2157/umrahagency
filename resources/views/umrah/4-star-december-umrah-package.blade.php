@@ -1,7 +1,11 @@
 @extends('layouts.master')
 @section('meta')
-    <title>4 Star 10 Nights December Umrah Package | Umrah Agency Pakistan</title>
-    <meta name="description" content="Book 4 Star 10 Nights December Umrah Package with Umrah Agency Pakistan. All-inclusive deals from major cities in Pakistan.">
+    <title>4 Star 10 Nights December Umrah Package | Elaf Ajyad & Elaf Meshal Al Madina</title>
+    <meta name="description" content="Book our 4 Star 10 Nights December Umrah Package staying at Elaf Ajyad Makkah and Elaf Meshal Al Madina. All-inclusive deals from major cities in Pakistan.">
+    <link rel="canonical" href="https://umrahagency.pk/umrah/4-star-december-umrah-package.html" />
+    @section('og_title', '4 Star 10 Nights December Umrah Package | Elaf Ajyad & Elaf Meshal Al Madina')
+    @section('og_description', 'Book our 4 Star 10 Nights December Umrah Package staying at Elaf Ajyad Makkah and Elaf Meshal Al Madina. All-inclusive deals from major cities in Pakistan.')
+    @section('og_url', 'https://umrahagency.pk/umrah/4-star-december-umrah-package.html')
 @endsection
 @section('content')
 

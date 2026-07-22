@@ -1,7 +1,11 @@
 @extends('layouts.master')
 @section('meta')
-    <title>2-3 Weeks Non Shifting Hajj Package | Umrah Agency Pakistan</title>
-    <meta name="description" content="Book our 2-3 Weeks Non Shifting Hajj Package with Lamar Hotel in Makkah and Mubarak Al Masi in Madinah. Affordable Hajj services from Pakistan.">
+    <title>2-3 Weeks Hajj Package (Non Shifting) | Full Transport & Ziarats</title>
+    <meta name="description" content="Our 2-3 Weeks Hajj Package (Non Shifting) with Lamar Hotel in Makkah and Mubarak Al Masi in Madinah includes full transportation and Hajj Ziarats. Affordable Hajj services from Pakistan.">
+    <link rel="canonical" href="https://umrahagency.pk/hajj/2-3-weeks-hajj-package-non-shifting.html" />
+    @section('og_title', '2-3 Weeks Hajj Package (Non Shifting) | Full Transport & Ziarats')
+    @section('og_description', 'Our 2-3 Weeks Hajj Package (Non Shifting) with Lamar Hotel in Makkah and Mubarak Al Masi in Madinah includes full transportation and Hajj Ziarats. Affordable Hajj services from Pakistan.')
+    @section('og_url', 'https://umrahagency.pk/hajj/2-3-weeks-hajj-package-non-shifting.html')
 @endsection
 @section('content')
 
@@ -210,10 +214,10 @@
     <section id="footer-slider">
         <div class="container">
             <div class="footer-slick-carousel">
-                <div><img src="{{asset('assets/media/hajj/hajj_kaaba_pilgrims.png')}}" alt="Kaaba Pilgrims"></div>
-                <div><img src="{{asset('assets/media/umrah-new/18.png')}}" alt="Mina Tents"></div>
-                <div><img src="{{asset('assets/media/umrah-new/19.png')}}" alt="Arafat Pilgrims"></div>
-                <div><img src="{{asset('assets/media/hajj/hajj_ritual_pilgrims.png')}}" alt="Hajj Rituals"></div>
+                <div><img src="{{asset('assets/media/hajj/hajj_kaaba_pilgrims.webp')}}" alt="Kaaba Pilgrims"></div>
+                <div><img src="{{asset('assets/media/umrah-new/18.webp')}}" alt="Mina Tents"></div>
+                <div><img src="{{asset('assets/media/umrah-new/19.webp')}}" alt="Arafat Pilgrims"></div>
+                <div><img src="{{asset('assets/media/hajj/hajj_ritual_pilgrims.webp')}}" alt="Hajj Rituals"></div>
             </div>
         </div>
     </section>

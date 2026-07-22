@@ -2,6 +2,10 @@
 @section('meta')
 <title>About Us | Umrah Agency Pakistan - Expert Hajj & Umrah Travel Agency</title>
 <meta name="description" content="Learn more about Umrah Agency Pakistan, a leading Hajj and Umrah travel agency in Pakistan specialized in providing spiritual and affordable Hajj and Umrah packages.">
+<link rel="canonical" href="https://umrahagency.pk/about-us.html" />
+@section('og_title', 'About Us | Umrah Agency Pakistan - Expert Hajj & Umrah Travel Agency')
+@section('og_description', 'Learn more about Umrah Agency Pakistan, a leading Hajj and Umrah travel agency in Pakistan specialized in providing spiritual and affordable Hajj and Umrah packages.')
+@section('og_url', 'https://umrahagency.pk/about-us.html')
 @endsection
 @section('content')
 <div class="pkg-header-top text-center">

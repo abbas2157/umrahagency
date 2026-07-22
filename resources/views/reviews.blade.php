@@ -2,6 +2,10 @@
 @section('meta')
 <title>Customer Reviews | Umrah Agency Pakistan</title>
 <meta name="description" content="Read reviews from our spiritual travelers who performed Umrah with Umrah Agency Pakistan. We offer all-inclusive Umrah packages from major cities in Pakistan.">
+<link rel="canonical" href="https://umrahagency.pk/reviews.html" />
+@section('og_title', 'Customer Reviews | Umrah Agency Pakistan')
+@section('og_description', 'Read reviews from our spiritual travelers who performed Umrah with Umrah Agency Pakistan. We offer all-inclusive Umrah packages from major cities in Pakistan.')
+@section('og_url', 'https://umrahagency.pk/reviews.html')
 @endsection
 @section('content')
 <div class="pkg-header-top text-center">

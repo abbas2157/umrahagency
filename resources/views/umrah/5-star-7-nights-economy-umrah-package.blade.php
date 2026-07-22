@@ -1,7 +1,11 @@
 @extends('layouts.master')
 @section('meta')
-    <title>Trusted Umrah Agency in Pakistan for Umrah Services</title>
-    <meta name="description" content="Get Umrah services from a trusted Umrah agency in Lahore, Pakistan. We offer all-inclusive Umrah packages for families, groups, and individuals.">
+    <title>5 Star 7 Nights Economy Umrah Package | Shohada Hotel & New Madinah Hotel</title>
+    <meta name="description" content="Book our 5 Star 7 Nights Economy Umrah package staying at Shohada Hotel Makkah and New Madinah Hotel. All-inclusive package from PKR 330,000 per person with just PKR 15,000 deposit.">
+    <link rel="canonical" href="https://umrahagency.pk/umrah/5-star-7-nights-economy-umrah-package.html" />
+    @section('og_title', '5 Star 7 Nights Economy Umrah Package | Shohada Hotel & New Madinah Hotel')
+    @section('og_description', 'Book our 5 Star 7 Nights Economy Umrah package staying at Shohada Hotel Makkah and New Madinah Hotel. All-inclusive package from PKR 330,000 per person with just PKR 15,000 deposit.')
+    @section('og_url', 'https://umrahagency.pk/umrah/5-star-7-nights-economy-umrah-package.html')
 @endsection
 @section('content')
 

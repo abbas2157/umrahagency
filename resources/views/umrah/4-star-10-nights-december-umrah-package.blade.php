@@ -1,7 +1,11 @@
 @extends('layouts.master')
 @section('meta')
-    <title>4 Star 10 Nights December Umrah Package | Umrah Agency Pakistan</title>
-    <meta name="description" content="Book 4 Star 10 Nights December Umrah Package with Umrah Agency Pakistan. All-inclusive deals from major cities in Pakistan.">
+    <title>4 Star 10 Nights December Umrah Package | VOCO Makkah & Saja Al Medina</title>
+    <meta name="description" content="Book our 4 Star 10 Nights December Umrah Package staying at VOCO Makkah and Saja Al Medina Hotel. All-inclusive deals from major cities in Pakistan.">
+    <link rel="canonical" href="https://umrahagency.pk/umrah/4-star-10-nights-december-umrah-package.html" />
+    @section('og_title', '4 Star 10 Nights December Umrah Package | VOCO Makkah & Saja Al Medina')
+    @section('og_description', 'Book our 4 Star 10 Nights December Umrah Package staying at VOCO Makkah and Saja Al Medina Hotel. All-inclusive deals from major cities in Pakistan.')
+    @section('og_url', 'https://umrahagency.pk/umrah/4-star-10-nights-december-umrah-package.html')
 @endsection
 @section('content')
 

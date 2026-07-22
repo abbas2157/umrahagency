@@ -1,7 +1,11 @@
 @extends('layouts.master')
 @section('meta')
-    <title>Trusted Umrah Agency in Pakistan for Umrah Services</title>
-    <meta name="description" content="Get Umrah services from a trusted Umrah agency in Lahore, Pakistan. We offer all-inclusive Umrah packages for families, groups, and individuals.">
+    <title>10 Nights 5 Star Umrah Package | Makkah Clock Royal Tower & Pullman ZamZam</title>
+    <meta name="description" content="Book our 10 Nights 5 Star Umrah package staying at Makkah Clock Royal Tower and Pullman ZamZam. All-inclusive package from PKR 380,000 per person with just PKR 15,000 deposit.">
+    <link rel="canonical" href="https://umrahagency.pk/umrah/10-nights-5-star-umrah-package.html" />
+    @section('og_title', '10 Nights 5 Star Umrah Package | Makkah Clock Royal Tower & Pullman ZamZam')
+    @section('og_description', 'Book our 10 Nights 5 Star Umrah package staying at Makkah Clock Royal Tower and Pullman ZamZam. All-inclusive package from PKR 380,000 per person with just PKR 15,000 deposit.')
+    @section('og_url', 'https://umrahagency.pk/umrah/10-nights-5-star-umrah-package.html')
 @endsection
 @section('content')
 

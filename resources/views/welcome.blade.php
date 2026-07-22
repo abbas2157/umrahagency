@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('meta')
 <title>Hajj and Umrah Travel Agency in Pakistan | Trusted Pilgrimage Packages</title>
-<meta name="description" content="Plan your sacred journey with our trusted Hajj and Umrah Travel Agency in Pakistan. Offering affordable and premium packages, visa assistance, flights, accommodation near Haram, and guided services for a seamless spiritual experience.">
+<meta name="description" content="Trusted Hajj and Umrah Travel Agency in Pakistan offering affordable and premium packages, visa, flights, accommodation near Haram, and guided services for a seamless spiritual experience.">
 <link rel="canonical" href="https://umrahagency.pk" />
 @endsection
 @verbatim
@@ -104,7 +104,7 @@
 <section class="search-banner">
     <!--slider section Start-->
     <div class="banner">
-        <img src="{{asset('assets/media/pages/home-page-banner-for-haditours-1.png')}}" class="img-fluid" alt="Home Page Banner - Umrah Agency Pakistan" width="1920" height="600" fetchpriority="high">
+        <img src="{{asset('assets/media/pages/home-page-banner-for-haditours-1.webp')}}" class="img-fluid" alt="Home Page Banner - Umrah Agency Pakistan" width="1920" height="600" fetchpriority="high">
         <div class="banner-text">
             <h1>Hajj and Umrah Travel Agency in Pakistan</h1>
         </div>
@@ -396,7 +396,7 @@
                     <div class="mainPackage">
                         <div class="mainPackageImage">
                             <a href="{{ route('umrahDetail', ['slug' => '3-star-7-nights-umrah-package']) }}">
-                                <img class="img-fluid" loading="lazy" width="336" height="279" src="{{asset('assets/media/umrah-new/19.png')}}" alt="3 Star 7 Nights Umrah Package">
+                                <img class="img-fluid" loading="lazy" width="336" height="279" src="{{asset('assets/media/umrah-new/19.webp')}}" alt="3 Star 7 Nights Umrah Package">
                             </a>
                         </div>
                         <div class="mainPackageDesc">
@@ -446,7 +446,7 @@
                         <div class="mainPackageImage">
                             <a href="{{ route('umrahDetail', ['slug' => '3-star-10-nights-umrah-package']) }}"><img class="img-fluid"
                                     loading="lazy" width="336" height="279"
-                                    src="{{asset('assets/media/umrah-new/20.png')}}"
+                                    src="{{asset('assets/media/umrah-new/20.webp')}}"
                                     alt="3 Star 10 Nights Umrah Package"></a>
                         </div>
                         <div class="mainPackageDesc">
@@ -496,7 +496,7 @@
                         <div class="mainPackageImage">
                             <a href="{{ route('umrahDetail', ['slug' => '3-star-12-nights-umrah-package']) }}"><img class="img-fluid"
                                     loading="lazy" width="336" height="279"
-                                    src="{{asset('assets/media/umrah-new/21.png')}}"
+                                    src="{{asset('assets/media/umrah-new/21.webp')}}"
                                     alt="3 Star 12 Nights Umrah Package"></a>
                         </div>
                         <div class="mainPackageDesc">
@@ -545,7 +545,7 @@
                     <div class="mainPackage">
                         <div class="mainPackageImage">
                             <a href="{{ route('umrahDetail', ['slug' => '3-star-14-nights-umrah-package']) }}"><img class="img-fluid"
-                                    loading="lazy" width="336" height="279" src="{{asset('assets/media/umrah-new/22.png')}}"
+                                    loading="lazy" width="336" height="279" src="{{asset('assets/media/umrah-new/22.webp')}}"
                                     alt="3 Star 14 Nights Umrah Package"></a>
                         </div>
                         <div class="mainPackageDesc">
@@ -621,7 +621,7 @@
                     <div class="mainPackage">
                         <div class="mainPackageImage">
                             <a href="{{ route('umrahDetail', ['slug' => '4-star-december-umrah-package']) }}"><img class="img-fluid" loading="lazy"
-                                    width="336" height="279" src="{{asset('assets/media/umrah-new/23.png')}}"
+                                    width="336" height="279" src="{{asset('assets/media/umrah-new/23.webp')}}"
                                     alt="4 Star 10 Nights December Umrah Package"></a>
                         </div>
                         <div class="mainPackageDesc">
@@ -670,7 +670,7 @@
                     <div class="mainPackage">
                         <div class="mainPackageImage">
                             <a href="{{ route('umrahDetail', ['slug' => '4-star-night-december-umrah-package']) }}"><img class="img-fluid"
-                                    loading="lazy" width="336" height="279" src="{{asset('assets/media/umrah-new/24.png')}}"
+                                    loading="lazy" width="336" height="279" src="{{asset('assets/media/umrah-new/24.webp')}}"
                                     alt="4 Star 14 Nights December Umrah Package"></a>
                         </div>
                         <div class="mainPackageDesc">
@@ -719,7 +719,7 @@
                     <div class="mainPackage">
                         <div class="mainPackageImage">
                             <a href="{{ route('umrahDetail', ['slug' => '4-star-7-nights-december-umrah-package']) }}"><img class="img-fluid"
-                                    loading="lazy" width="336" height="279" src="{{asset('assets/media/umrah-new/25.png')}}"
+                                    loading="lazy" width="336" height="279" src="{{asset('assets/media/umrah-new/25.webp')}}"
                                     alt="4 Star 7 Nights December Umrah Package"></a>
                         </div>
                         <div class="mainPackageDesc">
@@ -768,7 +768,7 @@
                     <div class="mainPackage">
                         <div class="mainPackageImage">
                             <a href="{{ route('umrahDetail', ['slug' => '4-star-10-nights-december-umrah-package']) }}"><img class="img-fluid"
-                                    loading="lazy" width="336" height="279" src="{{asset('assets/media/umrah-new/26.png')}}"
+                                    loading="lazy" width="336" height="279" src="{{asset('assets/media/umrah-new/26.webp')}}"
                                     alt="4 Star 10 Nights December Umrah Package"></a>
                         </div>
                         <div class="mainPackageDesc">
@@ -817,7 +817,7 @@
                     <div class="mainPackage">
                         <div class="mainPackageImage">
                             <a href="{{ route('umrahDetail', ['slug' => '4-star-12-nights-december-umrah-package']) }}"><img class="img-fluid"
-                                    loading="lazy" width="336" height="279" src="{{asset('assets/media/umrah-new/27.png')}}"
+                                    loading="lazy" width="336" height="279" src="{{asset('assets/media/umrah-new/27.webp')}}"
                                     alt="4 Star 12 Nights December Umrah Package"></a>
                         </div>
                         <div class="mainPackageDesc">
@@ -866,7 +866,7 @@
                     <div class="mainPackage">
                         <div class="mainPackageImage">
                             <a href="{{ route('umrahDetail', ['slug' => '4-star-14-nights-december-umrah-package']) }}"><img class="img-fluid"
-                                    loading="lazy" width="336" height="279" src="{{asset('assets/media/umrah-new/28.png')}}"
+                                    loading="lazy" width="336" height="279" src="{{asset('assets/media/umrah-new/28.webp')}}"
                                     alt="4 Star 14 Nights December Umrah Package"></a>
                         </div>
                         <div class="mainPackageDesc">
@@ -942,7 +942,7 @@
                     <div class="mainPackage">
                         <div class="mainPackageImage">
                             <a href="{{ route('umrahDetail', ['slug' => '5-star-7-nights-economy-umrah-package']) }}"><img class="img-fluid"
-                                    loading="lazy" width="336" height="279" src="{{asset('assets/media/umrah-new/29.png')}}"
+                                    loading="lazy" width="336" height="279" src="{{asset('assets/media/umrah-new/29.webp')}}"
                                     alt="5 Star 7 Nights Economy Umrah Package"></a>
                         </div>
                         <div class="mainPackageDesc">
@@ -991,7 +991,7 @@
                     <div class="mainPackage">
                         <div class="mainPackageImage">
                             <a href="{{ route('umrahDetail', ['slug' => '10-nights-5-star-umrah-package']) }}"><img class="img-fluid"
-                                    loading="lazy" width="336" height="279" src="{{asset('assets/media/umrah-new/30.png')}}"
+                                    loading="lazy" width="336" height="279" src="{{asset('assets/media/umrah-new/30.webp')}}"
                                     alt="10 Nights 5 Star March Umrah package"></a>
                         </div>
                         <div class="mainPackageDesc">
@@ -1040,7 +1040,7 @@
                     <div class="mainPackage">
                         <div class="mainPackageImage">
                             <a href="{{ route('umrahDetail', ['slug' => '5-star-7-night-umrah-package']) }}"><img class="img-fluid" loading="lazy"
-                                    width="336" height="279" src="{{asset('assets/media/umrah-new/13.png')}}"
+                                    width="336" height="279" src="{{asset('assets/media/umrah-new/13.webp')}}"
                                     alt="5 star 7 night Umrah package "></a>
                         </div>
                         <div class="mainPackageDesc">
@@ -1089,7 +1089,7 @@
                     <div class="mainPackage">
                         <div class="mainPackageImage">
                             <a href="{{ route('umrahDetail', ['slug' => '7-nights-5-star-umrah-package']) }}"><img class="img-fluid" loading="lazy"
-                                    width="336" height="279" src="{{asset('assets/media/umrah-new/27.png')}}"
+                                    width="336" height="279" src="{{asset('assets/media/umrah-new/27.webp')}}"
                                     alt="7 Nights 5 Star March Umrah Package"></a>
                         </div>
                         <div class="mainPackageDesc">
@@ -1138,7 +1138,7 @@
                     <div class="mainPackage">
                         <div class="mainPackageImage">
                             <a href="{{ route('umrahDetail', ['slug' => '12-nights-5-star-umrah-package']) }}"><img class="img-fluid"
-                                    loading="lazy" width="336" height="279" src="{{asset('assets/media/umrah-new/3.png')}}"
+                                    loading="lazy" width="336" height="279" src="{{asset('assets/media/umrah-new/3.webp')}}"
                                     alt="12 Nights 5 Star March Umrah Package"></a>
                         </div>
                         <div class="mainPackageDesc">
@@ -1188,7 +1188,7 @@
                         <div class="mainPackageImage">
                             <a href="{{ route('umrahDetail', ['slug' => '5-star-14-nights-family-umrah-package1']) }}"><img class="img-fluid"
                                     loading="lazy" width="336" height="279"
-                                    src="{{asset('assets/media/umrah-new/4.png')}}"
+                                    src="{{asset('assets/media/umrah-new/4.webp')}}"
                                     alt="5 Star 14 Nights Family Umrah Package"></a>
                         </div>
                         <div class="mainPackageDesc">

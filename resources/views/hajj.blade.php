@@ -84,7 +84,7 @@
 <section class="search-banner">
     <!--slider section Start-->
     <div class="banner">
-        <img src="{{asset('assets/media/pages/home-page-banner-for-haditours-1.png')}}" class="img-fluid" alt="Hajj Packages Banner - Umrah Agency Pakistan" width="1920" height="600" fetchpriority="high">
+        <img src="{{asset('assets/media/pages/home-page-banner-for-haditours-1.webp')}}" class="img-fluid" alt="Hajj Packages Banner - Umrah Agency Pakistan" width="1920" height="600" fetchpriority="high">
         <div class="banner-text">
             <h1>Trusted Hajj and Umrah Travel Agency</h1>
         </div>
@@ -249,7 +249,7 @@
                     <div class="mainPackage">
                         <div class="mainPackageImage">
                             <a href="{{ route('hajjDetail', ['slug' => '4-weeks-hajj-package-non-shifting']) }}"><img class="img-fluid"
-                                    loading="lazy" width="336" height="279" src="{{asset('assets/media/hajj/hajj_kaaba_pilgrims.png')}}"
+                                    loading="lazy" width="336" height="279" src="{{asset('assets/media/hajj/hajj_kaaba_pilgrims.webp')}}"
                                     alt="4 Weeks Hajj Package (Non Shifting)"></a>
                         </div>
                         <div class="mainPackageDesc">
@@ -298,7 +298,7 @@
                     <div class="mainPackage">
                         <div class="mainPackageImage">
                             <a href="{{ route('hajjDetail', ['slug' => '2-3-weeks-non-shifting-hajj-package']) }}"><img class="img-fluid"
-                                    loading="lazy" width="336" height="279" src="{{asset('assets/media/umrah-new/18.png')}}"
+                                    loading="lazy" width="336" height="279" src="{{asset('assets/media/umrah-new/18.webp')}}"
                                     alt="2-3 Weeks Non Shifting Hajj Package"></a>
                         </div>
                         <div class="mainPackageDesc">
@@ -347,7 +347,7 @@
                     <div class="mainPackage">
                         <div class="mainPackageImage">
                             <a href="{{ route('hajjDetail', ['slug' => '2-3-weeks-hajj-package-non-shifting']) }}"><img class="img-fluid"
-                                    loading="lazy" width="336" height="279" src="{{asset('assets/media/umrah-new/19.png')}}"
+                                    loading="lazy" width="336" height="279" src="{{asset('assets/media/umrah-new/19.webp')}}"
                                     alt="2-3 Weeks Hajj Package (Non Shifting)"></a>
                         </div>
                         <div class="mainPackageDesc">
@@ -396,7 +396,7 @@
                     <div class="mainPackage">
                         <div class="mainPackageImage">
                             <a href="{{ route('hajjDetail', ['slug' => '5-star-hajj-package-non-shifting']) }}"><img class="img-fluid"
-                                    loading="lazy" width="336" height="279" src="{{asset('assets/media/hajj/hajj_ritual_pilgrims.png')}}"
+                                    loading="lazy" width="336" height="279" src="{{asset('assets/media/hajj/hajj_ritual_pilgrims.webp')}}"
                                     alt="5 Star Hajj Package (non-shifting)"></a>
                         </div>
                         <div class="mainPackageDesc">

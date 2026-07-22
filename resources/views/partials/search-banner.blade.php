@@ -1,7 +1,7 @@
     <section class="search-banner">
         <!--slider section Start-->
         <div class="banner">
-            <img src="{{asset('assets/media/pages/home-page-banner-for-haditours-1.png')}}" class="img-fluid" alt="Home Page Banner - Umrah Agency Pakistan">
+            <img src="{{asset('assets/media/pages/home-page-banner-for-haditours-1.webp')}}" class="img-fluid" alt="Home Page Banner - Umrah Agency Pakistan">
             <div class="banner-text">
                 <h1>Trusted Umrah Agency&nbsp;in Pakistan</h1>
                 <h4>For Umrah Services</h4>

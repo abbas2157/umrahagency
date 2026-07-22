@@ -2,6 +2,10 @@
 @section('meta')
 <title>Contact Us | Umrah Agency Pakistan - Plan Your Spiritual Hajj & Umrah Journey</title>
 <meta name="description" content="Get in touch with Umrah Agency Pakistan for personalized Hajj and Umrah packages. Visit our Pakistan office, call us at 03251212747, or email info@umrahagency.pk.">
+<link rel="canonical" href="https://umrahagency.pk/contact-us.html" />
+@section('og_title', 'Contact Us | Umrah Agency Pakistan - Plan Your Spiritual Hajj & Umrah Journey')
+@section('og_description', 'Get in touch with Umrah Agency Pakistan for personalized Hajj and Umrah packages. Visit our Pakistan office, call us at 03251212747, or email info@umrahagency.pk.')
+@section('og_url', 'https://umrahagency.pk/contact-us.html')
 @endsection
 @section('content')
 <div class="pkg-header-top text-center">

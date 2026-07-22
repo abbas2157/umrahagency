@@ -8,27 +8,25 @@
     <meta name="keywords" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" href="{{asset('assets/images/logo.png')}}" type="image/png">
-    <!--<meta name="google-site-verification" content="2qZwf-NipKZhqF73LrKkCL-T1lwmd69Hpr-J5_ST3kk" />-->
     <meta name="google-site-verification" content="WV0PLsmYj2A-TNNPd0DI5jqGr48fLRXR_2M5CVt_Wu0" />
 
 
     <meta name="twitter:card" content="summary">
     <meta name="robots" content="index, follow">
     <meta name="twitter:site" content="@umrahagency">
-    <meta name="twitter:title" content="Hajj and Umrah Travel Agency in Pakistan | Trusted Pilgrimage Packages">
-    <meta name="twitter:description" content="Plan your sacred journey with our trusted Hajj and Umrah Travel Agency in Pakistan. Offering affordable and premium packages, visa assistance, flights, accommodation near Haram, and guided services for a seamless spiritual experience.">
+    <meta name="twitter:title" content="@yield('og_title', 'Hajj and Umrah Travel Agency in Pakistan | Trusted Pilgrimage Packages')">
+    <meta name="twitter:description" content="@yield('og_description', 'Trusted Hajj and Umrah Travel Agency in Pakistan offering affordable and premium packages, visa, flights, accommodation near Haram, and guided services for a seamless spiritual experience.')">
     <meta name="twitter:creator" content="@umrahagency">
     <meta name="twitter:image:src" content="https://umrahagency.pk/assets/images/logo.png">
     <meta name="twitter:domain" content="https://umrahagency.pk/">
-    <link rel="canonical" href="https://umrahagency.pk/" />
-    
+
     <!-- facebook -->
-    <meta property="og:title" content="Hajj and Umrah Travel Agency in Pakistan | Trusted Pilgrimage Packages" />
-    <meta property="og:type" content="Hajj & Umrah" />
+    <meta property="og:title" content="@yield('og_title', 'Hajj and Umrah Travel Agency in Pakistan | Trusted Pilgrimage Packages')" />
+    <meta property="og:type" content="website" />
     <meta property="og:image" content="https://umrahagency.pk/assets/images/logo.png" />
-    <meta property="og:url" content="https://umrahagency.pk/" />
-    <meta property="og:description" content="Plan your sacred journey with our trusted Hajj and Umrah Travel Agency in Pakistan. Offering affordable and premium packages, visa assistance, flights, accommodation near Haram, and guided services for a seamless spiritual experience." />
-    
+    <meta property="og:url" content="@yield('og_url', 'https://umrahagency.pk/')" />
+    <meta property="og:description" content="@yield('og_description', 'Trusted Hajj and Umrah Travel Agency in Pakistan offering affordable and premium packages, visa, flights, accommodation near Haram, and guided services for a seamless spiritual experience.')" />
+
     <meta name="google-site-verification" content="rvAzZE4TBhBQLWDI31fFmvOvl7471uKKpTpp8LOeIHg" />
 
     <link href="{{asset('assets/css/jquery-ui.min.css')}}" rel="stylesheet">
@@ -52,7 +50,7 @@
     <link rel="stylesheet" href="{{asset('assets/css/responsive.css')}}">
     <link href="{{asset('assets/css/custom.css')}}" rel="stylesheet">
     <link href="{{asset('assets/css/slick.css')}}" rel="stylesheet">
-    <link rel="preload" href="{{asset('assets/media/pages/home-page-banner-for-haditours-1.png')}}" as="image" type="image/webp">
+    <link rel="preload" href="{{asset('assets/media/pages/home-page-banner-for-haditours-1.webp')}}" as="image" type="image/webp">
     <link rel="preconnect" href="https://embed.tawk.to">
     <link rel="preconnect" href="https://www.googleadservices.com">
     <link rel="preconnect" href="https://googleads.g.doubleclick.net">

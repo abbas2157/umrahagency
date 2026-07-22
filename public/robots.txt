@@ -1,2 +1,4 @@
 User-agent: *
-Disallow:
+Disallow: /admin
+
+Sitemap: https://umrahagency.pk/sitemap.xml

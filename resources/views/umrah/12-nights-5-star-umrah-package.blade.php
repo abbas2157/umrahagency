@@ -1,7 +1,11 @@
 @extends('layouts.master')
 @section('meta')
-    <title>Trusted Umrah Agency in Pakistan for Umrah Services</title>
-    <meta name="description" content="Get Umrah services from a trusted Umrah agency in Lahore, Pakistan. We offer all-inclusive Umrah packages for families, groups, and individuals.">
+    <title>12 Nights 5 Star Umrah Package | Jabal Omar Marriott & Anwar Al Madinah Movenpick</title>
+    <meta name="description" content="Book our 12 Nights 5 Star Umrah package staying at Jabal Omar Marriott Hotel and Anwar Al Madinah Movenpick. All-inclusive package from PKR 410,000 per person with just PKR 20,000 deposit.">
+    <link rel="canonical" href="https://umrahagency.pk/umrah/12-nights-5-star-umrah-package.html" />
+    @section('og_title', '12 Nights 5 Star Umrah Package | Jabal Omar Marriott & Anwar Al Madinah Movenpick')
+    @section('og_description', 'Book our 12 Nights 5 Star Umrah package staying at Jabal Omar Marriott Hotel and Anwar Al Madinah Movenpick. All-inclusive package from PKR 410,000 per person with just PKR 20,000 deposit.')
+    @section('og_url', 'https://umrahagency.pk/umrah/12-nights-5-star-umrah-package.html')
 @endsection
 @section('content')
 
