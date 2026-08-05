@@ -8,6 +8,7 @@
 @theme {
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
+    --max-width-8xl: 90rem;
 }
 
 @layer components {
@@ -16,6 +17,16 @@
     }
     .admin-nav-link.active {
         @apply bg-white/15 text-white;
+    }
+    .admin-nav-heading {
+        @apply px-3 pt-4 pb-1 text-xs font-semibold uppercase tracking-wide text-white/30 first:pt-0;
+    }
+
+    .tab-link {
+        @apply -mb-px border-b-2 border-transparent px-4 py-2 text-sm font-medium text-gray-500 transition hover:text-gray-700;
+    }
+    .tab-link.active {
+        @apply border-[#193670] text-[#193670];
     }
 }
 

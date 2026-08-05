@@ -9,29 +9,86 @@
         <p class="text-sm text-gray-500">Here's what's happening with your website inquiries.</p>
     </div>
 
+    @php
+        $scopeLabel = auth()->user()->isAgent() ? 'My Queries' : (auth()->user()->isAgencyAdmin() ? 'Agency Queries' : 'Total Inquiries');
+    @endphp
+
     <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
         <div class="rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
-            <p class="text-sm font-medium text-gray-500">Total Inquiries</p>
+            <p class="text-sm font-medium text-gray-500">{{ $scopeLabel }}</p>
             <p class="mt-2 text-3xl font-bold text-gray-900">{{ $stats['total_inquiries'] }}</p>
         </div>
         <div class="rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
-            <p class="text-sm font-medium text-gray-500">Inquiries Today</p>
+            <p class="text-sm font-medium text-gray-500">Today</p>
             <p class="mt-2 text-3xl font-bold text-gray-900">{{ $stats['inquiries_today'] }}</p>
         </div>
         <div class="rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
             <p class="text-sm font-medium text-gray-500">Last 7 Days</p>
             <p class="mt-2 text-3xl font-bold text-gray-900">{{ $stats['inquiries_this_week'] }}</p>
         </div>
-        <div class="rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
-            <p class="text-sm font-medium text-gray-500">Contact Clicks</p>
-            <p class="mt-2 text-3xl font-bold text-gray-900">{{ $stats['total_contact_clicks'] }}</p>
+        @if (auth()->user()->isSuperAdmin())
+            <div class="rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
+                <p class="text-sm font-medium text-gray-500">Contact Clicks</p>
+                <p class="mt-2 text-3xl font-bold text-gray-900">{{ $stats['total_contact_clicks'] }}</p>
+            </div>
+        @endif
+    </div>
+
+    <div class="rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
+        <p class="mb-3 text-sm font-medium text-gray-500">{{ $scopeLabel === 'Total Inquiries' ? 'Status Breakdown' : $scopeLabel.' by Status' }}</p>
+        <div class="flex flex-wrap gap-2">
+            @php
+                $statusColors = [
+                    'new' => 'bg-blue-50 text-blue-700',
+                    'contacted' => 'bg-yellow-50 text-yellow-700',
+                    'quoted' => 'bg-purple-50 text-purple-700',
+                    'booked' => 'bg-green-50 text-green-700',
+                    'lost' => 'bg-gray-100 text-gray-500',
+                    'junk' => 'bg-red-50 text-red-700',
+                ];
+            @endphp
+            @foreach ($statusBreakdown as $status => $count)
+                <div class="flex items-center gap-2 rounded-lg px-3 py-2 {{ $statusColors[$status] ?? 'bg-gray-100 text-gray-500' }}">
+                    <span class="text-lg font-bold">{{ $count }}</span>
+                    <span class="text-xs font-medium">{{ str($status)->headline() }}</span>
+                </div>
+            @endforeach
         </div>
     </div>
 
-    <div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
+    @if ($agencyStats)
+        <div class="grid grid-cols-1 gap-4 sm:grid-cols-3">
+            @if (auth()->user()->isSuperAdmin())
+                <div class="rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
+                    <p class="text-sm font-medium text-gray-500">Active Agencies</p>
+                    <p class="mt-2 text-3xl font-bold text-gray-900">{{ $agencyStats['active_agencies'] }}</p>
+                </div>
+                <div class="rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
+                    <p class="text-sm font-medium text-gray-500">Inactive Agencies</p>
+                    <p class="mt-2 text-3xl font-bold text-gray-900">{{ $agencyStats['inactive_agencies'] }}</p>
+                </div>
+            @endif
+            <div class="rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
+                <p class="text-sm font-medium text-gray-500">{{ auth()->user()->isSuperAdmin() ? 'Total Agents' : 'My Agents' }}</p>
+                <p class="mt-2 text-3xl font-bold text-gray-900">{{ $agencyStats['total_agents'] }}</p>
+            </div>
+        </div>
+    @endif
+
+    @php
+        $showActivity = auth()->user()->isSuperAdmin() || auth()->user()->isAgencyAdmin();
+        $columnCount = 1 + ($showActivity ? 1 : 0) + (auth()->user()->isSuperAdmin() ? 1 : 0);
+        $gridClass = match ($columnCount) {
+            3 => 'lg:grid-cols-3',
+            2 => 'lg:grid-cols-2',
+            default => '',
+        };
+    @endphp
+
+    <div class="grid grid-cols-1 gap-6 {{ $gridClass }}">
         <div class="rounded-xl border border-gray-200 bg-white shadow-sm">
             <div class="flex items-center justify-between border-b border-gray-100 px-5 py-4">
-                <h3 class="text-sm font-semibold text-gray-900">Recent Inquiries</h3>
+                <h3 class="text-sm font-semibold text-gray-900">Recent {{ $scopeLabel === 'Total Inquiries' ? 'Inquiries' : $scopeLabel }}</h3>
                 <a href="{{ route('admin.inquiries.index') }}" class="text-sm font-medium text-[#193670] hover:underline">View all</a>
             </div>
             <ul class="divide-y divide-gray-100">
@@ -62,25 +119,49 @@
             </ul>
         </div>
 
-        <div class="rounded-xl border border-gray-200 bg-white shadow-sm">
-            <div class="flex items-center justify-between border-b border-gray-100 px-5 py-4">
-                <h3 class="text-sm font-semibold text-gray-900">Recent Contact Clicks</h3>
-                <a href="{{ route('admin.contact-clicks.index') }}" class="text-sm font-medium text-[#193670] hover:underline">View all</a>
+        @if ($showActivity)
+            <div class="rounded-xl border border-gray-200 bg-white shadow-sm">
+                <div class="flex items-center justify-between border-b border-gray-100 px-5 py-4">
+                    <h3 class="text-sm font-semibold text-gray-900">Recent Activity</h3>
+                    <a href="{{ route('admin.activity-log.index') }}" class="text-sm font-medium text-[#193670] hover:underline">View all</a>
+                </div>
+                <ul class="divide-y divide-gray-100">
+                    @forelse ($recentActivity as $log)
+                        <li class="px-5 py-4">
+                            <p class="text-sm text-gray-900">
+                                <span class="font-medium">{{ $log->actor->name ?? 'System' }}</span>
+                                {{ $log->description }}
+                            </p>
+                            <span class="text-xs text-gray-400">{{ $log->created_at->diffForHumans() }}</span>
+                        </li>
+                    @empty
+                        <li class="px-5 py-8 text-center text-sm text-gray-400">No activity yet.</li>
+                    @endforelse
+                </ul>
             </div>
-            <ul class="divide-y divide-gray-100">
-                @forelse ($recentClicks as $click)
-                    <li class="flex items-center justify-between gap-4 px-5 py-4">
-                        <div class="min-w-0">
-                            <p class="truncate text-sm font-medium text-gray-900">{{ $click->value ?? 'Unknown' }}</p>
-                            <p class="truncate text-xs text-gray-500">{{ ucfirst($click->type ?? 'unknown') }} &middot; {{ $click->ip_address ?? '—' }}</p>
-                        </div>
-                        <span class="flex-shrink-0 text-xs text-gray-400">{{ $click->created_at->diffForHumans() }}</span>
-                    </li>
-                @empty
-                    <li class="px-5 py-8 text-center text-sm text-gray-400">No contact clicks yet.</li>
-                @endforelse
-            </ul>
-        </div>
+        @endif
+
+        @if (auth()->user()->isSuperAdmin())
+            <div class="rounded-xl border border-gray-200 bg-white shadow-sm">
+                <div class="flex items-center justify-between border-b border-gray-100 px-5 py-4">
+                    <h3 class="text-sm font-semibold text-gray-900">Recent Contact Clicks</h3>
+                    <a href="{{ route('admin.contact-clicks.index') }}" class="text-sm font-medium text-[#193670] hover:underline">View all</a>
+                </div>
+                <ul class="divide-y divide-gray-100">
+                    @forelse ($recentClicks as $click)
+                        <li class="flex items-center justify-between gap-4 px-5 py-4">
+                            <div class="min-w-0">
+                                <p class="truncate text-sm font-medium text-gray-900">{{ $click->value ?? 'Unknown' }}</p>
+                                <p class="truncate text-xs text-gray-500">{{ ucfirst($click->type ?? 'unknown') }} &middot; {{ $click->ip_address ?? '—' }}</p>
+                            </div>
+                            <span class="flex-shrink-0 text-xs text-gray-400">{{ $click->created_at->diffForHumans() }}</span>
+                        </li>
+                    @empty
+                        <li class="px-5 py-8 text-center text-sm text-gray-400">No contact clicks yet.</li>
+                    @endforelse
+                </ul>
+            </div>
+        @endif
     </div>
 </div>
 @endsection

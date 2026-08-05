@@ -17,6 +17,9 @@
         </div>
 
         <div class="rounded-2xl bg-white p-8 shadow-xl">
+            @if (session('success'))
+                <div class="mb-4 rounded-lg bg-green-50 px-4 py-3 text-sm text-green-700">{{ session('success') }}</div>
+            @endif
             @if ($errors->any())
                 <div class="mb-4 rounded-lg bg-red-50 px-4 py-3 text-sm text-red-700">
                     {{ $errors->first() }}
@@ -30,15 +33,14 @@
                     <input type="email" name="email" id="email" value="{{ old('email') }}" required autofocus
                         class="mt-1 block w-full rounded-lg border border-gray-300 px-3 py-2 text-sm shadow-sm focus:border-[#193670] focus:outline-none focus:ring-1 focus:ring-[#193670]">
                 </div>
-                <div>
-                    <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
-                    <input type="password" name="password" id="password" required
-                        class="mt-1 block w-full rounded-lg border border-gray-300 px-3 py-2 text-sm shadow-sm focus:border-[#193670] focus:outline-none focus:ring-1 focus:ring-[#193670]">
+                <x-password-input name="password" label="Password" />
+                <div class="flex items-center justify-between">
+                    <label class="flex items-center gap-2 text-sm text-gray-600">
+                        <input type="checkbox" name="remember" class="rounded border-gray-300 text-[#193670] focus:ring-[#193670]">
+                        Remember me
+                    </label>
+                    <a href="{{ route('admin.password.request') }}" class="text-sm font-medium text-[#193670] hover:underline">Forgot password?</a>
                 </div>
-                <label class="flex items-center gap-2 text-sm text-gray-600">
-                    <input type="checkbox" name="remember" class="rounded border-gray-300 text-[#193670] focus:ring-[#193670]">
-                    Remember me
-                </label>
                 <button type="submit"
                     class="w-full rounded-lg bg-[#193670] px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-[#122650]">
                     Sign in

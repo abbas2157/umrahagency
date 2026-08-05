@@ -25,6 +25,10 @@
                         <th class="px-4 py-3 text-left font-semibold text-gray-600">Contact</th>
                         <th class="px-4 py-3 text-left font-semibold text-gray-600">Route / Package</th>
                         <th class="px-4 py-3 text-left font-semibold text-gray-600">Travelers</th>
+                        @if (auth()->user()->isSuperAdmin())
+                            <th class="px-4 py-3 text-left font-semibold text-gray-600">Agency</th>
+                        @endif
+                        <th class="px-4 py-3 text-left font-semibold text-gray-600">Status</th>
                         <th class="px-4 py-3 text-left font-semibold text-gray-600">Date</th>
                         <th class="px-4 py-3 text-right font-semibold text-gray-600">Actions</th>
                     </tr>
@@ -52,21 +56,50 @@
                                 <div class="text-gray-400">{{ $inquiry->hotel_category ?? '—' }} &middot; {{ $inquiry->duration ?? '—' }}</div>
                             </td>
                             <td class="px-4 py-3 text-gray-600">{{ $inquiry->travelers ?? '—' }}</td>
+                            @if (auth()->user()->isSuperAdmin())
+                                <td class="px-4 py-3">
+                                    <form method="POST" action="{{ route('admin.inquiries.assign-agency', $inquiry) }}">
+                                        @csrf
+                                        <select name="agency_id" onchange="this.form.submit()"
+                                            class="rounded-md border border-gray-300 px-2 py-1 text-xs focus:border-[#193670] focus:outline-none focus:ring-1 focus:ring-[#193670]">
+                                            <option value="">Unassigned</option>
+                                            @foreach ($agencies as $agency)
+                                                <option value="{{ $agency->id }}" {{ $inquiry->agency_id === $agency->id ? 'selected' : '' }}>{{ $agency->name }}</option>
+                                            @endforeach
+                                        </select>
+                                    </form>
+                                </td>
+                            @endif
+                            <td class="px-4 py-3">
+                                @php
+                                    $statusColors = [
+                                        'new' => 'bg-blue-50 text-blue-700',
+                                        'contacted' => 'bg-yellow-50 text-yellow-700',
+                                        'quoted' => 'bg-purple-50 text-purple-700',
+                                        'booked' => 'bg-green-50 text-green-700',
+                                        'lost' => 'bg-gray-100 text-gray-500',
+                                        'junk' => 'bg-red-50 text-red-700',
+                                    ];
+                                @endphp
+                                <span class="rounded-full px-2.5 py-1 text-xs font-medium {{ $statusColors[$inquiry->status] ?? 'bg-gray-100 text-gray-500' }}">{{ str($inquiry->status)->headline() }}</span>
+                            </td>
                             <td class="px-4 py-3 whitespace-nowrap text-gray-500">{{ $inquiry->created_at->format('d M Y, h:i A') }}</td>
                             <td class="px-4 py-3 text-right">
                                 <div class="flex justify-end gap-2">
                                     <a href="{{ route('admin.inquiries.show', $inquiry) }}" class="rounded-md bg-blue-50 px-3 py-1.5 text-xs font-medium text-blue-700 hover:bg-blue-100">View</a>
-                                    <form method="POST" action="{{ route('admin.inquiries.destroy', $inquiry) }}" onsubmit="return confirm('Delete this inquiry?');">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button class="rounded-md bg-red-50 px-3 py-1.5 text-xs font-medium text-red-700 hover:bg-red-100">Delete</button>
-                                    </form>
+                                    @if (auth()->user()->isSuperAdmin())
+                                        <form method="POST" action="{{ route('admin.inquiries.destroy', $inquiry) }}" onsubmit="return confirm('Delete this inquiry?');">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button class="rounded-md bg-red-50 px-3 py-1.5 text-xs font-medium text-red-700 hover:bg-red-100">Delete</button>
+                                        </form>
+                                    @endif
                                 </div>
                             </td>
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="6" class="px-4 py-10 text-center text-gray-400">No inquiries found.</td>
+                            <td colspan="{{ auth()->user()->isSuperAdmin() ? 8 : 7 }}" class="px-4 py-10 text-center text-gray-400">No inquiries found.</td>
                         </tr>
                     @endforelse
                 </tbody>

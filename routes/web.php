@@ -1,9 +1,20 @@
 <?php
 
+use App\Http\Controllers\Admin\AccountController;
+use App\Http\Controllers\Admin\ActivityLogController;
+use App\Http\Controllers\Admin\AgencyController;
+use App\Http\Controllers\Admin\AreaController;
+use App\Http\Controllers\Admin\CityController;
 use App\Http\Controllers\Admin\ContactClickController;
+use App\Http\Controllers\Admin\CountryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\InquiryController;
+use App\Http\Controllers\Admin\LocationController;
+use App\Http\Controllers\Admin\ProvinceController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Auth\AdminAuthController;
+use App\Http\Controllers\Auth\ForgotPasswordController;
+use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PackageDetailController;
 use App\Http\Controllers\SitemapController;
@@ -42,18 +53,67 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::middleware('guest')->group(function () {
         Route::get('login', [AdminAuthController::class, 'showLogin'])->name('login');
         Route::post('login', [AdminAuthController::class, 'login'])->name('login.submit');
+
+        Route::get('forgot-password', [ForgotPasswordController::class, 'show'])->name('password.request');
+        Route::post('forgot-password', [ForgotPasswordController::class, 'send'])->name('password.email');
+        Route::get('reset-password/{token}', [ResetPasswordController::class, 'show'])->name('password.reset');
+        Route::post('reset-password', [ResetPasswordController::class, 'reset'])->name('password.update');
     });
 
-    Route::middleware('auth')->group(function () {
+    Route::middleware(['auth', 'agency.active'])->group(function () {
         Route::post('logout', [AdminAuthController::class, 'logout'])->name('logout');
 
         Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
         Route::get('inquiries', [InquiryController::class, 'index'])->name('inquiries.index');
         Route::get('inquiries/{inquiry}', [InquiryController::class, 'show'])->name('inquiries.show');
-        Route::delete('inquiries/{inquiry}', [InquiryController::class, 'destroy'])->name('inquiries.destroy');
+        Route::post('inquiries/{inquiry}/assign-agency', [InquiryController::class, 'assignAgency'])->name('inquiries.assign-agency');
+        Route::post('inquiries/{inquiry}/assign-agent', [InquiryController::class, 'assignAgent'])->name('inquiries.assign-agent');
+        Route::post('inquiries/{inquiry}/status', [InquiryController::class, 'updateStatus'])->name('inquiries.status');
+        Route::post('inquiries/{inquiry}/notes', [InquiryController::class, 'storeNote'])->name('inquiries.notes');
 
-        Route::get('contact-clicks', [ContactClickController::class, 'index'])->name('contact-clicks.index');
-        Route::delete('contact-clicks/{contactClick}', [ContactClickController::class, 'destroy'])->name('contact-clicks.destroy');
+        Route::get('account', [AccountController::class, 'show'])->name('account.show');
+        Route::patch('account', [AccountController::class, 'update'])->name('account.update');
+        Route::delete('account/sessions/{sessionId}', [AccountController::class, 'revokeSession'])->name('account.sessions.revoke');
+        Route::post('account/sessions/revoke-others', [AccountController::class, 'revokeOtherSessions'])->name('account.sessions.revoke-others');
+
+        Route::middleware('role:super_admin,agency_admin')->group(function () {
+            Route::get('activity-log', [ActivityLogController::class, 'index'])->name('activity-log.index');
+        });
+
+        Route::middleware('role:super_admin')->group(function () {
+            Route::resource('agencies', AgencyController::class)->except(['show', 'destroy']);
+            Route::resource('users', UserController::class)->except(['show']);
+
+            Route::get('users/{user}/sessions', [UserController::class, 'sessions'])->name('users.sessions');
+            Route::delete('users/{user}/sessions/{sessionId}', [UserController::class, 'revokeSession'])->name('users.sessions.revoke');
+
+            Route::delete('inquiries/{inquiry}', [InquiryController::class, 'destroy'])->name('inquiries.destroy');
+
+            Route::get('contact-clicks', [ContactClickController::class, 'index'])->name('contact-clicks.index');
+            Route::delete('contact-clicks/{contactClick}', [ContactClickController::class, 'destroy'])->name('contact-clicks.destroy');
+
+            Route::get('locations', [LocationController::class, 'index'])->name('locations.index');
+
+            Route::get('locations/countries/create', [CountryController::class, 'create'])->name('locations.countries.create');
+            Route::post('locations/countries', [CountryController::class, 'store'])->name('locations.countries.store');
+            Route::get('locations/countries/{country}/edit', [CountryController::class, 'edit'])->name('locations.countries.edit');
+            Route::put('locations/countries/{country}', [CountryController::class, 'update'])->name('locations.countries.update');
+
+            Route::get('locations/provinces/create', [ProvinceController::class, 'create'])->name('locations.provinces.create');
+            Route::post('locations/provinces', [ProvinceController::class, 'store'])->name('locations.provinces.store');
+            Route::get('locations/provinces/{province}/edit', [ProvinceController::class, 'edit'])->name('locations.provinces.edit');
+            Route::put('locations/provinces/{province}', [ProvinceController::class, 'update'])->name('locations.provinces.update');
+
+            Route::get('locations/cities/create', [CityController::class, 'create'])->name('locations.cities.create');
+            Route::post('locations/cities', [CityController::class, 'store'])->name('locations.cities.store');
+            Route::get('locations/cities/{city}/edit', [CityController::class, 'edit'])->name('locations.cities.edit');
+            Route::put('locations/cities/{city}', [CityController::class, 'update'])->name('locations.cities.update');
+
+            Route::get('locations/areas/create', [AreaController::class, 'create'])->name('locations.areas.create');
+            Route::post('locations/areas', [AreaController::class, 'store'])->name('locations.areas.store');
+            Route::get('locations/areas/{area}/edit', [AreaController::class, 'edit'])->name('locations.areas.edit');
+            Route::put('locations/areas/{area}', [AreaController::class, 'update'])->name('locations.areas.update');
+        });
     });
 });
