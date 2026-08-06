@@ -28,6 +28,30 @@
         @endif
     </div>
 
+    <div>
+        <p class="mb-3 text-sm font-medium text-gray-500">Available Plans</p>
+        @if ($plans->isEmpty())
+            <p class="rounded-xl border border-gray-200 bg-white p-5 text-sm text-gray-400 shadow-sm">No plans have been set up yet.</p>
+        @else
+            <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                @foreach ($plans as $plan)
+                    @php $isCurrent = $agency->plan_id === $plan->id; @endphp
+                    <div class="relative rounded-xl border p-5 shadow-sm {{ $isCurrent ? 'border-[#193670] ring-1 ring-[#193670]' : 'border-gray-200 bg-white' }}">
+                        @if ($isCurrent)
+                            <span class="absolute -top-2.5 right-4 rounded-full bg-[#193670] px-2.5 py-0.5 text-xs font-medium text-white">Current Plan</span>
+                        @endif
+                        <p class="text-lg font-semibold text-gray-900">{{ $plan->name }}</p>
+                        <p class="text-sm text-gray-500">PKR {{ number_format($plan->price, 0) }} / {{ $plan->billing_cycle }}</p>
+                        @if ($plan->description)
+                            <p class="mt-2 text-sm text-gray-600">{{ $plan->description }}</p>
+                        @endif
+                    </div>
+                @endforeach
+            </div>
+            <p class="mt-3 text-xs text-gray-400">To change plans, contact the platform administrator.</p>
+        @endif
+    </div>
+
     <div class="rounded-xl border border-gray-200 bg-white shadow-sm">
         <div class="flex items-center justify-between border-b border-gray-100 px-5 py-4">
             <h3 class="text-sm font-semibold text-gray-900">Invoices ({{ $invoices->count() }})</h3>
