@@ -29,7 +29,8 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'agency.active', 'ro
     Route::get('activity-log', [ActivityLogController::class, 'index'])->name('activity-log.index');
 
     Route::resource('agencies', AgencyController::class)->except(['destroy']);
-    Route::patch('agencies/{agency}/plan', [AgencyBillingController::class, 'updatePlan'])->name('agencies.update-plan');
+    Route::post('agencies/{agency}/plan/activate', [AgencyBillingController::class, 'activatePlan'])->name('agencies.plan.activate');
+    Route::delete('agencies/{agency}/plan', [AgencyBillingController::class, 'removePlan'])->name('agencies.plan.remove');
     Route::post('agencies/{agency}/invoices', [AgencyBillingController::class, 'storeInvoice'])->name('agencies.invoices.store');
 
     Route::resource('plans', PlanController::class)->except(['show', 'destroy']);

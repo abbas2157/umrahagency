@@ -8,23 +8,73 @@ use App\Models\Agency;
 use App\Models\AgencyInvoice;
 use App\Models\Plan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rule;
 
 class AgencyBillingController extends Controller
 {
-    public function updatePlan(Request $request, Agency $agency)
+    /**
+     * Activating a plan is a deliberate event, not a silent field update:
+     * it stamps when the subscription started (so the period/renewal date
+     * can be derived later) and immediately creates the first invoice for
+     * that period. Switching an agency to a different plan goes through
+     * the same flow — it's a fresh activation, with its own invoice.
+     */
+    public function activatePlan(Request $request, Agency $agency)
     {
         $validated = $request->validate([
-            'plan_id' => ['nullable', Rule::exists('plans', 'id')],
+            'plan_id' => ['required', Rule::exists('plans', 'id')],
+            'starts_on' => ['required', 'date'],
         ]);
 
+        $plan = Plan::findOrFail($validated['plan_id']);
+        $startsOn = Carbon::parse($validated['starts_on'])->startOfDay();
+        $periodEnd = $plan->billing_cycle === 'yearly'
+            ? $startsOn->copy()->addYear()->subDay()
+            : $startsOn->copy()->addMonth()->subDay();
+
+        $invoice = DB::transaction(function () use ($agency, $plan, $startsOn, $periodEnd) {
+            $agency->update([
+                'plan_id' => $plan->id,
+                'plan_activated_at' => $startsOn,
+            ]);
+
+            return AgencyInvoice::create([
+                'agency_id' => $agency->id,
+                'plan_id' => $plan->id,
+                'plan_name_snapshot' => $plan->name,
+                'amount' => $plan->price,
+                'period_start' => $startsOn,
+                'period_end' => $periodEnd,
+                'status' => 'pending',
+            ]);
+        });
+
+        ActivityLog::record(
+            'agency_plan_activated',
+            "Agency '{$agency->name}' activated on plan '{$plan->name}' starting {$startsOn->toDateString()}",
+            $agency->id,
+            'Agency',
+            $agency->id
+        );
+
+        return back()->with('success', "Plan activated. Invoice #{$invoice->id} for PKR ".number_format($plan->price, 0)." ({$startsOn->format('d M')} – {$periodEnd->format('d M Y')}) created.");
+    }
+
+    /**
+     * Clears the plan without touching invoice history — for correcting a
+     * mistaken activation, not a normal part of the billing lifecycle.
+     */
+    public function removePlan(Agency $agency)
+    {
         $oldPlan = $agency->plan?->name ?? 'No plan';
-        $agency->update($validated);
-        $newPlan = $agency->fresh()->plan?->name ?? 'No plan';
 
-        ActivityLog::record('agency_plan_changed', "Agency '{$agency->name}' plan changed from '{$oldPlan}' to '{$newPlan}'", $agency->id, 'Agency', $agency->id);
+        $agency->update(['plan_id' => null, 'plan_activated_at' => null]);
 
-        return back()->with('success', 'Plan updated.');
+        ActivityLog::record('agency_plan_removed', "Agency '{$agency->name}' plan removed (was '{$oldPlan}')", $agency->id, 'Agency', $agency->id);
+
+        return back()->with('success', 'Plan removed.');
     }
 
     public function storeInvoice(Request $request, Agency $agency)

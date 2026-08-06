@@ -16,6 +16,7 @@ class Agency extends Model
         'slug',
         'is_active',
         'plan_id',
+        'plan_activated_at',
 
         // Identity
         'legal_name',
@@ -90,6 +91,7 @@ class Agency extends Model
             'is_active' => 'boolean',
             'latitude' => 'decimal:7',
             'longitude' => 'decimal:7',
+            'plan_activated_at' => 'datetime',
         ];
     }
 
@@ -129,6 +131,22 @@ class Agency extends Model
     public function invoices(): HasMany
     {
         return $this->hasMany(AgencyInvoice::class)->latest('period_start');
+    }
+
+    /**
+     * End of the current billing period, derived from when the plan was
+     * activated plus its cycle — not stored, since it moves every time the
+     * plan or activation date changes and would just drift out of sync.
+     */
+    public function currentPeriodEnd(): ?\Illuminate\Support\Carbon
+    {
+        if (! $this->plan || ! $this->plan_activated_at) {
+            return null;
+        }
+
+        return $this->plan->billing_cycle === 'yearly'
+            ? $this->plan_activated_at->copy()->addYear()
+            : $this->plan_activated_at->copy()->addMonth();
     }
 
     /**

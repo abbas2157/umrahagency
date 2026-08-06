@@ -14,6 +14,12 @@
         @if ($agency->plan)
             <p class="mt-1 text-lg font-semibold text-gray-900">{{ $agency->plan->name }}</p>
             <p class="text-sm text-gray-500">PKR {{ number_format($agency->plan->price, 0) }} / {{ $agency->plan->billing_cycle }}</p>
+            <p class="mt-1 text-xs text-gray-400">
+                Active since {{ $agency->plan_activated_at?->format('d M Y') ?? '—' }}
+                @if ($agency->currentPeriodEnd())
+                    &middot; current period ends {{ $agency->currentPeriodEnd()->format('d M Y') }}
+                @endif
+            </p>
             @if ($agency->plan->description)
                 <p class="mt-2 text-sm text-gray-600">{{ $agency->plan->description }}</p>
             @endif

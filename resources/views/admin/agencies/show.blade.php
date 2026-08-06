@@ -25,26 +25,50 @@
     </div>
 
     <div class="rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
-        <div class="flex flex-wrap items-center justify-between gap-3">
+        <div class="flex flex-wrap items-start justify-between gap-4">
             <div>
                 <p class="text-sm font-medium text-gray-500">Plan</p>
-                <p class="mt-1 text-lg font-semibold text-gray-900">{{ $agency->plan?->name ?? 'No plan assigned' }}</p>
                 @if ($agency->plan)
+                    <p class="mt-1 text-lg font-semibold text-gray-900">{{ $agency->plan->name }}</p>
                     <p class="text-sm text-gray-500">PKR {{ number_format($agency->plan->price, 0) }} / {{ $agency->plan->billing_cycle }}</p>
+                    <p class="mt-1 text-xs text-gray-400">
+                        Active since {{ $agency->plan_activated_at?->format('d M Y') ?? '—' }}
+                        @if ($agency->currentPeriodEnd())
+                            &middot; current period ends {{ $agency->currentPeriodEnd()->format('d M Y') }}
+                        @endif
+                    </p>
+                    <form method="POST" action="{{ route('admin.agencies.plan.remove', $agency) }}" onsubmit="return confirm('Remove this agency\'s plan? This only clears the assignment — invoice history is unaffected.');" class="mt-2">
+                        @csrf
+                        @method('DELETE')
+                        <button class="text-xs font-medium text-red-600 hover:underline">Remove plan</button>
+                    </form>
+                @else
+                    <p class="mt-1 text-sm text-gray-400">No plan assigned yet.</p>
                 @endif
             </div>
-            <form method="POST" action="{{ route('admin.agencies.update-plan', $agency) }}" class="flex gap-2">
+
+            <form method="POST" action="{{ route('admin.agencies.plan.activate', $agency) }}" class="flex flex-wrap items-end gap-2">
                 @csrf
-                @method('PATCH')
-                <select name="plan_id" class="rounded-lg border border-gray-300 px-3 py-2 text-sm shadow-sm focus:border-[#193670] focus:outline-none focus:ring-1 focus:ring-[#193670]">
-                    <option value="">No plan</option>
-                    @foreach ($plans as $plan)
-                        <option value="{{ $plan->id }}" {{ $agency->plan_id === $plan->id ? 'selected' : '' }}>{{ $plan->name }} — PKR {{ number_format($plan->price, 0) }}/{{ $plan->billing_cycle }}</option>
-                    @endforeach
-                </select>
-                <button class="whitespace-nowrap rounded-lg bg-[#193670] px-4 py-2 text-sm font-medium text-white hover:bg-[#122650]">Change Plan</button>
+                <div>
+                    <label class="block text-xs font-medium text-gray-500">Plan</label>
+                    <select name="plan_id" required class="mt-1 rounded-lg border border-gray-300 px-3 py-2 text-sm shadow-sm focus:border-[#193670] focus:outline-none focus:ring-1 focus:ring-[#193670]">
+                        <option value="">Select a plan</option>
+                        @foreach ($plans as $plan)
+                            <option value="{{ $plan->id }}" {{ $agency->plan_id === $plan->id ? 'selected' : '' }}>{{ $plan->name }} — PKR {{ number_format($plan->price, 0) }}/{{ $plan->billing_cycle }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-xs font-medium text-gray-500">Starts on</label>
+                    <input type="date" name="starts_on" required value="{{ now()->toDateString() }}"
+                        class="mt-1 rounded-lg border border-gray-300 px-3 py-2 text-sm shadow-sm focus:border-[#193670] focus:outline-none focus:ring-1 focus:ring-[#193670]">
+                </div>
+                <button class="whitespace-nowrap rounded-lg bg-[#193670] px-4 py-2 text-sm font-medium text-white hover:bg-[#122650]">Activate Plan</button>
             </form>
         </div>
+        @if ($agency->plan)
+            <p class="mt-3 text-xs text-gray-400">Activating a (new or the same) plan immediately creates the first invoice for that period — it doesn't wait for a renewal date.</p>
+        @endif
     </div>
 
     <div class="rounded-xl border border-gray-200 bg-white shadow-sm">
