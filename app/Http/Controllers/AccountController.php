@@ -1,10 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use App\Models\ActivityLog;
-use App\Support\UserAgentParser;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rule;
@@ -13,9 +11,9 @@ class AccountController extends Controller
 {
     public function show(Request $request)
     {
-        $sessions = $this->sessionsFor($request->user()->id, $request->session()->getId());
+        $sessions = $request->user()->activeSessions($request->session()->getId());
 
-        return view('admin.account.show', [
+        return view('account.show', [
             'user' => $request->user(),
             'sessions' => $sessions,
         ]);
@@ -70,23 +68,5 @@ class AccountController extends Controller
         ActivityLog::record('session_revoked', "{$request->user()->name} logged out all other devices", $request->user()->agency_id, 'User', $request->user()->id);
 
         return back()->with('success', 'All other devices have been logged out.');
-    }
-
-    /**
-     * @return \Illuminate\Support\Collection<int, array{id: string, device: string, ip_address: ?string, last_active: \Illuminate\Support\Carbon, is_current: bool}>
-     */
-    private function sessionsFor(int $userId, string $currentSessionId)
-    {
-        return DB::table('sessions')
-            ->where('user_id', $userId)
-            ->orderByDesc('last_activity')
-            ->get()
-            ->map(fn ($session) => [
-                'id' => $session->id,
-                'device' => UserAgentParser::describe($session->user_agent),
-                'ip_address' => $session->ip_address,
-                'last_active' => now()->setTimestamp($session->last_activity),
-                'is_current' => $session->id === $currentSessionId,
-            ]);
     }
 }

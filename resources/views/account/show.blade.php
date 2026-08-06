@@ -1,9 +1,9 @@
-@extends('layouts.admin')
+@extends(auth()->user()->isSuperAdmin() ? 'layouts.admin' : 'layouts.agency')
 
 @section('title', 'My Account')
 
 @section('content')
-<div class="max-w-3xl space-y-6">
+<div class="space-y-6">
     <div>
         <h2 class="text-2xl font-bold text-gray-900">My Account</h2>
         <p class="text-sm text-gray-500">{{ $user->name }} &middot; {{ $user->email }} &middot; {{ str($user->role)->headline() }}</p>
@@ -19,7 +19,7 @@
 
     <div class="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
         <h3 class="mb-4 text-sm font-semibold text-gray-900">Profile</h3>
-        <form method="POST" action="{{ route('admin.account.update') }}" class="space-y-4">
+        <form method="POST" action="{{ route('account.update') }}" class="space-y-4">
             @csrf
             @method('PATCH')
             <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
@@ -66,7 +66,7 @@
                 <p class="text-xs text-gray-500">Every device currently logged in as you.</p>
             </div>
             @if ($sessions->filter(fn ($s) => ! $s['is_current'])->isNotEmpty())
-                <form method="POST" action="{{ route('admin.account.sessions.revoke-others') }}" onsubmit="return confirm('Log out every other device?');">
+                <form method="POST" action="{{ route('account.sessions.revoke-others') }}" onsubmit="return confirm('Log out every other device?');">
                     @csrf
                     <button class="rounded-lg bg-red-50 px-3 py-1.5 text-xs font-medium text-red-700 hover:bg-red-100">Log out all other devices</button>
                 </form>
@@ -86,7 +86,7 @@
                         <p class="text-xs text-gray-500">{{ $session['ip_address'] ?? 'Unknown IP' }} &middot; active {{ $session['last_active']->diffForHumans() }}</p>
                     </div>
                     @unless ($session['is_current'])
-                        <form method="POST" action="{{ route('admin.account.sessions.revoke', $session['id']) }}" onsubmit="return confirm('Log out this device?');">
+                        <form method="POST" action="{{ route('account.sessions.revoke', $session['id']) }}" onsubmit="return confirm('Log out this device?');">
                             @csrf
                             @method('DELETE')
                             <button class="whitespace-nowrap rounded-md bg-gray-50 px-3 py-1.5 text-xs font-medium text-gray-700 hover:bg-gray-100">Log out</button>

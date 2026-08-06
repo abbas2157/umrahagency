@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Models\ActivityLog;
 use App\Models\Agency;
 use App\Models\User;
-use App\Support\UserAgentParser;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rule;
@@ -73,6 +72,13 @@ class UserController extends Controller
             return back()->withErrors(['user' => 'You cannot delete your own account.']);
         }
 
+        // Agents are never hard-deleted — past enquiries still point to
+        // them (see AGENT-ENTITY.md). Same rule the Agency panel's own
+        // Agent CRUD already enforces; this screen just hadn't caught up.
+        if ($user->role === 'agent') {
+            return back()->withErrors(['user' => 'Agents are never deleted — deactivate them instead so past queries keep their history.']);
+        }
+
         ActivityLog::record('user_deleted', "User '{$user->name}' deleted", $user->agency_id, 'User', $user->id);
 
         $user->delete();
@@ -80,18 +86,33 @@ class UserController extends Controller
         return redirect()->route('admin.users.index')->with('success', 'User deleted. Any queries assigned to them are now unassigned.');
     }
 
+    public function deactivate(User $user)
+    {
+        if ($user->is(auth()->user())) {
+            return back()->withErrors(['user' => 'You cannot deactivate your own account.']);
+        }
+
+        $user->update(['is_active' => false]);
+
+        DB::table('sessions')->where('user_id', $user->id)->delete();
+
+        ActivityLog::record('user_deactivated', "User '{$user->name}' deactivated", $user->agency_id, 'User', $user->id);
+
+        return redirect()->route('admin.users.index')->with('success', 'User deactivated and logged out.');
+    }
+
+    public function activate(User $user)
+    {
+        $user->update(['is_active' => true]);
+
+        ActivityLog::record('user_activated', "User '{$user->name}' activated", $user->agency_id, 'User', $user->id);
+
+        return redirect()->route('admin.users.index')->with('success', 'User activated.');
+    }
+
     public function sessions(User $user)
     {
-        $sessions = DB::table('sessions')
-            ->where('user_id', $user->id)
-            ->orderByDesc('last_activity')
-            ->get()
-            ->map(fn ($session) => [
-                'id' => $session->id,
-                'device' => UserAgentParser::describe($session->user_agent),
-                'ip_address' => $session->ip_address,
-                'last_active' => now()->setTimestamp($session->last_activity),
-            ]);
+        $sessions = $user->activeSessions();
 
         return view('admin.users.sessions', compact('user', 'sessions'));
     }

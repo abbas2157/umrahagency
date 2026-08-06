@@ -28,6 +28,16 @@ class EnsureAgencyIsActive
             ]);
         }
 
+        if ($user && ! $user->is_active) {
+            Auth::logout();
+            $request->session()->invalidate();
+            $request->session()->regenerateToken();
+
+            return redirect()->route('admin.login')->withErrors([
+                'email' => 'Your account has been deactivated. Contact your agency admin.',
+            ]);
+        }
+
         return $next($request);
     }
 }

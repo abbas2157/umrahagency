@@ -17,70 +17,56 @@
             <img src="{{ asset('assets/images/logo.png') }}" alt="Umrah Agency" class="h-9 w-9 rounded bg-white object-contain p-1">
             <div class="leading-tight">
                 <p class="text-sm font-semibold text-white">Umrah Agency</p>
-                <p class="text-xs text-white/50">Admin Panel</p>
+                <p class="text-xs text-white/50">Super Admin Panel</p>
             </div>
         </div>
 
         <nav class="flex-1 space-y-1 overflow-y-auto px-3 py-4">
-            {{-- Overview: entry point, always first regardless of role. --}}
             <p class="admin-nav-heading">Overview</p>
             <a href="{{ route('admin.dashboard') }}" class="admin-nav-link {{ request()->routeIs('admin.dashboard') ? 'active' : '' }}">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5 12 3l9 6.5V20a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1V9.5Z"/></svg>
                 Dashboard
             </a>
 
-            {{-- Queries: the core day-to-day work for every role. Future:
-                 quotes/bookings would land here once those exist. --}}
             <p class="admin-nav-heading">Queries</p>
             <a href="{{ route('admin.inquiries.index') }}" class="admin-nav-link {{ request()->routeIs('admin.inquiries.*') ? 'active' : '' }}">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v12H7l-3 3V4Z"/><path d="M8 9h8M8 12h5"/></svg>
                 Inquiries
             </a>
 
-            @if (auth()->user()?->isSuperAdmin())
-                {{-- Agency Management: super_admin only. Future: billing/
-                     subscriptions and self-service onboarding would land
-                     here once Phase 2 work starts. --}}
-                <p class="admin-nav-heading">Agency Management</p>
-                <a href="{{ route('admin.agencies.index') }}" class="admin-nav-link {{ request()->routeIs('admin.agencies.*') ? 'active' : '' }}">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"/></svg>
-                    Agencies
-                </a>
-                <a href="{{ route('admin.users.index') }}" class="admin-nav-link {{ request()->routeIs('admin.users.*') ? 'active' : '' }}">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                    Users
-                </a>
+            <p class="admin-nav-heading">Agency Management</p>
+            <a href="{{ route('admin.agencies.index') }}" class="admin-nav-link {{ request()->routeIs('admin.agencies.*') ? 'active' : '' }}">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"/></svg>
+                Agencies
+            </a>
+            <a href="{{ route('admin.users.index') }}" class="admin-nav-link {{ request()->routeIs('admin.users.*') ? 'active' : '' }}">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                Users
+            </a>
+            <a href="{{ route('admin.plans.index') }}" class="admin-nav-link {{ request()->routeIs('admin.plans.*') ? 'active' : '' }}">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
+                Plans &amp; Billing
+            </a>
 
-                {{-- Locations: super_admin only. Foundational reference data
-                     (Country → Province → City → Area) that other features
-                     build on — not yet linked to Agency/Inquiry fields. --}}
-                <p class="admin-nav-heading">Locations</p>
-                <a href="{{ route('admin.locations.index') }}" class="admin-nav-link {{ request()->routeIs('admin.locations.*') ? 'active' : '' }}">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.42 4.58a5.4 5.4 0 0 0-7.65 0l-.77.78-.77-.78a5.4 5.4 0 0 0-7.65 7.65l8.42 8.42 8.42-8.42a5.4 5.4 0 0 0 0-7.65Z" fill="none"/><circle cx="12" cy="10" r="3"/><path d="M12 21.7C12 21.7 5 14.5 5 9.7a7 7 0 0 1 14 0c0 4.8-7 12-7 12Z"/></svg>
-                    Locations
-                </a>
-            @endif
+            <p class="admin-nav-heading">Locations</p>
+            <a href="{{ route('admin.locations.index') }}" class="admin-nav-link {{ request()->routeIs('admin.locations.*') ? 'active' : '' }}">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.42 4.58a5.4 5.4 0 0 0-7.65 0l-.77.78-.77-.78a5.4 5.4 0 0 0-7.65 7.65l8.42 8.42 8.42-8.42a5.4 5.4 0 0 0 0-7.65Z" fill="none"/><circle cx="12" cy="10" r="3"/><path d="M12 21.7C12 21.7 5 14.5 5 9.7a7 7 0 0 1 14 0c0 4.8-7 12-7 12Z"/></svg>
+                Locations
+            </a>
 
-            @if (auth()->user()?->isSuperAdmin() || auth()->user()?->isAgencyAdmin())
-                {{-- Monitoring & Security: anything read-only/audit-focused
-                     goes here — new logged event types, login-attempt
-                     views, future 2FA/session-policy settings, etc. --}}
-                <p class="admin-nav-heading">Monitoring &amp; Security</p>
-                <a href="{{ route('admin.activity-log.index') }}" class="admin-nav-link {{ request()->routeIs('admin.activity-log.*') ? 'active' : '' }}">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8v4l3 3"/><circle cx="12" cy="12" r="9"/></svg>
-                    Activity Log
-                </a>
-                @if (auth()->user()?->isSuperAdmin())
-                    <a href="{{ route('admin.contact-clicks.index') }}" class="admin-nav-link {{ request()->routeIs('admin.contact-clicks.*') ? 'active' : '' }}">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
-                        Contact Clicks
-                    </a>
-                @endif
-            @endif
+            <p class="admin-nav-heading">Monitoring &amp; Security</p>
+            <a href="{{ route('admin.activity-log.index') }}" class="admin-nav-link {{ request()->routeIs('admin.activity-log.*') ? 'active' : '' }}">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8v4l3 3"/><circle cx="12" cy="12" r="9"/></svg>
+                Activity Log
+            </a>
+            <a href="{{ route('admin.contact-clicks.index') }}" class="admin-nav-link {{ request()->routeIs('admin.contact-clicks.*') ? 'active' : '' }}">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
+                Contact Clicks
+            </a>
         </nav>
 
         <div class="border-t border-white/10 p-4">
-            <a href="{{ route('admin.account.show') }}" class="mb-3 flex items-center gap-3 rounded-lg p-1 transition hover:bg-white/10">
+            <a href="{{ route('account.show') }}" class="mb-3 flex items-center gap-3 rounded-lg p-1 transition hover:bg-white/10">
                 <div class="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-white/10 font-semibold text-white">
                     {{ strtoupper(substr(auth()->user()->name ?? 'A', 0, 1)) }}
                 </div>
@@ -110,6 +96,9 @@
         <main class="px-4 py-6 lg:px-8">
             @if (session('success'))
                 <div class="mb-6 rounded-lg bg-green-50 px-4 py-3 text-sm text-green-700">{{ session('success') }}</div>
+            @endif
+            @if (session('error'))
+                <div class="mb-6 rounded-lg bg-red-50 px-4 py-3 text-sm text-red-700">{{ session('error') }}</div>
             @endif
 
             @yield('content')

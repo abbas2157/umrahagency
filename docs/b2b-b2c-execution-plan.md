@@ -335,3 +335,69 @@ All 8 build steps are done and verified (real HTTP requests, not just code revie
 | **CRUD test coverage for Agencies/Users controllers** | Only the tenancy-isolation behavior got a formal test suite (E). Agency/User create-edit-delete happened via manual HTTP smoke tests during B, not permanent tests. | No — manually verified, just not regression-guarded |
 
 **Immediate next step, if you want this live:** commit the branch, then decide whether to merge straight to `main` or open a PR for review — that's the one call left before this can actually reach production.
+
+---
+
+## 11. PLAN (2026-08-05) — Agency Admin: parity, polish, mobile, phone privacy, light notifications
+
+Since password reset shipped, most of §10.9's "what's left" is closed. This is the next chunk, driven directly by five things asked for: Agency Admin should feel as complete as Super Admin, profile editing should be a nicer flow, queries need phone-number privacy, the dashboard needs more, and the whole thing needs to work well on a phone — plus a light notification touch, explicitly kept simple per your answer (in-app only, no WhatsApp/SMS — that would need real Meta Cloud API/BSP credentials you don't have yet, so it's parked, not built).
+
+### 11.1 Agency Admin self-service parity ("look like Super Admin")
+
+Right now Agency Admin is blocked (403) from `/admin/agencies` and `/admin/users` entirely — they have **no way to edit their own agency's profile or manage their own agents**. Super Admin has to do both for them. This is the real gap behind "look like Super Admin."
+
+| New screen | Scope |
+|---|---|
+| **My Agency** (edit only, no create/list) | Agency Admin edits their *own* agency's business profile — same tabbed form already built for Super Admin, reused, hard-locked to their own `agency_id`. Can't touch `is_active` themselves (self-suspension would be a lockout risk, same logic as the existing self-role-lock on Users) |
+| **My Agents** (scoped CRUD) | List/create/edit/deactivate agents *within their own agency only*. Role dropdown restricted to `agent` — an Agency Admin can never create another Agency Admin or a Super Admin. Reuses the existing Users form/validation, just agency-locked and role-locked |
+
+This directly answers the open question left in §10.7 ("does Agency Admin get self-service to create their own Agents") — yes, now that a second agency's admin is a real near-term possibility, not a hypothetical.
+
+### 11.2 Profile update flow — redesign
+
+Current `/admin/account` is one long page (Profile form → Last Login → Sessions), all stacked. Redesign into tabs (reusing the existing tab system already used on the Agency form):
+- **Profile** — name, email
+- **Security** — new password + current-password confirmation, kept separate from Profile so "just updating my name" doesn't sit next to sensitive fields
+- **Sessions** — the existing device list/revoke, unchanged functionally, just its own tab instead of competing for scroll space
+
+### 11.3 Query management — phone-number privacy
+
+Add masking to both the Inquiries list and detail page: phone shows as `0300-XXX-4521` by default, with a **Show** action that reveals the real number.
+
+- **Super Admin sees the real number always** — they run the platform, there's no one to protect it from.
+- **Agency Admin/Agent see it masked**, click **Show** to reveal — logs an `ActivityLog` entry (`phone_revealed`), same "track everything" convention as the rest of the system.
+- Call/WhatsApp quick-action icons only become clickable after reveal (can't dial a masked number) — this also naturally creates a small, honest audit trail of who actually accessed a customer's number and when, without needing the credit-debit machinery the original vision doc assumed (§2.6) — that part stays correctly deferred, this is the useful piece without the marketplace overhead.
+
+### 11.4 Dashboard — further additions
+
+On top of what's already there (status breakdown, agency/agent stats, recent activity):
+- **Needs follow-up** widget — queries with no status change in N days (configurable later, hardcode a sensible default like 3 days for now)
+- **Average first-response time** — simple computed stat from `lead_activities`-equivalent (`inquiry_activities`) timestamps, no new tracking needed
+- Keep the existing tile/list visual language — no charting library added (a new dependency isn't justified for a handful of numbers); if a visual trend view is wanted later, that's a deliberate separate ask
+
+### 11.5 Mobile-friendly pass
+
+Every admin table (Inquiries, Agencies, Users, Locations, Activity Log) currently just gets `overflow-x-auto` — functional but a real phone user is scrolling sideways through a cramped table, which matches the exact problem CLAUDE.md flags for the public site ("Users are largely on mobile... forgiving forms"), just not yet addressed for the admin panel.
+
+Plan: each table gets a `hidden md:table`/`md:hidden` pair — the existing table stays for tablet/desktop, a stacked card layout (name + key fields + actions, one block per row) renders on phones. Applied table-by-table, starting with Inquiries (the screen agents actually live in day to day) and working outward.
+
+### 11.6 Notifications — simple, in-app, dashboard-only
+
+Per your answer: light touch, no WhatsApp/SMS, no external accounts needed.
+
+- A small bell/badge on the dashboard (not full nav-wide) showing a count: new queries assigned to you since your last login, plus anything from §11.4's "needs follow-up" list.
+- No mark-as-read state, no preferences screen, no separate notifications table — it's a live query against data that already exists (`Inquiry`, `last_login_at`), recomputed on page load. If it needs to become richer later (persistent read/unread, cross-page bell), that's a deliberate follow-up, not implied by "simple."
+
+### 11.7 Suggested build order
+
+1. **§11.1** (Agency Admin self-service) — foundational, unlocks the other agency's admin actually using this without you in the loop
+2. **§11.3** (phone masking) — self-contained, high trust/privacy value, no dependencies on the rest
+3. **§11.2** (profile tabs) — contained UX polish
+4. **§11.5** (mobile pass) — start with Inquiries, expand from there
+5. **§11.4 + §11.6** (dashboard additions + simple notification) — smallest, do last since they touch the most-already-iterated-on screen
+
+### 11.8 Explicitly not building here
+
+- WhatsApp/SMS notifications — needs real BSP/Meta credentials, parked per your answer
+- Notification preferences, read/unread persistence, cross-page bell — "simple" was the explicit ask
+- Wiring Country/Province/City/Area into Agency's free-text fields — still a separate, deliberate decision per §10 of this doc, untouched by this plan

@@ -30,6 +30,7 @@
                         <th class="px-4 py-3 text-left font-semibold text-gray-600">Role</th>
                         <th class="px-4 py-3 text-left font-semibold text-gray-600">Agency</th>
                         <th class="px-4 py-3 text-left font-semibold text-gray-600">Last Login</th>
+                        <th class="px-4 py-3 text-left font-semibold text-gray-600">Status</th>
                         <th class="px-4 py-3 text-right font-semibold text-gray-600">Actions</th>
                     </tr>
                 </thead>
@@ -52,23 +53,46 @@
                                     <span class="text-gray-400">Never</span>
                                 @endif
                             </td>
+                            <td class="px-4 py-3">
+                                @if ($user->is_active)
+                                    <span class="rounded-full bg-green-50 px-2.5 py-1 text-xs font-medium text-green-700">Active</span>
+                                @else
+                                    <span class="rounded-full bg-gray-100 px-2.5 py-1 text-xs font-medium text-gray-500">Inactive</span>
+                                @endif
+                            </td>
                             <td class="px-4 py-3 text-right">
                                 <div class="flex justify-end gap-2">
                                     <a href="{{ route('admin.users.sessions', $user) }}" class="rounded-md bg-gray-50 px-3 py-1.5 text-xs font-medium text-gray-700 hover:bg-gray-100">Sessions</a>
                                     <a href="{{ route('admin.users.edit', $user) }}" class="rounded-md bg-blue-50 px-3 py-1.5 text-xs font-medium text-blue-700 hover:bg-blue-100">Edit</a>
                                     @unless ($user->is(auth()->user()))
-                                        <form method="POST" action="{{ route('admin.users.destroy', $user) }}" onsubmit="return confirm('Delete this user? Any queries assigned to them will become unassigned.');">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button class="rounded-md bg-red-50 px-3 py-1.5 text-xs font-medium text-red-700 hover:bg-red-100">Delete</button>
-                                        </form>
+                                        @if ($user->role === 'agent')
+                                            @if ($user->is_active)
+                                                <form method="POST" action="{{ route('admin.users.deactivate', $user) }}" onsubmit="return confirm('Deactivate this agent? They will be logged out and stop receiving new queries.');">
+                                                    @csrf
+                                                    @method('PATCH')
+                                                    <button class="rounded-md bg-red-50 px-3 py-1.5 text-xs font-medium text-red-700 hover:bg-red-100">Deactivate</button>
+                                                </form>
+                                            @else
+                                                <form method="POST" action="{{ route('admin.users.activate', $user) }}">
+                                                    @csrf
+                                                    @method('PATCH')
+                                                    <button class="rounded-md bg-green-50 px-3 py-1.5 text-xs font-medium text-green-700 hover:bg-green-100">Activate</button>
+                                                </form>
+                                            @endif
+                                        @else
+                                            <form method="POST" action="{{ route('admin.users.destroy', $user) }}" onsubmit="return confirm('Delete this user? Any queries assigned to them will become unassigned.');">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button class="rounded-md bg-red-50 px-3 py-1.5 text-xs font-medium text-red-700 hover:bg-red-100">Delete</button>
+                                            </form>
+                                        @endif
                                     @endunless
                                 </div>
                             </td>
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="6" class="px-4 py-10 text-center text-gray-400">No users yet.</td>
+                            <td colspan="7" class="px-4 py-10 text-center text-gray-400">No users yet.</td>
                         </tr>
                     @endforelse
                 </tbody>

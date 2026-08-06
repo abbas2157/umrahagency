@@ -75,7 +75,7 @@ class InquiryTenancyScopeTest extends TestCase
     public function test_agency_admin_gets_404_fetching_another_agencys_inquiry_directly(): void
     {
         $this->actingAs($this->agencyAdminA)
-            ->get(route('admin.inquiries.show', $this->inquiryB))
+            ->get(route('agency.inquiries.show', $this->inquiryB))
             ->assertNotFound();
     }
 
@@ -96,14 +96,14 @@ class InquiryTenancyScopeTest extends TestCase
         $unassignedInAgencyA = Inquiry::create(['name' => 'Unassigned in Agency A', 'agency_id' => $this->agencyA->id]);
 
         $this->actingAs($this->agentA)
-            ->get(route('admin.inquiries.show', $unassignedInAgencyA))
+            ->get(route('agency.inquiries.show', $unassignedInAgencyA))
             ->assertNotFound();
     }
 
     public function test_agent_cannot_reassign_an_inquiry(): void
     {
         $this->actingAs($this->agentA)
-            ->post(route('admin.inquiries.assign-agent', $this->inquiryA), ['agent_id' => $this->agentA->id])
+            ->post(route('agency.inquiries.assign-agent', $this->inquiryA), ['agent_id' => $this->agentA->id])
             ->assertForbidden();
     }
 
@@ -115,7 +115,7 @@ class InquiryTenancyScopeTest extends TestCase
         ]);
 
         $this->actingAs($this->agencyAdminA)
-            ->post(route('admin.inquiries.assign-agent', $this->inquiryA), ['agent_id' => $agentB->id])
+            ->post(route('agency.inquiries.assign-agent', $this->inquiryA), ['agent_id' => $agentB->id])
             ->assertSessionHasErrors('agent_id');
     }
 

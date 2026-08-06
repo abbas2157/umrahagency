@@ -6,7 +6,7 @@
 <div class="max-w-8xl">
     <h2 class="mb-6 text-2xl font-bold text-gray-900">Edit Agency</h2>
 
-    <form method="POST" action="{{ route('admin.agencies.update', $agency) }}" class="space-y-8 rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+    <form method="POST" action="{{ route('admin.agencies.update', $agency) }}" enctype="multipart/form-data" class="space-y-8 rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
         @csrf
         @method('PUT')
 

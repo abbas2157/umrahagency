@@ -84,4 +84,17 @@ class Inquiry extends Model
     {
         return $this->hasMany(InquiryActivity::class);
     }
+
+    /**
+     * "Stuck" queries: still open (not booked/lost/junk) and nothing has
+     * touched their status in $days. updated_at is a reliable proxy for
+     * "last status change" here — status/assignment are the only fields
+     * that ever get updated via ->update() on this model; notes go through
+     * InquiryActivity instead and don't bump it.
+     */
+    public function scopeNeedsFollowUp(Builder $query, int $days = 3): Builder
+    {
+        return $query->whereNotIn('status', ['booked', 'lost', 'junk'])
+            ->where('updated_at', '<=', now()->subDays($days));
+    }
 }

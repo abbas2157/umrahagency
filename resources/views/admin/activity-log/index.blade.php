@@ -6,13 +6,7 @@
 <div class="space-y-6">
     <div>
         <h2 class="text-2xl font-bold text-gray-900">Activity Log</h2>
-        <p class="text-sm text-gray-500">
-            @if (auth()->user()->isSuperAdmin())
-                Every agency and every query, across the whole platform.
-            @else
-                Your agency's activity — including everything your agents have done.
-            @endif
-        </p>
+        <p class="text-sm text-gray-500">Every agency and every query, across the whole platform.</p>
     </div>
 
     <div data-tabs>

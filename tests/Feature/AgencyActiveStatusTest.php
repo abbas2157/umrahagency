@@ -60,7 +60,7 @@ class AgencyActiveStatusTest extends TestCase
         $this->post(route('admin.login.submit'), [
             'email' => 'active-admin@test.local',
             'password' => 'password',
-        ])->assertRedirect(route('admin.dashboard'));
+        ])->assertRedirect(route('agency.dashboard'));
 
         $this->assertAuthenticatedAs($this->activeAgencyAdmin);
     }
@@ -78,7 +78,7 @@ class AgencyActiveStatusTest extends TestCase
     public function test_already_logged_in_session_is_bounced_the_moment_its_agency_is_deactivated(): void
     {
         $this->actingAs($this->activeAgencyAdmin)
-            ->get(route('admin.dashboard'))
+            ->get(route('agency.dashboard'))
             ->assertOk();
 
         $this->activeAgency->update(['is_active' => false]);
@@ -88,7 +88,7 @@ class AgencyActiveStatusTest extends TestCase
         // matches a real second HTTP request, which always re-fetches fresh.
         $this->app['auth']->forgetGuards();
 
-        $this->get(route('admin.dashboard'))
+        $this->get(route('agency.dashboard'))
             ->assertRedirect(route('admin.login'));
 
         $this->assertGuest();
@@ -106,7 +106,7 @@ class AgencyActiveStatusTest extends TestCase
         ]);
 
         $this->actingAs($stillActiveAdmin)
-            ->get(route('admin.dashboard'))
+            ->get(route('agency.dashboard'))
             ->assertOk();
     }
 

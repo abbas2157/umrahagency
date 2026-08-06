@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\ActivityLog;
 use App\Models\Agency;
+use App\Models\City;
+use App\Models\Plan;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -15,15 +17,39 @@ class AgencyController extends Controller
     {
         $agencies = Agency::withCount([
             'inquiries',
+            'branches',
             'users as agents_count' => fn ($query) => $query->where('role', 'agent'),
         ])->latest()->paginate(20);
 
         return view('admin.agencies.index', compact('agencies'));
     }
 
+    /**
+     * Read-only oversight — Super Admin can see everything an agency has
+     * built (branches, agent roster, performance, coverage) but editing
+     * agents/branches themselves stays the owning Agency Admin's job, same
+     * boundary as the rest of the platform.
+     */
+    public function show(Agency $agency)
+    {
+        $branches = $agency->branches()->with('city.province')->orderByDesc('is_main')->orderBy('name')->get();
+
+        $agents = $agency->users()->where('role', 'agent')->with('branch')->orderBy('name')->get()
+            ->map(fn (User $agent) => ['agent' => $agent, ...$agent->performanceStats()]);
+
+        $coverageCities = $agency->cities()->with('province')->orderBy('name')->get();
+
+        $invoices = $agency->invoices()->with('plan')->get();
+        $plans = Plan::active()->orderBy('price')->get();
+
+        return view('admin.agencies.show', compact('agency', 'branches', 'agents', 'coverageCities', 'invoices', 'plans'));
+    }
+
     public function create()
     {
-        return view('admin.agencies.create');
+        $cities = City::where('is_active', true)->with('province')->orderBy('name')->get();
+
+        return view('admin.agencies.create', compact('cities'));
     }
 
     public function store(Request $request)
@@ -39,13 +65,20 @@ class AgencyController extends Controller
         $adminName = $validated['admin_name'];
         $adminEmail = $validated['admin_email'];
         $adminPassword = $validated['admin_password'];
-        unset($validated['admin_name'], $validated['admin_email'], $validated['admin_password']);
+        $cityIds = $validated['cities'] ?? [];
+        unset($validated['admin_name'], $validated['admin_email'], $validated['admin_password'], $validated['cities']);
+
+        if ($request->hasFile('logo_file')) {
+            $validated['logo_path'] = Agency::storeLogoUpload($request->file('logo_file'));
+        }
+        unset($validated['logo_file']);
 
         // An agency can never exist with no one able to log into it — its
         // first Agency Admin is created in the same transaction, not as a
         // separate optional step.
-        DB::transaction(function () use ($validated, $adminName, $adminEmail, $adminPassword) {
+        DB::transaction(function () use ($validated, $adminName, $adminEmail, $adminPassword, $cityIds) {
             $agency = Agency::create($validated);
+            $agency->cities()->sync($cityIds);
 
             User::create([
                 'name' => $adminName,
@@ -63,7 +96,9 @@ class AgencyController extends Controller
 
     public function edit(Agency $agency)
     {
-        return view('admin.agencies.edit', compact('agency'));
+        $cities = City::where('is_active', true)->with('province')->orderBy('name')->get();
+
+        return view('admin.agencies.edit', compact('agency', 'cities'));
     }
 
     public function update(Request $request, Agency $agency)
@@ -71,9 +106,17 @@ class AgencyController extends Controller
         $validated = $request->validate($this->rules($agency));
 
         $validated['is_active'] = $request->boolean('is_active');
+        $cityIds = $validated['cities'] ?? [];
+        unset($validated['cities']);
         $wasActive = $agency->is_active;
 
+        if ($request->hasFile('logo_file')) {
+            $validated['logo_path'] = Agency::storeLogoUpload($request->file('logo_file'), $agency->logo_path);
+        }
+        unset($validated['logo_file']);
+
         $agency->update($validated);
+        $agency->cities()->sync($cityIds);
 
         if ($wasActive !== $agency->is_active) {
             ActivityLog::record(
@@ -94,68 +137,13 @@ class AgencyController extends Controller
     {
         $slugUnique = 'unique:agencies,slug'.($agency ? ','.$agency->id : '');
 
-        return [
+        return array_merge([
             'name' => ['required', 'string', 'max:255'],
             'slug' => ['required', 'string', 'max:255', 'alpha_dash', $slugUnique],
             'is_active' => ['sometimes', 'boolean'],
-
-            'legal_name' => ['nullable', 'string', 'max:255'],
-            'founded_year' => ['nullable', 'string', 'max:10'],
-            'owner_name' => ['nullable', 'string', 'max:255'],
-            'tagline' => ['nullable', 'string', 'max:255'],
-            'logo_path' => ['nullable', 'string', 'max:255'],
-
-            'phone_local' => ['nullable', 'string', 'max:50'],
-            'phone_e164' => ['nullable', 'string', 'max:20'],
-            'whatsapp' => ['nullable', 'string', 'max:20'],
-            'phone_secondary' => ['nullable', 'string', 'max:50'],
-            'landline' => ['nullable', 'string', 'max:50'],
-            'best_hours_to_call' => ['nullable', 'string', 'max:255'],
-
-            'email_general' => ['nullable', 'email', 'max:255'],
-            'email_bookings' => ['nullable', 'email', 'max:255'],
-            'email_support' => ['nullable', 'email', 'max:255'],
-
-            'address_line' => ['nullable', 'string', 'max:255'],
-            'address_area' => ['nullable', 'string', 'max:255'],
-            'city' => ['nullable', 'string', 'max:255'],
-            'province' => ['nullable', 'string', 'max:255'],
-            'postal_code' => ['nullable', 'string', 'max:20'],
-            'country' => ['nullable', 'string', 'max:255'],
-            'maps_url' => ['nullable', 'url', 'max:2048'],
-            'latitude' => ['nullable', 'numeric', 'between:-90,90'],
-            'longitude' => ['nullable', 'numeric', 'between:-180,180'],
-            'branch_offices' => ['nullable', 'string'],
-
-            'hours_mon_thu' => ['nullable', 'string', 'max:255'],
-            'hours_friday' => ['nullable', 'string', 'max:255'],
-            'hours_saturday' => ['nullable', 'string', 'max:255'],
-            'hours_sunday' => ['nullable', 'string', 'max:255'],
-            'hours_public_holidays' => ['nullable', 'string', 'max:255'],
-            'timezone' => ['nullable', 'string', 'max:100'],
-
-            'mora_license_no' => ['nullable', 'string', 'max:255'],
-            'dts_license_no' => ['nullable', 'string', 'max:255'],
-            'iata_no' => ['nullable', 'string', 'max:255'],
-            'ntn' => ['nullable', 'string', 'max:255'],
-            'memberships' => ['nullable', 'string', 'max:255'],
-            'nusuk_registration' => ['nullable', 'string', 'max:255'],
-
-            'social_facebook' => ['nullable', 'url', 'max:2048'],
-            'social_twitter' => ['nullable', 'url', 'max:2048'],
-            'social_instagram' => ['nullable', 'url', 'max:2048'],
-            'social_pinterest' => ['nullable', 'url', 'max:2048'],
-            'social_youtube' => ['nullable', 'url', 'max:2048'],
-            'social_tiktok' => ['nullable', 'url', 'max:2048'],
-            'social_google_business' => ['nullable', 'url', 'max:2048'],
-
-            'departure_airports' => ['nullable', 'string'],
-            'services_offered' => ['nullable', 'string'],
-            'languages_spoken' => ['nullable', 'string', 'max:255'],
-            'currency' => ['nullable', 'string', 'max:10'],
-            'payment_methods' => ['nullable', 'string', 'max:255'],
-            'deposit_policy' => ['nullable', 'string'],
-            'refund_policy_url' => ['nullable', 'string', 'max:255'],
-        ];
+            'cities' => ['nullable', 'array'],
+            'cities.*' => ['exists:cities,id'],
+            'logo_file' => ['nullable', 'image', 'mimes:jpg,jpeg,png,webp', 'max:2048'],
+        ], Agency::businessProfileRules());
     }
 }

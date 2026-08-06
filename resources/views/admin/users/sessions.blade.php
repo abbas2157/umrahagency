@@ -3,7 +3,7 @@
 @section('title', 'Active Sessions')
 
 @section('content')
-<div class="max-w-3xl space-y-6">
+<div class="space-y-6">
     <a href="{{ route('admin.users.index') }}" class="inline-flex items-center gap-1 text-sm font-medium text-[#193670] hover:underline">
         &larr; Back to users
     </a>

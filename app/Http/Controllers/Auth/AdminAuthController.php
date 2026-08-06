@@ -12,7 +12,7 @@ class AdminAuthController extends Controller
     public function showLogin()
     {
         if (Auth::check()) {
-            return redirect()->route('admin.dashboard');
+            return redirect()->route($this->homeRouteFor(Auth::user()));
         }
 
         return view('auth.login');
@@ -43,6 +43,14 @@ class AdminAuthController extends Controller
             ])->onlyInput('email');
         }
 
+        if (! $user->is_active) {
+            Auth::logout();
+
+            return back()->withErrors([
+                'email' => 'Your account has been deactivated. Contact your agency admin.',
+            ])->onlyInput('email');
+        }
+
         $user->forceFill([
             'last_login_at' => now(),
             'last_login_ip' => $request->ip(),
@@ -52,7 +60,17 @@ class AdminAuthController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended(route('admin.dashboard'));
+        return redirect()->intended(route($this->homeRouteFor($user)));
+    }
+
+    /**
+     * One shared login for every role; where they land after it differs —
+     * Super Admin gets the platform-wide admin panel, Agency Admin/Agent
+     * get their own agency panel.
+     */
+    private function homeRouteFor($user): string
+    {
+        return $user->isSuperAdmin() ? 'admin.dashboard' : 'agency.dashboard';
     }
 
     public function logout(Request $request)

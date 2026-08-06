@@ -20,6 +20,7 @@
                         <th class="px-4 py-3 text-left font-semibold text-gray-600">Agency</th>
                         <th class="px-4 py-3 text-left font-semibold text-gray-600">Location</th>
                         <th class="px-4 py-3 text-left font-semibold text-gray-600">Contact</th>
+                        <th class="px-4 py-3 text-left font-semibold text-gray-600">Branches</th>
                         <th class="px-4 py-3 text-left font-semibold text-gray-600">Agents</th>
                         <th class="px-4 py-3 text-left font-semibold text-gray-600">Queries</th>
                         <th class="px-4 py-3 text-left font-semibold text-gray-600">Status</th>
@@ -55,6 +56,7 @@
                                     —
                                 @endif
                             </td>
+                            <td class="px-4 py-3 text-gray-600">{{ $agency->branches_count }}</td>
                             <td class="px-4 py-3 text-gray-600">{{ $agency->agents_count }}</td>
                             <td class="px-4 py-3 text-gray-600">{{ $agency->inquiries_count }}</td>
                             <td class="px-4 py-3">
@@ -65,12 +67,15 @@
                                 @endif
                             </td>
                             <td class="px-4 py-3 text-right">
-                                <a href="{{ route('admin.agencies.edit', $agency) }}" class="rounded-md bg-blue-50 px-3 py-1.5 text-xs font-medium text-blue-700 hover:bg-blue-100">Edit</a>
+                                <div class="flex justify-end gap-2">
+                                    <a href="{{ route('admin.agencies.show', $agency) }}" class="rounded-md bg-gray-50 px-3 py-1.5 text-xs font-medium text-gray-700 hover:bg-gray-100">View</a>
+                                    <a href="{{ route('admin.agencies.edit', $agency) }}" class="rounded-md bg-blue-50 px-3 py-1.5 text-xs font-medium text-blue-700 hover:bg-blue-100">Edit</a>
+                                </div>
                             </td>
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="7" class="px-4 py-10 text-center text-gray-400">No agencies yet.</td>
+                            <td colspan="8" class="px-4 py-10 text-center text-gray-400">No agencies yet.</td>
                         </tr>
                     @endforelse
                 </tbody>
