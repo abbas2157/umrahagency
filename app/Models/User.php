@@ -29,6 +29,7 @@ class User extends Authenticatable
      */
     protected $attributes = [
         'is_active' => true,
+        'locale' => 'en',
     ];
 
     /**
@@ -50,6 +51,7 @@ class User extends Authenticatable
         'specialization',
         'photo',
         'is_active',
+        'locale',
     ];
 
     /**

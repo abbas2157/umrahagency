@@ -1,15 +1,15 @@
 @extends('layouts.admin')
 
-@section('title', 'Agencies')
+@section('title', __('common.agencies'))
 
 @section('content')
 <div class="space-y-6">
     <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div>
-            <h2 class="text-2xl font-bold text-gray-900">Agencies</h2>
-            <p class="text-sm text-gray-500">{{ $agencies->total() }} total.</p>
+            <h2 class="text-2xl font-bold text-gray-900">{{ __('common.agencies') }}</h2>
+            <p class="text-sm text-gray-500">{{ __('common.total_count', ['count' => $agencies->total()]) }}</p>
         </div>
-        <a href="{{ route('admin.agencies.create') }}" class="rounded-lg bg-[#193670] px-4 py-2 text-sm font-medium text-white hover:bg-[#122650]">Add Agency</a>
+        <a href="{{ route('admin.agencies.create') }}" class="rounded-lg bg-[#193670] px-4 py-2 text-sm font-medium text-white hover:bg-[#122650]">{{ __('common.add_agency') }}</a>
     </div>
 
     <div class="overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm">
@@ -17,14 +17,14 @@
             <table class="min-w-full divide-y divide-gray-200 text-sm">
                 <thead class="bg-gray-50">
                     <tr>
-                        <th class="px-4 py-3 text-left font-semibold text-gray-600">Agency</th>
-                        <th class="px-4 py-3 text-left font-semibold text-gray-600">Location</th>
-                        <th class="px-4 py-3 text-left font-semibold text-gray-600">Contact</th>
-                        <th class="px-4 py-3 text-left font-semibold text-gray-600">Branches</th>
-                        <th class="px-4 py-3 text-left font-semibold text-gray-600">Agents</th>
-                        <th class="px-4 py-3 text-left font-semibold text-gray-600">Queries</th>
-                        <th class="px-4 py-3 text-left font-semibold text-gray-600">Status</th>
-                        <th class="px-4 py-3 text-right font-semibold text-gray-600">Actions</th>
+                        <th class="px-4 py-3 text-left font-semibold text-gray-600">{{ __('common.agency') }}</th>
+                        <th class="px-4 py-3 text-left font-semibold text-gray-600">{{ __('common.location') }}</th>
+                        <th class="px-4 py-3 text-left font-semibold text-gray-600">{{ __('common.contact') }}</th>
+                        <th class="px-4 py-3 text-left font-semibold text-gray-600">{{ __('common.branches_count') }}</th>
+                        <th class="px-4 py-3 text-left font-semibold text-gray-600">{{ __('common.agents') }}</th>
+                        <th class="px-4 py-3 text-left font-semibold text-gray-600">{{ __('common.queries') }}</th>
+                        <th class="px-4 py-3 text-left font-semibold text-gray-600">{{ __('common.status') }}</th>
+                        <th class="px-4 py-3 text-right font-semibold text-gray-600">{{ __('common.actions') }}</th>
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-gray-100">
@@ -61,21 +61,21 @@
                             <td class="px-4 py-3 text-gray-600">{{ $agency->inquiries_count }}</td>
                             <td class="px-4 py-3">
                                 @if ($agency->is_active)
-                                    <span class="rounded-full bg-green-50 px-2.5 py-1 text-xs font-medium text-green-700">Active</span>
+                                    <span class="rounded-full bg-green-50 px-2.5 py-1 text-xs font-medium text-green-700">{{ __('common.active') }}</span>
                                 @else
-                                    <span class="rounded-full bg-gray-100 px-2.5 py-1 text-xs font-medium text-gray-500">Inactive</span>
+                                    <span class="rounded-full bg-gray-100 px-2.5 py-1 text-xs font-medium text-gray-500">{{ __('common.inactive') }}</span>
                                 @endif
                             </td>
                             <td class="px-4 py-3 text-right">
                                 <div class="flex justify-end gap-2">
-                                    <a href="{{ route('admin.agencies.show', $agency) }}" class="rounded-md bg-gray-50 px-3 py-1.5 text-xs font-medium text-gray-700 hover:bg-gray-100">View</a>
-                                    <a href="{{ route('admin.agencies.edit', $agency) }}" class="rounded-md bg-blue-50 px-3 py-1.5 text-xs font-medium text-blue-700 hover:bg-blue-100">Edit</a>
+                                    <a href="{{ route('admin.agencies.show', $agency) }}" class="rounded-md bg-gray-50 px-3 py-1.5 text-xs font-medium text-gray-700 hover:bg-gray-100">{{ __('common.view') }}</a>
+                                    <a href="{{ route('admin.agencies.edit', $agency) }}" class="rounded-md bg-blue-50 px-3 py-1.5 text-xs font-medium text-blue-700 hover:bg-blue-100">{{ __('common.edit') }}</a>
                                 </div>
                             </td>
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="8" class="px-4 py-10 text-center text-gray-400">No agencies yet.</td>
+                            <td colspan="8" class="px-4 py-10 text-center text-gray-400">{{ __('common.no_agencies_yet') }}</td>
                         </tr>
                     @endforelse
                 </tbody>

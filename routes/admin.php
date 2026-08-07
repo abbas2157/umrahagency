@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 // Super Admin panel — oversight of the whole platform. Agency Admin/Agent
 // casework lives in routes/agency.php instead; see CLAUDE.md §8 for where
 // new features belong.
-Route::prefix('admin')->name('admin.')->middleware(['auth', 'agency.active', 'role:super_admin'])->group(function () {
+Route::prefix('admin')->name('admin.')->middleware(['auth', 'agency.active', 'role:super_admin', 'locale'])->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
     Route::get('inquiries', [InquiryController::class, 'index'])->name('inquiries.index');

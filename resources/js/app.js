@@ -36,7 +36,11 @@ function activateTab(container, target) {
     const nextButton = container.querySelector('[data-step-nav="next"]');
 
     if (stepHeading) {
-        stepHeading.textContent = `Step ${index + 1} of ${steps.length} — ${steps[index].dataset.stepLabel}`;
+        const format = container.dataset.stepFormat || 'Step :current of :total — :label';
+        stepHeading.textContent = format
+            .replace(':current', index + 1)
+            .replace(':total', steps.length)
+            .replace(':label', steps[index].dataset.stepLabel);
     }
     if (backButton) {
         backButton.classList.toggle('invisible', index === 0);

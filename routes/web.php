@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\AdminAuthController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LocaleController;
 use App\Http\Controllers\PackageDetailController;
 use App\Http\Controllers\SitemapController;
 use Illuminate\Support\Facades\Route;
@@ -40,7 +41,7 @@ Route::post('/log-contact-click', [HomeController::class, 'logContactClick'])->n
 // Shared auth — one login for every role. Where you land afterward (Super
 // Admin → /admin, Agency Admin/Agent → /agency) is decided in
 // AdminAuthController, not here.
-Route::prefix('admin')->name('admin.')->group(function () {
+Route::prefix('admin')->name('admin.')->middleware('locale')->group(function () {
     Route::middleware('guest')->group(function () {
         Route::get('login', [AdminAuthController::class, 'showLogin'])->name('login');
         Route::post('login', [AdminAuthController::class, 'login'])->name('login.submit');
@@ -56,9 +57,13 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
 // Shared self-service account — identical for every role, so it isn't
 // nested under /admin or /agency.
-Route::middleware(['auth', 'agency.active'])->group(function () {
+Route::middleware(['auth', 'agency.active', 'locale'])->group(function () {
     Route::get('account', [AccountController::class, 'show'])->name('account.show');
     Route::patch('account', [AccountController::class, 'update'])->name('account.update');
     Route::delete('account/sessions/{sessionId}', [AccountController::class, 'revokeSession'])->name('account.sessions.revoke');
     Route::post('account/sessions/revoke-others', [AccountController::class, 'revokeOtherSessions'])->name('account.sessions.revoke-others');
 });
+
+// Language switcher — covers the shared login screen (guest, session-based)
+// and every authenticated admin/agency page (saved to the user's account).
+Route::post('locale', [LocaleController::class, 'update'])->middleware('locale')->name('locale.update');

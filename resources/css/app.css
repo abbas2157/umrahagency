@@ -1,3 +1,5 @@
+/* Admin/agency panel only — the public site's fonts and CSS are untouched. */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400..700&display=swap');
 @import 'tailwindcss';
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
@@ -47,5 +49,15 @@
     .step-pill.done .step-pill-number {
         @apply bg-green-100 text-green-700;
     }
+}
+
+/*
+ * Urdu is written right-to-left, and Nastaliq needs noticeably more line
+ * height than Latin text to keep its diacritics from clipping — plain
+ * `dir="rtl"` alone isn't enough for text to actually look right.
+ */
+[dir='rtl'] {
+    font-family: 'Noto Nastaliq Urdu', 'Instrument Sans', sans-serif;
+    line-height: 2.1;
 }
 

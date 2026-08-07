@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Middleware\SetLocale;
 use App\Models\ActivityLog;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -55,6 +56,14 @@ class AdminAuthController extends Controller
             'last_login_at' => now(),
             'last_login_ip' => $request->ip(),
         ])->save();
+
+        // A language picked on the login screen (guest, session-only) is a
+        // clear signal of intent — carry it onto the account itself so it
+        // sticks for every future login, not just this one page load.
+        $preLoginLocale = $request->session()->get('locale');
+        if (in_array($preLoginLocale, SetLocale::SUPPORTED, true) && $preLoginLocale !== $user->locale) {
+            $user->update(['locale' => $preLoginLocale]);
+        }
 
         ActivityLog::record('login', "{$user->name} logged in", $user->agency_id, 'User', $user->id);
 

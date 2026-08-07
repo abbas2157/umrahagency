@@ -1,19 +1,19 @@
 @extends('layouts.admin')
 
-@section('title', 'Add Province')
+@section('title', __('common.add_province'))
 
 @section('content')
 <div class="max-w-lg">
-    <a href="{{ route('admin.locations.index') }}" class="mb-4 inline-flex items-center gap-1 text-sm font-medium text-[#193670] hover:underline">&larr; Back to locations</a>
-    <h2 class="mb-6 text-2xl font-bold text-gray-900">Add Province</h2>
+    <a href="{{ route('admin.locations.index') }}" class="mb-4 inline-flex items-center gap-1 text-sm font-medium text-[#193670] hover:underline">&larr; {{ __('common.back_to_locations') }}</a>
+    <h2 class="mb-6 text-2xl font-bold text-gray-900">{{ __('common.add_province') }}</h2>
 
     <form method="POST" action="{{ route('admin.locations.provinces.store') }}" class="space-y-5 rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
         @csrf
         <div>
-            <label for="country_id" class="block text-sm font-medium text-gray-700">Country</label>
+            <label for="country_id" class="block text-sm font-medium text-gray-700">{{ __('common.country') }}</label>
             <select id="country_id" name="country_id" required
                 class="mt-1 w-full rounded-lg border border-gray-300 px-3 py-2 text-sm shadow-sm focus:border-[#193670] focus:outline-none focus:ring-1 focus:ring-[#193670]">
-                <option value="">— Select a country —</option>
+                <option value="">{{ __('common.select_a_country') }}</option>
                 @foreach ($countries as $country)
                     <option value="{{ $country->id }}" {{ (int) old('country_id') === $country->id ? 'selected' : '' }}>{{ $country->name }}</option>
                 @endforeach
@@ -21,7 +21,7 @@
             @error('country_id') <p class="mt-1 text-xs text-red-600">{{ $message }}</p> @enderror
         </div>
         <div>
-            <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
+            <label for="name" class="block text-sm font-medium text-gray-700">{{ __('common.name') }}</label>
             <input type="text" id="name" name="name" value="{{ old('name') }}" required
                 class="mt-1 w-full rounded-lg border border-gray-300 px-3 py-2 text-sm shadow-sm focus:border-[#193670] focus:outline-none focus:ring-1 focus:ring-[#193670]">
             @error('name') <p class="mt-1 text-xs text-red-600">{{ $message }}</p> @enderror
@@ -29,11 +29,11 @@
         <div class="flex items-center gap-2">
             <input type="checkbox" id="is_active" name="is_active" value="1" {{ old('is_active', true) ? 'checked' : '' }}
                 class="rounded border-gray-300 text-[#193670] focus:ring-[#193670]">
-            <label for="is_active" class="text-sm text-gray-700">Active</label>
+            <label for="is_active" class="text-sm text-gray-700">{{ __('common.active') }}</label>
         </div>
         <div class="flex gap-3 pt-2">
-            <button type="submit" class="rounded-lg bg-[#193670] px-4 py-2 text-sm font-medium text-white hover:bg-[#122650]">Create Province</button>
-            <a href="{{ route('admin.locations.index') }}" class="rounded-lg px-4 py-2 text-sm font-medium text-gray-600 hover:bg-gray-100">Cancel</a>
+            <button type="submit" class="rounded-lg bg-[#193670] px-4 py-2 text-sm font-medium text-white hover:bg-[#122650]">{{ __('common.create_province') }}</button>
+            <a href="{{ route('admin.locations.index') }}" class="rounded-lg px-4 py-2 text-sm font-medium text-gray-600 hover:bg-gray-100">{{ __('common.cancel') }}</a>
         </div>
     </form>
 </div>

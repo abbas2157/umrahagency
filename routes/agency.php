@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Route;
 // Agency panel — day-to-day casework for Agency Admin + Agent. Assigning a
 // query to an agency in the first place is Super Admin's job, in
 // routes/admin.php instead.
-Route::prefix('agency')->name('agency.')->middleware(['auth', 'agency.active', 'role:agency_admin,agent'])->group(function () {
+Route::prefix('agency')->name('agency.')->middleware(['auth', 'agency.active', 'role:agency_admin,agent', 'locale'])->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
     Route::get('inquiries', [InquiryController::class, 'index'])->name('inquiries.index');
