@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AgencyBillingController;
 use App\Http\Controllers\Admin\AgencyController;
+use App\Http\Controllers\Admin\AgencyFeatureController;
 use App\Http\Controllers\Admin\ActivityLogController;
 use App\Http\Controllers\Admin\AreaController;
 use App\Http\Controllers\Admin\CityController;
@@ -32,6 +33,8 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'agency.active', 'ro
     Route::post('agencies/{agency}/plan/activate', [AgencyBillingController::class, 'activatePlan'])->name('agencies.plan.activate');
     Route::delete('agencies/{agency}/plan', [AgencyBillingController::class, 'removePlan'])->name('agencies.plan.remove');
     Route::post('agencies/{agency}/invoices', [AgencyBillingController::class, 'storeInvoice'])->name('agencies.invoices.store');
+    Route::patch('agencies/{agency}/features/{featureKey}', [AgencyFeatureController::class, 'update'])->name('agencies.features.update');
+    Route::delete('agencies/{agency}/features/{featureKey}', [AgencyFeatureController::class, 'reset'])->name('agencies.features.reset');
 
     Route::resource('plans', PlanController::class)->except(['show', 'destroy']);
     Route::patch('plans/{plan}/deactivate', [PlanController::class, 'deactivate'])->name('plans.deactivate');

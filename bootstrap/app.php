@@ -23,6 +23,7 @@ return Application::configure(basePath: dirname(__DIR__))
             // Deliberately not applied to the public site's 'web' group —
             // multi-language is scoped to the admin/agency panels only.
             'locale' => \App\Http\Middleware\SetLocale::class,
+            'feature' => \App\Http\Middleware\EnsureFeatureEnabled::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {

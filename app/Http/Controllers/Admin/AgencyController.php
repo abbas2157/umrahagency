@@ -8,6 +8,7 @@ use App\Models\Agency;
 use App\Models\City;
 use App\Models\Plan;
 use App\Models\User;
+use App\Support\Feature;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -42,7 +43,10 @@ class AgencyController extends Controller
         $invoices = $agency->invoices()->with('plan')->get();
         $plans = Plan::active()->orderBy('price')->get();
 
-        return view('admin.agencies.show', compact('agency', 'branches', 'agents', 'coverageCities', 'invoices', 'plans'));
+        $features = Feature::all();
+        $featureOverrides = $agency->featureOverrides->keyBy('feature_key');
+
+        return view('admin.agencies.show', compact('agency', 'branches', 'agents', 'coverageCities', 'invoices', 'plans', 'features', 'featureOverrides'));
     }
 
     public function create()

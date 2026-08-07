@@ -94,6 +94,42 @@ class User extends Authenticatable
         return $this->belongsTo(AgencyBranch::class, 'branch_id');
     }
 
+    public function bookings(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Booking::class, 'agent_id');
+    }
+
+    public function commissions(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Commission::class, 'agent_id');
+    }
+
+    public function compensationHistory(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(AgentCompensation::class, 'agent_id');
+    }
+
+    public function advances(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Advance::class, 'agent_id');
+    }
+
+    /**
+     * The compensation plan in effect right now — the one row (if any) whose
+     * effective_from/effective_to window brackets today. Rate changes are
+     * never retroactive, so this always reflects "as of today", not history.
+     */
+    public function currentCompensation(): ?AgentCompensation
+    {
+        return $this->compensationHistory()
+            ->whereDate('effective_from', '<=', now())
+            ->where(function ($query) {
+                $query->whereNull('effective_to')->orWhereDate('effective_to', '>=', now());
+            })
+            ->latest('effective_from')
+            ->first();
+    }
+
     /**
      * Performance snapshot for an agent: volume, outcome mix, and average
      * time to first response. "First response" is the first status_change

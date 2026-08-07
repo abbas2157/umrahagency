@@ -71,6 +71,45 @@
         @endif
     </div>
 
+    <div class="rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
+        <p class="mb-3 text-sm font-medium text-gray-500">{{ __('common.features') }}</p>
+        <div class="space-y-3">
+            @foreach ($features as $key => $feature)
+                @php $override = $featureOverrides->get($key); @endphp
+                <div class="flex flex-wrap items-center justify-between gap-3 rounded-lg border border-gray-100 p-3">
+                    <div>
+                        <p class="text-sm font-medium text-gray-900">{{ $feature['label'] }}</p>
+                        <p class="text-xs text-gray-400">{{ $feature['description'] }}</p>
+                        <p class="mt-1 text-xs text-gray-400">
+                            @if ($override)
+                                {{ __('common.feature_overridden') }}
+                            @else
+                                {{ __('common.feature_using_default', ['state' => $feature['default_enabled'] ? __('common.on') : __('common.off')]) }}
+                            @endif
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <form method="POST" action="{{ route('admin.agencies.features.update', [$agency, $key]) }}">
+                            @csrf
+                            @method('PATCH')
+                            <input type="hidden" name="is_enabled" value="{{ $agency->hasFeature($key) ? '0' : '1' }}">
+                            <button type="submit" class="rounded-full px-3 py-1.5 text-xs font-medium {{ $agency->hasFeature($key) ? 'bg-green-50 text-green-700 hover:bg-green-100' : 'bg-gray-100 text-gray-500 hover:bg-gray-200' }}">
+                                {{ $agency->hasFeature($key) ? __('common.on') : __('common.off') }}
+                            </button>
+                        </form>
+                        @if ($override)
+                            <form method="POST" action="{{ route('admin.agencies.features.reset', [$agency, $key]) }}" onsubmit="return confirm('{{ __('common.confirm_reset_feature') }}');">
+                                @csrf
+                                @method('DELETE')
+                                <button class="text-xs font-medium text-gray-400 hover:underline">{{ __('common.reset_to_default') }}</button>
+                            </form>
+                        @endif
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    </div>
+
     <div class="rounded-xl border border-gray-200 bg-white shadow-sm">
         <div class="flex items-center justify-between border-b border-gray-100 px-5 py-4">
             <h3 class="text-sm font-semibold text-gray-900">{{ __('common.invoices') }} ({{ $invoices->count() }})</h3>

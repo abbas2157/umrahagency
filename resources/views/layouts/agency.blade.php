@@ -21,7 +21,7 @@
             </div>
         </div>
 
-        <nav class="flex-1 space-y-1 overflow-y-auto px-3 py-4">
+        <nav class="flex-1 space-y-1 overflow-y-auto no-scrollbar px-3 py-4">
             <p class="admin-nav-heading">{{ __('common.overview') }}</p>
             <a href="{{ route('agency.dashboard') }}" class="admin-nav-link {{ request()->routeIs('agency.dashboard') ? 'active' : '' }}">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5 12 3l9 6.5V20a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1V9.5Z"/></svg>
@@ -33,6 +33,22 @@
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v12H7l-3 3V4Z"/><path d="M8 9h8M8 12h5"/></svg>
                 {{ __('common.queries') }}
             </a>
+            @php $hasSalaryCommission = auth()->user()?->agency?->hasFeature(\App\Support\Feature::SALARY_COMMISSION); @endphp
+
+            @if ($hasSalaryCommission)
+                <a href="{{ route('agency.bookings.index') }}" class="admin-nav-link {{ request()->routeIs('agency.bookings.*') ? 'active' : '' }}">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M8 2v4M16 2v4"/></svg>
+                    {{ __('common.bookings') }}
+                </a>
+            @endif
+
+            @if ($hasSalaryCommission && auth()->user()?->isAgent())
+                <p class="admin-nav-heading">{{ __('common.my_earnings') }}</p>
+                <a href="{{ route('agency.earnings.index') }}" class="admin-nav-link {{ request()->routeIs('agency.earnings.*') ? 'active' : '' }}">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+                    {{ __('common.my_earnings') }}
+                </a>
+            @endif
 
             @if (auth()->user()?->isAgencyAdmin())
                 <p class="admin-nav-heading">{{ __('common.my_agency') }}</p>
@@ -52,6 +68,26 @@
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
                     {{ __('common.billing') }}
                 </a>
+
+                @if ($hasSalaryCommission)
+                    <p class="admin-nav-heading">{{ __('common.payroll_and_commission') }}</p>
+                    <a href="{{ route('agency.compensation-plans.index') }}" class="admin-nav-link {{ request()->routeIs('agency.compensation-plans.*') ? 'active' : '' }}">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/></svg>
+                        {{ __('common.compensation_plans') }}
+                    </a>
+                    <a href="{{ route('agency.commissions.index') }}" class="admin-nav-link {{ request()->routeIs('agency.commissions.*') ? 'active' : '' }}">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M9 9.5c0-1.5 1.3-2.5 3-2.5s3 1 3 2.3c0 3-6 1.7-6 4.7 0 1.3 1.3 2.3 3 2.3s3-1 3-2.5"/></svg>
+                        {{ __('common.commissions') }}
+                    </a>
+                    <a href="{{ route('agency.payrolls.index') }}" class="admin-nav-link {{ request()->routeIs('agency.payrolls.*') ? 'active' : '' }}">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 7v10M12 7v10M16 7v10"/></svg>
+                        {{ __('common.payrolls') }}
+                    </a>
+                    <a href="{{ route('agency.advances.index') }}" class="admin-nav-link {{ request()->routeIs('agency.advances.*') ? 'active' : '' }}">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/></svg>
+                        {{ __('common.advances') }}
+                    </a>
+                @endif
 
                 <p class="admin-nav-heading">{{ __('common.monitoring') }}</p>
                 <a href="{{ route('agency.agents.performance') }}" class="admin-nav-link {{ request()->routeIs('agency.agents.performance') ? 'active' : '' }}">

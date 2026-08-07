@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Support\Feature;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -103,6 +104,44 @@ class Agency extends Model
     public function inquiries(): HasMany
     {
         return $this->hasMany(Inquiry::class);
+    }
+
+    public function bookings(): HasMany
+    {
+        return $this->hasMany(Booking::class);
+    }
+
+    public function compensationPlans(): HasMany
+    {
+        return $this->hasMany(CompensationPlan::class);
+    }
+
+    public function payrolls(): HasMany
+    {
+        return $this->hasMany(Payroll::class);
+    }
+
+    public function advances(): HasMany
+    {
+        return $this->hasMany(Advance::class);
+    }
+
+    public function featureOverrides(): HasMany
+    {
+        return $this->hasMany(AgencyFeatureOverride::class);
+    }
+
+    /**
+     * Whether $key is switched on for this agency. An explicit override
+     * always wins; with no override, the feature's coded default applies —
+     * so a feature ships off for everyone until Super Admin opts an agency
+     * in, one at a time.
+     */
+    public function hasFeature(string $key): bool
+    {
+        $override = $this->featureOverrides->firstWhere('feature_key', $key);
+
+        return $override?->is_enabled ?? Feature::defaultEnabled($key);
     }
 
     /**

@@ -3,7 +3,7 @@
 @section('title', __('common.add_agent'))
 
 @section('content')
-<div class="max-w-xl">
+<div>
     <a href="{{ route('agency.agents.index') }}" class="mb-4 inline-flex items-center gap-1 text-sm font-medium text-[#193670] hover:underline">&larr; {{ __('common.back_to_agents') }}</a>
     <h2 class="mb-6 text-2xl font-bold text-gray-900">{{ __('common.add_agent') }}</h2>
 
