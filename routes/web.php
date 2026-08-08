@@ -1,10 +1,11 @@
 <?php
 
-use App\Http\Controllers\Admin\ContactClickController;
-use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\Admin\InquiryController;
+use App\Http\Controllers\AccountController;
 use App\Http\Controllers\Auth\AdminAuthController;
+use App\Http\Controllers\Auth\ForgotPasswordController;
+use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LocaleController;
 use App\Http\Controllers\PackageDetailController;
 use App\Http\Controllers\SitemapController;
 use Illuminate\Support\Facades\Route;
@@ -37,23 +38,32 @@ Route::post('/send-inquiry', [HomeController::class, 'sendInquiry'])->name('send
 Route::get('/get-captcha', [HomeController::class, 'getCaptcha'])->name('getCaptcha');
 Route::post('/log-contact-click', [HomeController::class, 'logContactClick'])->name('logContactClick');
 
-// Admin
-Route::prefix('admin')->name('admin.')->group(function () {
+// Shared auth — one login for every role. Where you land afterward (Super
+// Admin → /admin, Agency Admin/Agent → /agency) is decided in
+// AdminAuthController, not here.
+Route::prefix('admin')->name('admin.')->middleware('locale')->group(function () {
     Route::middleware('guest')->group(function () {
         Route::get('login', [AdminAuthController::class, 'showLogin'])->name('login');
         Route::post('login', [AdminAuthController::class, 'login'])->name('login.submit');
+
+        Route::get('forgot-password', [ForgotPasswordController::class, 'show'])->name('password.request');
+        Route::post('forgot-password', [ForgotPasswordController::class, 'send'])->name('password.email');
+        Route::get('reset-password/{token}', [ResetPasswordController::class, 'show'])->name('password.reset');
+        Route::post('reset-password', [ResetPasswordController::class, 'reset'])->name('password.update');
     });
 
-    Route::middleware('auth')->group(function () {
-        Route::post('logout', [AdminAuthController::class, 'logout'])->name('logout');
-
-        Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
-
-        Route::get('inquiries', [InquiryController::class, 'index'])->name('inquiries.index');
-        Route::get('inquiries/{inquiry}', [InquiryController::class, 'show'])->name('inquiries.show');
-        Route::delete('inquiries/{inquiry}', [InquiryController::class, 'destroy'])->name('inquiries.destroy');
-
-        Route::get('contact-clicks', [ContactClickController::class, 'index'])->name('contact-clicks.index');
-        Route::delete('contact-clicks/{contactClick}', [ContactClickController::class, 'destroy'])->name('contact-clicks.destroy');
-    });
+    Route::post('logout', [AdminAuthController::class, 'logout'])->middleware('auth')->name('logout');
 });
+
+// Shared self-service account — identical for every role, so it isn't
+// nested under /admin or /agency.
+Route::middleware(['auth', 'agency.active', 'locale'])->group(function () {
+    Route::get('account', [AccountController::class, 'show'])->name('account.show');
+    Route::patch('account', [AccountController::class, 'update'])->name('account.update');
+    Route::delete('account/sessions/{sessionId}', [AccountController::class, 'revokeSession'])->name('account.sessions.revoke');
+    Route::post('account/sessions/revoke-others', [AccountController::class, 'revokeOtherSessions'])->name('account.sessions.revoke-others');
+});
+
+// Language switcher — covers the shared login screen (guest, session-based)
+// and every authenticated admin/agency page (saved to the user's account).
+Route::post('locale', [LocaleController::class, 'update'])->middleware('locale')->name('locale.update');

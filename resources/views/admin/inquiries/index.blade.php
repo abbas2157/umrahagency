@@ -1,19 +1,43 @@
 @extends('layouts.admin')
 
-@section('title', 'Inquiries')
+@section('title', __('common.inquiries'))
 
 @section('content')
 <div class="space-y-6">
-    <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-        <div>
-            <h2 class="text-2xl font-bold text-gray-900">Inquiries</h2>
-            <p class="text-sm text-gray-500">{{ $inquiries->total() }} total submissions from the website contact form.</p>
-        </div>
-        <form method="GET" class="flex gap-2">
-            <input type="text" name="search" value="{{ request('search') }}" placeholder="Search name, email, phone..."
-                class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm shadow-sm focus:border-[#193670] focus:outline-none focus:ring-1 focus:ring-[#193670] sm:w-64">
-            <button class="rounded-lg bg-[#193670] px-4 py-2 text-sm font-medium text-white hover:bg-[#122650]">Search</button>
-        </form>
+    <div>
+        <h2 class="text-2xl font-bold text-gray-900">{{ __('common.inquiries') }}</h2>
+        <p class="text-sm text-gray-500">{{ __('common.total_count', ['count' => $inquiries->total()]) }} {{ __('common.queries_auto_route_note') }}</p>
+    </div>
+
+    <form method="GET" class="flex flex-wrap gap-2">
+        <input type="text" name="search" value="{{ request('search') }}" placeholder="{{ __('common.search_placeholder') }}"
+            class="rounded-lg border border-gray-300 px-3 py-2 text-sm shadow-sm focus:border-[#193670] focus:outline-none focus:ring-1 focus:ring-[#193670] sm:w-64">
+        <select name="city_id" class="rounded-lg border border-gray-300 px-3 py-2 text-sm shadow-sm focus:border-[#193670] focus:outline-none focus:ring-1 focus:ring-[#193670]">
+            <option value="">{{ __('common.all_cities') }}</option>
+            @foreach ($cities as $city)
+                <option value="{{ $city->id }}" {{ (string) request('city_id') === (string) $city->id ? 'selected' : '' }}>{{ $city->name }}</option>
+            @endforeach
+        </select>
+        <select name="branch_id" class="rounded-lg border border-gray-300 px-3 py-2 text-sm shadow-sm focus:border-[#193670] focus:outline-none focus:ring-1 focus:ring-[#193670]">
+            <option value="">{{ __('common.all_branches_areas') }}</option>
+            @foreach ($branches as $branch)
+                <option value="{{ $branch->id }}" {{ (string) request('branch_id') === (string) $branch->id ? 'selected' : '' }}>{{ $branch->name }}{{ $branch->area ? ' — '.$branch->area : '' }}{{ $branch->agency ? ' ('.$branch->agency->name.')' : '' }}</option>
+            @endforeach
+        </select>
+        <button class="rounded-lg bg-[#193670] px-4 py-2 text-sm font-medium text-white hover:bg-[#122650]">{{ __('common.filter') }}</button>
+        @if (request('search') || request('city_id') || request('branch_id'))
+            <a href="{{ route('admin.inquiries.index') }}" class="rounded-lg px-4 py-2 text-sm font-medium text-gray-600 hover:bg-gray-100">{{ __('common.clear') }}</a>
+        @endif
+    </form>
+
+    <div class="flex flex-wrap gap-2">
+        <a href="{{ route('admin.inquiries.index') }}" class="tab-link {{ request()->boolean('needs_routing') ? '' : 'active' }}">{{ __('common.all_queries') }}</a>
+        <a href="{{ route('admin.inquiries.index', ['needs_routing' => 1]) }}" class="tab-link {{ request()->boolean('needs_routing') ? 'active' : '' }}">
+            {{ __('common.needs_routing') }}
+            @if ($needsRoutingCount > 0)
+                <span class="ml-1 rounded-full bg-red-100 px-1.5 py-0.5 text-xs font-semibold text-red-700">{{ $needsRoutingCount }}</span>
+            @endif
+        </a>
     </div>
 
     <div class="overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm">
@@ -21,12 +45,14 @@
             <table class="min-w-full divide-y divide-gray-200 text-sm">
                 <thead class="bg-gray-50">
                     <tr>
-                        <th class="px-4 py-3 text-left font-semibold text-gray-600">Name</th>
-                        <th class="px-4 py-3 text-left font-semibold text-gray-600">Contact</th>
-                        <th class="px-4 py-3 text-left font-semibold text-gray-600">Route / Package</th>
-                        <th class="px-4 py-3 text-left font-semibold text-gray-600">Travelers</th>
-                        <th class="px-4 py-3 text-left font-semibold text-gray-600">Date</th>
-                        <th class="px-4 py-3 text-right font-semibold text-gray-600">Actions</th>
+                        <th class="px-4 py-3 text-left font-semibold text-gray-600">{{ __('common.name') }}</th>
+                        <th class="px-4 py-3 text-left font-semibold text-gray-600">{{ __('common.contact') }}</th>
+                        <th class="px-4 py-3 text-left font-semibold text-gray-600">{{ __('common.route_package') }}</th>
+                        <th class="px-4 py-3 text-left font-semibold text-gray-600">{{ __('common.travelers') }}</th>
+                        <th class="px-4 py-3 text-left font-semibold text-gray-600">{{ __('common.agency') }}</th>
+                        <th class="px-4 py-3 text-left font-semibold text-gray-600">{{ __('common.status') }}</th>
+                        <th class="px-4 py-3 text-left font-semibold text-gray-600">{{ __('common.date') }}</th>
+                        <th class="px-4 py-3 text-right font-semibold text-gray-600">{{ __('common.actions') }}</th>
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-gray-100">
@@ -52,21 +78,46 @@
                                 <div class="text-gray-400">{{ $inquiry->hotel_category ?? '—' }} &middot; {{ $inquiry->duration ?? '—' }}</div>
                             </td>
                             <td class="px-4 py-3 text-gray-600">{{ $inquiry->travelers ?? '—' }}</td>
+                            <td class="px-4 py-3">
+                                <form method="POST" action="{{ route('admin.inquiries.assign-agency', $inquiry) }}">
+                                    @csrf
+                                    <select name="agency_id" onchange="this.form.submit()"
+                                        class="rounded-md border border-gray-300 px-2 py-1 text-xs focus:border-[#193670] focus:outline-none focus:ring-1 focus:ring-[#193670]">
+                                        <option value="">{{ __('common.unassigned') }}</option>
+                                        @foreach ($agencies as $agency)
+                                            <option value="{{ $agency->id }}" {{ $inquiry->agency_id === $agency->id ? 'selected' : '' }}>{{ $agency->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </form>
+                            </td>
+                            <td class="px-4 py-3">
+                                @php
+                                    $statusColors = [
+                                        'new' => 'bg-blue-50 text-blue-700',
+                                        'contacted' => 'bg-yellow-50 text-yellow-700',
+                                        'quoted' => 'bg-purple-50 text-purple-700',
+                                        'booked' => 'bg-green-50 text-green-700',
+                                        'lost' => 'bg-gray-100 text-gray-500',
+                                        'junk' => 'bg-red-50 text-red-700',
+                                    ];
+                                @endphp
+                                <span class="rounded-full px-2.5 py-1 text-xs font-medium {{ $statusColors[$inquiry->status] ?? 'bg-gray-100 text-gray-500' }}">{{ __('common.status_'.$inquiry->status) }}</span>
+                            </td>
                             <td class="px-4 py-3 whitespace-nowrap text-gray-500">{{ $inquiry->created_at->format('d M Y, h:i A') }}</td>
                             <td class="px-4 py-3 text-right">
                                 <div class="flex justify-end gap-2">
-                                    <a href="{{ route('admin.inquiries.show', $inquiry) }}" class="rounded-md bg-blue-50 px-3 py-1.5 text-xs font-medium text-blue-700 hover:bg-blue-100">View</a>
-                                    <form method="POST" action="{{ route('admin.inquiries.destroy', $inquiry) }}" onsubmit="return confirm('Delete this inquiry?');">
+                                    <a href="{{ route('admin.inquiries.show', $inquiry) }}" class="rounded-md bg-blue-50 px-3 py-1.5 text-xs font-medium text-blue-700 hover:bg-blue-100">{{ __('common.view') }}</a>
+                                    <form method="POST" action="{{ route('admin.inquiries.destroy', $inquiry) }}" onsubmit="return confirm('{{ __('common.confirm_delete_inquiry') }}');">
                                         @csrf
                                         @method('DELETE')
-                                        <button class="rounded-md bg-red-50 px-3 py-1.5 text-xs font-medium text-red-700 hover:bg-red-100">Delete</button>
+                                        <button class="rounded-md bg-red-50 px-3 py-1.5 text-xs font-medium text-red-700 hover:bg-red-100">{{ __('common.delete') }}</button>
                                     </form>
                                 </div>
                             </td>
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="6" class="px-4 py-10 text-center text-gray-400">No inquiries found.</td>
+                            <td colspan="8" class="px-4 py-10 text-center text-gray-400">{{ __('common.no_inquiries_found') }}</td>
                         </tr>
                     @endforelse
                 </tbody>

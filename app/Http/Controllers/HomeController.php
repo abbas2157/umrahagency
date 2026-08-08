@@ -106,7 +106,7 @@ class HomeController extends Controller
         }
         $data = $request->input('n');
         try {
-            \App\Models\Inquiry::create([
+            $inquiry = \App\Models\Inquiry::create([
                 'departure_airport' => $data['Departure Airport'] ?? null,
                 'departure_date'    => $data['Departure Date'] ?? null,
                 'hotel_category'    => $data['Hotel Category'] ?? null,
@@ -117,6 +117,14 @@ class HomeController extends Controller
                 'email'              => $data['email'] ?? null,
                 'message'           => trim(($data['subject'] ?? '') . "\n\n" . ($request->input('message') ?? '')),
             ]);
+
+            try {
+                \App\Support\InquiryRouter::route($inquiry);
+            } catch (\Exception $e) {
+                // Routing failure must never lose the lead itself — it just
+                // stays unassigned and shows up in "Needs Routing" instead.
+                \Illuminate\Support\Facades\Log::error('Inquiry auto-routing failed: ' . $e->getMessage());
+            }
         } catch (\Exception $e) {
             \Illuminate\Support\Facades\Log::error('Inquiry database save failed: ' . $e->getMessage());
         }

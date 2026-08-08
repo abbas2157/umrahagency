@@ -1,3 +1,5 @@
+/* Admin/agency panel only — the public site's fonts and CSS are untouched. */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400..700&display=swap');
 @import 'tailwindcss';
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
@@ -8,6 +10,7 @@
 @theme {
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
+    --max-width-8xl: 90rem;
 }
 
 @layer components {
@@ -17,5 +20,53 @@
     .admin-nav-link.active {
         @apply bg-white/15 text-white;
     }
+    .admin-nav-heading {
+        @apply px-3 pt-4 pb-1 text-xs font-semibold uppercase tracking-wide text-white/30 first:pt-0;
+    }
+
+    /* Keeps the sidebar nav scrollable without showing a scrollbar track. */
+    .no-scrollbar {
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+    .no-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+
+    .tab-link {
+        @apply -mb-px border-b-2 border-transparent px-4 py-2 text-sm font-medium text-gray-500 transition hover:text-gray-700;
+    }
+    .tab-link.active {
+        @apply border-[#193670] text-[#193670];
+    }
+
+    .step-pill {
+        @apply flex flex-shrink-0 items-center gap-2 whitespace-nowrap rounded-full border border-gray-200 bg-white px-3 py-1.5 text-sm font-medium text-gray-500 transition hover:border-gray-300 hover:text-gray-700;
+    }
+    .step-pill.active {
+        @apply border-[#193670] bg-[#193670] text-white;
+    }
+    .step-pill.done {
+        @apply border-green-200 bg-green-50 text-green-700;
+    }
+    .step-pill-number {
+        @apply flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-gray-100 text-xs font-semibold text-gray-600;
+    }
+    .step-pill.active .step-pill-number {
+        @apply bg-white/20 text-white;
+    }
+    .step-pill.done .step-pill-number {
+        @apply bg-green-100 text-green-700;
+    }
+}
+
+/*
+ * Urdu is written right-to-left, and Nastaliq needs noticeably more line
+ * height than Latin text to keep its diacritics from clipping — plain
+ * `dir="rtl"` alone isn't enough for text to actually look right.
+ */
+[dir='rtl'] {
+    font-family: 'Noto Nastaliq Urdu', 'Instrument Sans', sans-serif;
+    line-height: 2.1;
 }
 
