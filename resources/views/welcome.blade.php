@@ -433,7 +433,7 @@
                             <div class="row py-2 px-4">
                                 <div class="col-12 d-flex justify-content-between px-4">
                                     <span class="price">PKR 180,000 <sub>/ pp</sub></span>
-                                    <a class="viewMainPackage" href="{{ route('umrahDetail', ['slug' => '3-star-10-nights-umrah-package']) }}">
+                                    <a class="viewMainPackage" href="{{ route('umrahDetail', ['slug' => '3-star-7-nights-umrah-package']) }}">
                                         View Details
                                     </a>
                                 </div>
@@ -1368,9 +1368,7 @@
             <h2>Contact Us</h2>
             <p>Ready to embark on your spiritual journey? Contact our Hajj and Umrah Travel Agency in Pakistan today:</p>
             <ul>
-                <li><strong>Phone:</strong> +92-XXX-XXXXXXX</li>
                 <li><strong>Email:</strong> <a href="mailto:info@umrahagency.pk">info@umrahagency.pk</a></li>
-                <li><strong>Office Locations:</strong> ………………….</li>
             </ul>
             <p>Our friendly and knowledgeable team is ready to answer your queries and help you plan your sacred journey with ease.</p>
 

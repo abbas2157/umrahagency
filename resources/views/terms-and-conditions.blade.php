@@ -76,7 +76,6 @@
 
                     <div class="legal-section mt-5 border-top pt-5">
                         <h3 class="h4 font-weight-bold mb-4">CONDITIONS A</h3>
-                        <p class="text-muted mb-4 small">Apply to all bookings covered by ATOL NO. 12192 as shown on our website.</p>
 
                         <div class="mb-4">
                             <h6 class="font-weight-bold">1. Reserving Your Holiday</h6>
