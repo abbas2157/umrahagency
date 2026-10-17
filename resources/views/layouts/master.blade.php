@@ -11,19 +11,22 @@
     <meta name="google-site-verification" content="WV0PLsmYj2A-TNNPd0DI5jqGr48fLRXR_2M5CVt_Wu0" />
 
 
-    <meta name="twitter:card" content="summary">
+    <meta name="twitter:card" content="summary_large_image">
     <meta name="robots" content="index, follow">
     <meta name="twitter:site" content="@umrahagency">
     <meta name="twitter:title" content="@yield('og_title', 'Hajj and Umrah Travel Agency in Pakistan | Trusted Pilgrimage Packages')">
     <meta name="twitter:description" content="@yield('og_description', 'Trusted Hajj and Umrah Travel Agency in Pakistan offering affordable and premium packages, visa, flights, accommodation near Haram, and guided services for a seamless spiritual experience.')">
     <meta name="twitter:creator" content="@umrahagency">
-    <meta name="twitter:image:src" content="https://umrahagency.pk/assets/images/logo.png">
+    <meta name="twitter:image" content="https://umrahagency.pk/assets/images/og-share.jpg">
     <meta name="twitter:domain" content="https://umrahagency.pk/">
 
     <!-- facebook -->
     <meta property="og:title" content="@yield('og_title', 'Hajj and Umrah Travel Agency in Pakistan | Trusted Pilgrimage Packages')" />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://umrahagency.pk/assets/images/logo.png" />
+    <meta property="og:image" content="https://umrahagency.pk/assets/images/og-share.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Pilgrims performing tawaf around the Kaaba at Masjid al-Haram, Makkah" />
     <meta property="og:url" content="@yield('og_url', 'https://umrahagency.pk/')" />
     <meta property="og:description" content="@yield('og_description', 'Trusted Hajj and Umrah Travel Agency in Pakistan offering affordable and premium packages, visa, flights, accommodation near Haram, and guided services for a seamless spiritual experience.')" />
 
@@ -218,7 +221,7 @@
         });
     </script>
     <!-- WhatsApp Floating Button -->
-    <a href="https://wa.me/03251212747" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+    <a href="https://wa.me/923251212747" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
         <i class="fa fa-whatsapp"></i>
     </a>
 

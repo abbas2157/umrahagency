@@ -63,7 +63,6 @@
                             <p>Pilgrims can purchase their travel products from us with total confidence for the following reasons:</p>
                             <ul class="list-unstyled">
                                 <li class="mb-2"><i class="fa fa-check text-success mr-2"></i> Over 40 years of combined travel industry experience.</li>
-                                <li class="mb-2"><i class="fa fa-check text-success mr-2"></i> <strong>ATOL Protected (12192)</strong> - Your money is 100% secure.</li>
                                 <li class="mb-2"><i class="fa fa-check text-success mr-2"></i> Authorized visa issuing agent by the Saudi Ministry of Foreign Affairs.</li>
                                 <li class="mb-2"><i class="fa fa-check text-success mr-2"></i> Direct booking for flights, hotels, and transportation (no third-party middle-men).</li>
                                 <li class="mb-2"><i class="fa fa-check text-success mr-2"></i> Verified premium service with exceptional customer reviews.</li>

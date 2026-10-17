@@ -60,7 +60,7 @@
                 <img class="img-responsive" src="{{asset('assets/images/logo.png')}}" alt="Umrah Agency Pakistan" width="113" height="75">
             </a>
             <div class="whts d-flex d-md-none">
-                <a href="https://wa.me/03251212747" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+                <a href="https://wa.me/923251212747" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
                     <i class="fa fa-whatsapp" style="font-size: 20px; color: #25d366;"></i>
                     <span class="d-none d-sm-block d-md-none ">03251212747</span>
                 </a>

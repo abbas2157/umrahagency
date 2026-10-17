@@ -88,16 +88,6 @@
                         <p>
                         <p>All rights reserved Umrah Agency Pakistan&nbsp;&copy; 2020- 2026</p>
 
-                        <p>All the flight-inclusive holidays on this website are financially protected by the ATOL
-                            scheme. When you pay you will be supplied with an ATOL Certificate. Please ask for it and
-                            check to ensure that everything you booked (flights, hotels and other services) is listed on
-                            it. If you do receive an ATOL Certificate but all the parts of your trip are not listed on
-                            it, those parts will not be ATOL protected. Some of the flights on this website are also
-                            financially protected by the ATOL scheme, but ATOL protection does not apply to all flights.
-                            This website will provide you with information on the protection that applies in the case of
-                            each flight before you make your booking. If you do not receive an ATOL Certificate then the
-                            booking will not be ATOL protected. Please see our booking conditions for information, or
-                            for more information about financial protection and under working ATOL protection.</p>
                         </p>
                     </div>
                     <div class="col-md-4">
@@ -151,21 +141,14 @@
                                         Departure Airport</label>
                                     <select class="form-control" name="n[From]" id="fromform" required>
                                         <option value=""></option>
-                                        <option value="Aberdeen (ABZ)">Aberdeen (ABZ)</option>
-                                        <option value="Amsterdam (AMS)">Amsterdam (AMS)</option>
-                                        <option value="Belfast Intl (BFS)">Belfast Intl (BFS)</option>
-                                        <option value="Birmingham (BHX)">Birmingham (BHX)</option>
-                                        <option value="Bristol (BRS)">Bristol (BRS)</option>
-                                        <option value="Cardiff (CWL)">Cardiff (CWL)</option>
-                                        <option value="Dublin (DUB)">Dublin (DUB)</option>
-                                        <option value="Eindhoven (EIN)">Eindhoven (EIN)</option>
-                                        <option value="Glasgow (GLA)">Glasgow (GLA)</option>
-                                        <option value="London (LON)">London (LON)</option>
-                                        <option value="London Gatwick (LGW)">London Gatwick (LGW)</option>
-                                        <option value="London Heathrow (LHR)">London Heathrow (LHR)</option>
-                                        <option value="Manchester (MAN)">Manchester (MAN)</option>
-                                        <option value="Newcastle (NCL)">Newcastle (NCL)</option>
-                                        <option value="Rotterdam The Hague (RTM)">Rotterdam The Hague (RTM)</option>
+                                        <option value="Lahore">Lahore</option>
+                                        <option value="Karachi">Karachi</option>
+                                        <option value="Islamabad">Islamabad</option>
+                                        <option value="Multan">Multan</option>
+                                        <option value="Sialkot">Sialkot</option>
+                                        <option value="Faisalabad">Faisalabad</option>
+                                        <option value="Peshawar">Peshawar</option>
+                                        <option value="Other">Other Pakistan Airport</option>
                                     </select>
                                     <span class="borderBottom"></span>
                                 </div>
